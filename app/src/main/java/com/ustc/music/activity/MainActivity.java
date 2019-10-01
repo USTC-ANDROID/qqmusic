@@ -3,6 +3,8 @@ package com.ustc.music.activity;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -11,9 +13,11 @@ import com.bumptech.glide.Glide;
 import com.lany.banner.BannerAdapter;
 import com.lany.banner.BannerView;
 import com.ustc.music.R;
+import com.ustc.music.adapter.HorizontalListViewAdapter;
 import com.ustc.music.url.DataUrl;
 import com.ustc.music.util.RequestUtil;
 import com.ustc.music.util.StatusBarUtils;
+import com.ustc.music.view.HorizontalListView;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -34,6 +38,7 @@ public class MainActivity extends AppCompatActivity {
 
     private List<String> bannerImgs = new ArrayList<>();
 
+    private HorizontalListView horizontalListView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -48,6 +53,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void initView() {
         bannerView = (BannerView)findViewById(R.id.banner_view);
+        horizontalListView = (HorizontalListView)findViewById(R.id.hlv);
     }
 
     private void initData() {
@@ -111,6 +117,19 @@ public class MainActivity extends AppCompatActivity {
                         Toast.makeText(MainActivity.this, "content", Toast.LENGTH_LONG).show();
                     }
                 });
+            }
+        });
+
+        int screenWidth = getWindowManager().getDefaultDisplay().getWidth(); // 屏幕宽（像素，如：480px）
+        final String[] strings = new String[]{"零售", "零退", "批销", "批退", "调剂"};
+
+        HorizontalListViewAdapter horizontalListViewAdapter = new HorizontalListViewAdapter(getApplicationContext(), screenWidth, strings);
+        horizontalListView.setAdapter(horizontalListViewAdapter);
+
+        horizontalListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Toast.makeText(MainActivity.this ,strings[position], 1).show();
             }
         });
     }

@@ -21,18 +21,18 @@ public class HorizontalListView extends AdapterView<ListAdapter> {
     protected ListAdapter mAdapter;
     private int mLeftViewIndex = -1;
     private int mRightViewIndex = 0;
-    private int mCurrentX;
-    private int mNextX;
+    protected int mCurrentX;
+    protected int mNextX;
     private int mMaxX = Integer.MAX_VALUE;
     private int mDisplayOffset = 0;
-    private Scroller mScroller;
+    protected Scroller mScroller;
     private GestureDetector mGesture;
     private Queue<View> mRemovedViewQueue = new LinkedList<View>();
-    private OnItemClickListener mOnItemClicked;
     private OnItemSelectedListener mOnItemSelected;
+    private OnItemClickListener mOnItemClicked;
     private OnItemLongClickListener mOnItemLongClicked;
-
     private boolean mDataChanged = false;
+
 
     public HorizontalListView(Context context, AttributeSet attrs) {
         super(context, attrs);
@@ -285,7 +285,9 @@ public class HorizontalListView extends AdapterView<ListAdapter> {
         mScroller.forceFinished(true);
         return true;
     }
+
     private GestureDetector.OnGestureListener mOnGesture = new GestureDetector.SimpleOnGestureListener() {
+
         @Override
         public boolean onDown(MotionEvent e) {
             return HorizontalListView.this.onDown(e);
@@ -309,6 +311,7 @@ public class HorizontalListView extends AdapterView<ListAdapter> {
             return true;
         }
 
+        @Override
         public boolean onSingleTapConfirmed(MotionEvent e) {
             for(int i=0;i<getChildCount();i++){
                 View child = getChildAt(i);

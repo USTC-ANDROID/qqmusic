@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_marginHorizontal="10dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:layout_weight="1"
+            android:text="达人歌单"
+            android:textAllCaps="true"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:text="更多 >"
+            android:layout_gravity="end"/>
+    </LinearLayout>
+    <com.ustc.music.view.HorizontalListView
+        android:id="@+id/hlv"
+        android:layout_marginVertical="10dp"
+        android:layout_marginHorizontal="5dp"
+        android:layout_width="wrap_content"
+        android:layout_height="150dp"></com.ustc.music.view.HorizontalListView>
+</LinearLayout>
