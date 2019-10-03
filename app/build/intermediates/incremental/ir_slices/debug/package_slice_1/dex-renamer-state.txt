@@ -1,0 +1,4 @@
+#Thu Oct 03 16:16:58 CST 2019
+base.0=D\:\\Projects\\AndroidStudioProjects\\qqmusic\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\1
+path.0=classes.dex
+renamed.0=classes.dex

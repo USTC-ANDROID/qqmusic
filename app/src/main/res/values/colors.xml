@@ -4,6 +4,6 @@
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#D81B60</color>
     <color name="touming" >#1e000000</color>
-    <color name="menu_color">#FAFAFA</color>
+    <color name="menu_color">#F7F7F7</color>
     <color name="white">#FFFFFF</color>
 </resources>

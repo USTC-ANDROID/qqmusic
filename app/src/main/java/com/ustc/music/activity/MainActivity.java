@@ -1,9 +1,12 @@
 package com.ustc.music.activity;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -25,6 +28,7 @@ import java.util.List;
 
 import okhttp3.Call;
 import okhttp3.Callback;
+import okhttp3.FormBody;
 import okhttp3.Response;
 import okhttp3.ResponseBody;
 
@@ -33,6 +37,8 @@ public class MainActivity extends AppCompatActivity {
     private BannerView bannerView;
 
     private List<String> bannerImgs = new ArrayList<>();
+
+    LinearLayout rankBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,13 +49,62 @@ public class MainActivity extends AppCompatActivity {
         StatusBarUtils.setWindowStatusBarColor(this, R.color.menu_color);
         initView();
         initData();
+        //testInitData();
         initAdapter();
+
+        // 跳转
+        rankBtn = (LinearLayout)findViewById(R.id.rankBtn);
+        rankBtn.setOnClickListener(new View.OnClickListener() {
+            @Override            public void onClick(View view) {
+                Toast.makeText(MainActivity.this, "点击", Toast.LENGTH_LONG).show();
+                Intent intent = new Intent(MainActivity.this, RankActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
     private void initView() {
         bannerView = (BannerView)findViewById(R.id.banner_view);
     }
 
+    private void testInitData(){
+        /**
+         * 尝试获取排行榜歌曲
+         * url = https://u.y.qq.com/cgi-bin/musicu.fcg?_=1569934525603
+         * method = POST
+         */
+        String url = "https://u.y.qq.com/cgi-bin/musicu.fcg?_=1569934525603";
+
+        FormBody.Builder data = new FormBody.Builder();
+//        data.add("req_0", "{\"module\":\"QQConnectLogin.LoginMethod\",\"method\":\"GetLoginMethod\",\"param\":{\"id\":1569933954420}}");
+//        data.add("comm", "")
+        data.add("req_0", "{\"module\":\"QQConnectLogin.LoginMethod\",\"method\":\"GetLoginMethod\",\"param\":{\"id\":1569933954420}}");
+        data.add("comm", "{\"g_tk\":550260307,\"uin\":782562661,\"format\":\"json\",\"ct\":23,\"cv\":0}");
+        RequestUtil.post(url, data, new Callback() {
+            @Override
+            public void onFailure(Call call, IOException e) {
+
+            }
+            @Override
+            public void onResponse(Call call, final Response response) throws IOException {
+
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        ResponseBody body = response.body();
+                        try {
+                            String s = body.string();
+                            System.out.println("输出ResponseBody：" + s);
+                            Toast.makeText(MainActivity.this, s.substring(0, 10), Toast.LENGTH_LONG).show();
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
+
+                    }
+                });
+            }
+        });
+    }
     private void initData() {
         /**
          * 获取轮播图片
@@ -118,5 +173,6 @@ public class MainActivity extends AppCompatActivity {
     private void initAdapter() {
 
     }
+
 
 }
