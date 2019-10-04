@@ -19,6 +19,7 @@ import com.lany.banner.BannerAdapter;
 import com.lany.banner.BannerView;
 import com.ustc.music.R;
 import com.ustc.music.adapter.HorizontalListViewAdapter;
+import com.ustc.music.base.BaseActivity;
 import com.ustc.music.url.DataUrl;
 import com.ustc.music.util.RequestUtil;
 import com.ustc.music.util.SmallUtil;
@@ -40,7 +41,7 @@ import okhttp3.Callback;
 import okhttp3.Response;
 import okhttp3.ResponseBody;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends BaseActivity {
 
 
     private BannerView bannerView; //轮播
@@ -63,9 +64,12 @@ public class MainActivity extends AppCompatActivity {
 
 
     private ImageView musicImage;
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        onCreate(savedInstanceState, R.layout.activity_main);
+    }
 
-
-    private void initView() {
+    protected void initView() {
         bannerView = (BannerView)findViewById(R.id.banner_view);
         guangFangGeDanListView = findViewById(R.id.guanfang).findViewById(R.id.hlv);
         daRenGeDanListView = findViewById(R.id.daren).findViewById(R.id.hlv);
@@ -77,7 +81,7 @@ public class MainActivity extends AppCompatActivity {
         musicImage.startAnimation(operatingAnim);
     }
 
-    private void initData() {
+    protected void initData() {
         /**
          * 获取轮播图片
          */
@@ -267,7 +271,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
-    private void initAdapter() {
+    protected void initAdapter() {
         guanFangGeDanAdapter = new HorizontalListViewAdapter(this,  guanFangGeDanDataSource);
         guangFangGeDanListView.setAdapter(guanFangGeDanAdapter);
         daRenAdapter = new HorizontalListViewAdapter(this, daRenDataSource);

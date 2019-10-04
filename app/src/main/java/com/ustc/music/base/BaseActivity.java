@@ -11,11 +11,9 @@ import com.ustc.music.util.StatusBarUtils;
  */
 public abstract class BaseActivity extends Activity {
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-
+    protected void onCreate(Bundle savedInstanceState, int resourceID) {
         super.onCreate(savedInstanceState);
-//        setContentView(resourceID);
+        setContentView(resourceID);
         StatusBarUtils.setWindowStatusBarColor(this, R.color.menu_color);
         initView();
         initData();
