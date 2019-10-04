@@ -1,20 +1,58 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical" android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:paddingHorizontal="2dp">
 
-    <com.ustc.music.view.RoundImageView
+    <FrameLayout
         android:layout_width="120dp"
-        android:layout_height="120dp"
-        android:src="@drawable/img300"
-        android:scaleType="centerCrop"/>
+        android:layout_height="wrap_content">
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+        <com.ustc.music.view.RoundImageView
+            android:id="@+id/round_img"
+            android:layout_width="match_parent"
+            android:layout_height="120dp"
+            app:radius="15dp"
+            android:src="@drawable/img300"
+            android:scaleType="centerCrop"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:layout_alignBottom="@id/round_img"
+                android:paddingHorizontal="5dp">
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="30dp"
+                    android:paddingHorizontal="2dp"
+                    android:src="@drawable/earphone"/>
+                <TextView
+                    android:id="@+id/access_num"
+                    android:layout_width="match_parent"
+                    android:layout_weight="1"
+                    android:layout_height="30dp"
+                    android:gravity="center_vertical"
+                    android:text="11万"
+                    android:textSize="13sp"
+                    android:textColor="@color/white"/>
+                <ImageView
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:src="@drawable/play"/>
+            </LinearLayout>
+
+        </RelativeLayout>
+
+    </FrameLayout>
 
     <!--<ImageView-->
         <!--android:layout_width="150dp"-->
         <!--android:layout_height="150dp"-->
         <!--android:src="@drawable/img300"/>-->
     <TextView
+        android:id="@+id/title"
         android:layout_width="120dp"
         android:layout_height="30dp"
         android:text="相亲太尬？舒缓轻音伴你行"

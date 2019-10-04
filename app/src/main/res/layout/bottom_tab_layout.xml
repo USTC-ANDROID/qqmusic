@@ -1,15 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="100dp"
-    android:background="@color/touming">
+    android:layout_height="110dp"
+    android:background="@color/white">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:orientation="horizontal">
 
-            <ImageView
+            <com.ustc.music.view.RoundImageView
+                app:radius="30dp"
+                android:id="@+id/music_img"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:src="@drawable/newmusic"/>
@@ -34,8 +37,10 @@
         </LinearLayout>
       </LinearLayout>
     <LinearLayout
+        android:paddingVertical="5dp"
+        android:background="@drawable/layout_top_border"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:layout_height="60dp"
         android:orientation="horizontal">
         <LinearLayout
             android:layout_width="match_parent"

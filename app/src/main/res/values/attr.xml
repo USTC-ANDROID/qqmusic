@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <attr name="radius" format="dimension" />
+    <declare-styleable name="RoundImageView">
+        <attr name="radius" />
+    </declare-styleable>
+    <declare-styleable name="HeadView">
+        <attr name="title" format="string"></attr>
+        <attr name="leftImg" format="integer"></attr>
+        <attr name="rightImg" format="integer"></attr>
+    </declare-styleable>
+</resources>

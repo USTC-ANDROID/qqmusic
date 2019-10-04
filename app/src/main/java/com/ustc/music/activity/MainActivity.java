@@ -1,9 +1,14 @@
 package com.ustc.music.activity;
 
+import android.app.usage.UsageEvents;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
+import android.view.animation.LinearInterpolator;
 import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -16,6 +21,7 @@ import com.ustc.music.R;
 import com.ustc.music.adapter.HorizontalListViewAdapter;
 import com.ustc.music.url.DataUrl;
 import com.ustc.music.util.RequestUtil;
+import com.ustc.music.util.SmallUtil;
 import com.ustc.music.util.StatusBarUtils;
 import com.ustc.music.view.HorizontalListView;
 
@@ -25,7 +31,9 @@ import org.json.JSONObject;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import okhttp3.Call;
 import okhttp3.Callback;
@@ -34,26 +42,39 @@ import okhttp3.ResponseBody;
 
 public class MainActivity extends AppCompatActivity {
 
-    private BannerView bannerView;
 
-    private List<String> bannerImgs = new ArrayList<>();
+    private BannerView bannerView; //轮播
 
-    private HorizontalListView horizontalListView;
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+    private List<String> bannerImgs = new ArrayList<>(); //轮播数据
 
-        setContentView(R.layout.activity_main);
+    private HorizontalListView guangFangGeDanListView; //官方歌单
+    private HorizontalListView daRenGeDanListView; //达人歌单
+    private HorizontalListView zuiXinZhuanJIListView; //最新专辑
 
-        StatusBarUtils.setWindowStatusBarColor(this, R.color.menu_color);
-        initView();
-        initData();
-        initAdapter();
-    }
+
+    private HorizontalListViewAdapter guanFangGeDanAdapter; //官方歌单列表适配器
+    private HorizontalListViewAdapter daRenAdapter;
+    private HorizontalListViewAdapter zuiXinZhuanJiAdapter; //最新专辑适配器
+
+
+    private List<Map<String, String>> guanFangGeDanDataSource = new ArrayList<>(); //官方歌单列表数据源
+    private List<Map<String, String>> daRenDataSource = new ArrayList<>(); //官方歌单列表数据源
+    private List<Map<String, String>> zuiXinZhuanJiDataSource = new ArrayList<>(); //最新专辑数据源
+
+
+    private ImageView musicImage;
+
 
     private void initView() {
         bannerView = (BannerView)findViewById(R.id.banner_view);
-        horizontalListView = (HorizontalListView)findViewById(R.id.hlv);
+        guangFangGeDanListView = findViewById(R.id.guanfang).findViewById(R.id.hlv);
+        daRenGeDanListView = findViewById(R.id.daren).findViewById(R.id.hlv);
+        zuiXinZhuanJIListView = findViewById(R.id.zuixinzhuanji).findViewById(R.id.hlv);
+        musicImage = findViewById(R.id.music_img);
+        Animation operatingAnim = AnimationUtils.loadAnimation(this, R.anim.rotate_anim);
+        LinearInterpolator lin = new LinearInterpolator();
+        operatingAnim.setInterpolator(lin);
+        musicImage.startAnimation(operatingAnim);
     }
 
     private void initData() {
@@ -101,7 +122,6 @@ public class MainActivity extends AppCompatActivity {
                                         .dontAnimate()
                                         .error(R.drawable.banner_default)
                                         .into(imageView);
-
                             }
 
                             @Override
@@ -119,23 +139,147 @@ public class MainActivity extends AppCompatActivity {
                 });
             }
         });
+        initGuanFangGeDan();
 
-        int screenWidth = getWindowManager().getDefaultDisplay().getWidth(); // 屏幕宽（像素，如：480px）
-        final String[] strings = new String[]{"零售", "零退", "批销", "批退", "调剂"};
+        initDaRenGeDan();
 
-        HorizontalListViewAdapter horizontalListViewAdapter = new HorizontalListViewAdapter(getApplicationContext(), screenWidth, strings);
-        horizontalListView.setAdapter(horizontalListViewAdapter);
+        initZuiXinGeDan();
+    }
 
-        horizontalListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+    /**
+     * 初始化官方歌单的数据
+     */
+    private void initGuanFangGeDan() {
+        RequestUtil.get(DataUrl.GuangFangGeDan, new Callback() {
             @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Toast.makeText(MainActivity.this ,strings[position], 1).show();
+            public void onFailure(Call call, IOException e) {
+
+            }
+
+            @Override
+            public void onResponse(Call call, Response response) throws IOException {
+                ResponseBody body = response.body();
+                String string = body.string();
+                try {
+                    JSONObject json = new JSONObject(string);
+                    final JSONArray jsonArray = json.getJSONObject("playlist").getJSONObject("data")
+                            .getJSONArray("v_playlist");
+
+                    int len = jsonArray.length();
+                    for (int i = 0; i < len; i++) {
+                        JSONObject jsonObject = jsonArray.getJSONObject(i);
+                        String coverUrl = jsonObject.getString("cover_url_big");
+                        String title = jsonObject.getString("title");
+                        String access_num = SmallUtil.accessNumFormat(jsonObject.getInt("access_num"));
+                        Map<String, String> data = new HashMap<>();
+                        data.put("coverUrl", coverUrl);
+                        data.put("access_num", access_num);
+                        data.put("title", title);
+                        guanFangGeDanDataSource.add(data);
+                    }
+                    runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            guanFangGeDanAdapter.notifyDataSetChanged();
+                        }
+                    });
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
             }
         });
     }
 
-    private void initAdapter() {
+    private void initDaRenGeDan() {
+        RequestUtil.get(DataUrl.DaRenGeDan, new Callback() {
+            @Override
+            public void onFailure(Call call, IOException e) {
+            }
 
+            @Override
+            public void onResponse(Call call, Response response) throws IOException {
+                ResponseBody body = response.body();
+                String string = body.string();
+                try {
+                    JSONObject json = new JSONObject(string);
+                    JSONArray jsonArray = json.getJSONObject("recomPlaylist")
+                            .getJSONObject("data")
+                            .getJSONArray("v_hot");
+                    int len = jsonArray.length();
+                    for(int i = 0; i < len; i++) {
+                        Map<String, String> data = new HashMap<>();
+                        data.put("access_num", SmallUtil.accessNumFormat(jsonArray.getJSONObject(i).getInt("listen_num")));
+                        data.put("title", jsonArray.getJSONObject(i).getString("title"));
+                        data.put("coverUrl", jsonArray.getJSONObject(i).getString("cover"));
+                        daRenDataSource.add(data);
+                    }
+                    runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            daRenAdapter.notifyDataSetChanged();
+                        }
+                    });
+
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+        });
     }
 
+    private void initZuiXinGeDan() {
+        RequestUtil.get(DataUrl.zuiXinZhuanJi, new Callback() {
+            @Override
+            public void onFailure(Call call, IOException e) {
+            }
+
+            @Override
+            public void onResponse(Call call, Response response) throws IOException {
+                String string = response.body().string();
+                try {
+                    JSONObject jsonObject = new JSONObject(string);
+                    Log.v("coverUrl", string);
+                    JSONArray jsonArray = jsonObject.getJSONObject("new_album")
+                            .getJSONObject("data")
+                            .getJSONArray("albums");
+                    int len = jsonArray.length();
+                    Log.v("coverUrl", len + "");
+                    for(int i = 0; i < len; i++) {
+                        Log.v("coverUrl", "测试");
+                        Map<String, String> data = new HashMap<>();
+                        String name = jsonArray.getJSONObject(i).getString("name");
+                        String author = jsonArray.getJSONObject(i).getJSONArray("singers").getJSONObject(0).getString("name");
+                        String mid = jsonArray.getJSONObject(i).getString("mid");
+                        data.put("title",author + "|" + name);
+                        data.put("coverUrl", DataUrl.zuiXinZhuanJiPicUrl.replace("{mid}", mid));
+                        Log.v("coverUrl", DataUrl.zuiXinZhuanJiPicUrl.replace("{mid}", mid));
+                        zuiXinZhuanJiDataSource.add(data);
+                    }
+                    runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            zuiXinZhuanJiAdapter.notifyDataSetChanged();
+                        }
+                    });
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+    }
+    private void initAdapter() {
+        guanFangGeDanAdapter = new HorizontalListViewAdapter(this,  guanFangGeDanDataSource);
+        guangFangGeDanListView.setAdapter(guanFangGeDanAdapter);
+        daRenAdapter = new HorizontalListViewAdapter(this, daRenDataSource);
+        daRenGeDanListView.setAdapter(daRenAdapter);
+        zuiXinZhuanJiAdapter = new HorizontalListViewAdapter(this, zuiXinZhuanJiDataSource);
+        zuiXinZhuanJIListView.setAdapter(zuiXinZhuanJiAdapter);
+    }
+
+
+
+    public void toSingersActivity(View view) {
+        Intent intent = new Intent(this, SingersActivity.class);
+        startActivity(intent);
+    }
 }
