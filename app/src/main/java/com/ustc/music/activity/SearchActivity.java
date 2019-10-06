@@ -2,17 +2,29 @@ package com.ustc.music.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.design.widget.TabLayout;
+import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.SearchView;
 
 import com.ustc.music.R;
+import com.ustc.music.adapter.SearchFragmentPagerAdapter;
 
 public class SearchActivity extends AppCompatActivity {
 
     private SearchView searchView;
     private ImageView goback;
+
+    private TabLayout mTabLayout;
+    private ViewPager mViewPager;
+    private SearchFragmentPagerAdapter searchFragmentPagerAdapter;
+
+    private TabLayout.Tab one;
+    private TabLayout.Tab two;
+    private TabLayout.Tab three;
+    private TabLayout.Tab four;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,6 +61,22 @@ public class SearchActivity extends AppCompatActivity {
                 finish();
             }
         });
+
+
+        //使用适配器将ViewPager与Fragment绑定在一起
+        mViewPager= (ViewPager) findViewById(R.id.viewPager);
+        searchFragmentPagerAdapter = new SearchFragmentPagerAdapter(getSupportFragmentManager());
+        mViewPager.setAdapter(searchFragmentPagerAdapter);
+
+        //将TabLayout与ViewPager绑定在一起
+        mTabLayout = (TabLayout) findViewById(R.id.tabLayout);
+        mTabLayout.setupWithViewPager(mViewPager);
+
+        //指定Tab的位置
+        one = mTabLayout.getTabAt(0);
+        two = mTabLayout.getTabAt(1);
+        three = mTabLayout.getTabAt(2);
+        four = mTabLayout.getTabAt(3);
     }
 
 }

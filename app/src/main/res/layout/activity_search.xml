@@ -28,5 +28,22 @@
 
         </SearchView>
     </LinearLayout>
+    <android.support.design.widget.TabLayout
+        android:id="@+id/tabLayout"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:background="#ffff00"
+        app:tabIndicatorColor="#66ff33"
+        app:tabIndicatorHeight="20dp"
+        app:tabTextColor="@color/colorPrimary"
+        app:tabSelectedTextColor="#CC33FF"
+        app:tabMode="fixed"
+        app:tabBackground="@drawable/selected"/>
 
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/viewPager"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"/>
 </LinearLayout>
