@@ -31,12 +31,12 @@
     <android.support.design.widget.TabLayout
         android:id="@+id/tabLayout"
         android:layout_width="match_parent"
-        android:layout_height="100dp"
-        android:background="#ffff00"
-        app:tabIndicatorColor="#66ff33"
-        app:tabIndicatorHeight="20dp"
-        app:tabTextColor="@color/colorPrimary"
-        app:tabSelectedTextColor="#CC33FF"
+        android:layout_height="50dp"
+        android:background="#5E9E04"
+        app:tabIndicatorColor="#EE7AA0"
+        app:tabIndicatorHeight="4dp"
+        app:tabTextColor="#E4E4E4"
+        app:tabSelectedTextColor="#EE7AA0"
         app:tabMode="fixed"
         app:tabBackground="@drawable/selected"/>
 

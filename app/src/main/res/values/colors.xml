@@ -6,4 +6,5 @@
     <color name="touming" >#1e000000</color>
     <color name="menu_color">#FAFAFA</color>
     <color name="white">#FFFFFF</color>
+    <color name="tabBackgroundColor">#5E9E04</color>
 </resources>
