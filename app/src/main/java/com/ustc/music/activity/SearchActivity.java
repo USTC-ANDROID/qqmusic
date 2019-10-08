@@ -71,7 +71,7 @@ public class SearchActivity extends AppCompatActivity {
         mViewPager= (ViewPager) findViewById(R.id.viewPager);
         searchFragmentPagerAdapter = new SearchFragmentPagerAdapter(getSupportFragmentManager());
         mViewPager.setAdapter(searchFragmentPagerAdapter);
-
+        mViewPager.setOffscreenPageLimit(searchFragmentPagerAdapter.getCount());
         //将TabLayout与ViewPager绑定在一起
         mTabLayout = findViewById(R.id.tabLayout);
         mTabLayout.setupWithViewPager(mViewPager);
