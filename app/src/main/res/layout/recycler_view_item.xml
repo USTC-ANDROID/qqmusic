@@ -4,7 +4,7 @@
     android:layout_height="wrap_content"
     android:orientation="horizontal"
     android:paddingBottom="20dp"
-    android:paddingHorizontal="10dp">
+    android:paddingLeft="10dp">
 
     <LinearLayout
         android:orientation="vertical"
@@ -28,9 +28,14 @@
     <ImageView
         android:layout_width="0dp"
         android:layout_weight="1"
-        android:layout_height="match_parent"/>
+        android:layout_height="match_parent"
+        android:padding="6dp"
+        android:src="@drawable/video"/>
     <ImageView
         android:layout_width="0dp"
         android:layout_weight="1"
-        android:layout_height="match_parent"/>
+        android:layout_height="match_parent"
+        android:paddingVertical="6dp"
+        android:paddingRight="6dp"
+        android:src="@drawable/more"/>
 </LinearLayout>
