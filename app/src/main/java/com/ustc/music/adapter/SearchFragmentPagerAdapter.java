@@ -19,13 +19,13 @@ public class SearchFragmentPagerAdapter extends FragmentPagerAdapter {
     @Override
     public Fragment getItem(int position) {
         if (position == 1) {
-            return new SearchAlbumFragment();
+            return new SearchVideoFragment();
         } else if (position == 2) {
-            return new SearchSongFragment();
+            return new SearchAlbumFragment();
         }else if (position==3){
             return new SearchSongListFragment();
         }
-        return new SearchVideoFragment();
+        return new SearchSongFragment();
     }
 
     @Override
