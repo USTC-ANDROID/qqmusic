@@ -1,8 +1,8 @@
 package com.ustc.music.activity;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
+import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -11,6 +11,7 @@ import android.widget.SearchView;
 
 import com.ustc.music.R;
 import com.ustc.music.adapter.SearchFragmentPagerAdapter;
+import com.ustc.music.fragment.SearchSongFragment;
 
 public class SearchActivity extends AppCompatActivity {
 
@@ -25,6 +26,8 @@ public class SearchActivity extends AppCompatActivity {
     private TabLayout.Tab two;
     private TabLayout.Tab three;
     private TabLayout.Tab four;
+
+    private String searchKeyWord;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,9 +45,10 @@ public class SearchActivity extends AppCompatActivity {
                 if (queryStr.isEmpty()) {
                     return false;
                 } else {
-                    Intent intent = new Intent(SearchActivity.this, SearchResultActivity.class);
-                    intent.putExtra("queryKeyWord", queryStr);
-                    startActivity(intent);
+                    searchKeyWord = queryStr;
+                    Fragment item = searchFragmentPagerAdapter.getItem(0);
+                    ((SearchSongFragment) item).setSearchKeyword(searchKeyWord);
+                    ((SearchSongFragment) item).onRefresh();
                     return true;
                 }
             }
@@ -69,7 +73,7 @@ public class SearchActivity extends AppCompatActivity {
         mViewPager.setAdapter(searchFragmentPagerAdapter);
 
         //将TabLayout与ViewPager绑定在一起
-        mTabLayout = (TabLayout) findViewById(R.id.tabLayout);
+        mTabLayout = findViewById(R.id.tabLayout);
         mTabLayout.setupWithViewPager(mViewPager);
 
         //指定Tab的位置

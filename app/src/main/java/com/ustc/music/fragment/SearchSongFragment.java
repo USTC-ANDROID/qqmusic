@@ -1,23 +1,32 @@
 package com.ustc.music.fragment;
 
-import android.content.Context;
-import android.net.Uri;
 import android.os.Bundle;
-import android.os.Handler;
-import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.util.Pair;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.ustc.music.R;
 import com.ustc.music.adapter.RecyclerViewAdapter;
+import com.ustc.music.url.DataUrl;
+import com.ustc.music.util.RequestUtil;
 import com.wuxiaolong.pullloadmorerecyclerview.PullLoadMoreRecyclerView;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+
+import okhttp3.Call;
+import okhttp3.Callback;
+import okhttp3.Response;
+import okhttp3.ResponseBody;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -28,10 +37,9 @@ public class SearchSongFragment extends Fragment implements PullLoadMoreRecycler
 
     private PullLoadMoreRecyclerView mPullLoadMoreRecyclerView;
     private RecyclerViewAdapter mRecyclerViewAdapter;
-    private int mCount = 1;
     private RecyclerView mRecyclerView;
     private String searchKeyword;
-    private int pageNo = 0;
+    private int pageNo = 1;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -66,41 +74,50 @@ public class SearchSongFragment extends Fragment implements PullLoadMoreRecycler
         mPullLoadMoreRecyclerView.setOnPullLoadMoreListener(this);
         mRecyclerViewAdapter = new RecyclerViewAdapter(getActivity());
         mPullLoadMoreRecyclerView.setAdapter(mRecyclerViewAdapter);
-        getData();
-
     }
 
     private void getData() {
-//        new Handler().postDelayed(new Runnable() {
-//            @Override
-//            public void run() {
-//                getActivity().runOnUiThread(new Runnable() {
-//                    @Override
-//                    public void run() {
-//                        mRecyclerViewAdapter.addAllData(setList());
-//                        mPullLoadMoreRecyclerView.setPullLoadMoreCompleted();
-//                    }
-//                });
-//
-//            }
-//        }, 1000);
+        String searchSongUrl = DataUrl.searchUrl + "t=0&" + "key=" + searchKeyword + "&pageNo=" + pageNo;
+        RequestUtil.get(searchSongUrl, new Callback() {
+            @Override
+            public void onFailure(Call call, IOException e) {
 
+            }
+
+            @Override
+            public void onResponse(Call call, Response response) throws IOException {
+                ResponseBody body = response.body();
+                String string = body.string();
+                final List<Pair<String, String>> songSingerDataSource = new ArrayList<>();
+                try {
+                    JSONObject json = new JSONObject(string);
+                    final JSONArray jsonArray = json.getJSONObject("data").getJSONArray("list");
+
+                    int len = jsonArray.length();
+                    for (int i = 0; i < len; i++) {
+                        JSONObject jsonObject = jsonArray.getJSONObject(i);
+                        String songName = jsonObject.getString("songname");
+                        String singerName = ((JSONObject)jsonObject.getJSONArray("singer").get(0)).getString("name");
+                        Pair<String, String> songSingerPair = new Pair<>(songName, singerName);
+                        songSingerDataSource.add(songSingerPair);
+                    }
+                    getActivity().runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            mRecyclerViewAdapter.addAllData(songSingerDataSource);
+                            mPullLoadMoreRecyclerView.setPullLoadMoreCompleted();
+                        }
+                    });
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+        });
     }
 
     public void clearData() {
         mRecyclerViewAdapter.clearData();
         mRecyclerViewAdapter.notifyDataSetChanged();
-    }
-
-
-    private List<String> setList() {
-        List<String> dataList = new ArrayList<>();
-        int start = 20 * (mCount - 1);
-        for (int i = start; i < 20 * mCount; i++) {
-            dataList.add("Frist" + i);
-        }
-        return dataList;
-
     }
 
     @Override
@@ -113,12 +130,20 @@ public class SearchSongFragment extends Fragment implements PullLoadMoreRecycler
     @Override
     public void onLoadMore() {
         Log.e("wxl", "onLoadMore");
-        mCount = mCount + 1;
+        ++pageNo;
         getData();
     }
 
     private void setRefresh() {
         mRecyclerViewAdapter.clearData();
-        mCount = 1;
+        pageNo = 1;
+    }
+
+    public String getSearchKeyword() {
+        return searchKeyword;
+    }
+
+    public void setSearchKeyword(String searchKeyword) {
+        this.searchKeyword = searchKeyword;
     }
 }

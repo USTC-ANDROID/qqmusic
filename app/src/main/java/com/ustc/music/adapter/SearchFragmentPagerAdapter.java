@@ -9,23 +9,24 @@ import com.ustc.music.fragment.SearchSongFragment;
 import com.ustc.music.fragment.SearchSongListFragment;
 import com.ustc.music.fragment.SearchVideoFragment;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class SearchFragmentPagerAdapter extends FragmentPagerAdapter {
     private String[] mTitles = new String[]{"歌曲", "视频", "专辑","歌单"};
+    private List<Fragment> fragments = new ArrayList<>();
 
     public SearchFragmentPagerAdapter(FragmentManager fm) {
         super(fm);
+        fragments.add(new SearchSongFragment());
+        fragments.add(new SearchVideoFragment());
+        fragments.add(new SearchAlbumFragment());
+        fragments.add(new SearchSongListFragment());
     }
 
     @Override
     public Fragment getItem(int position) {
-        if (position == 1) {
-            return new SearchVideoFragment();
-        } else if (position == 2) {
-            return new SearchAlbumFragment();
-        }else if (position==3){
-            return new SearchSongListFragment();
-        }
-        return new SearchSongFragment();
+        return fragments.get(position);
     }
 
     @Override
