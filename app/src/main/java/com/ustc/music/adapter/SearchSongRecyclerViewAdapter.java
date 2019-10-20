@@ -13,7 +13,7 @@ import com.ustc.music.R;
 import java.util.ArrayList;
 import java.util.List;
 
-public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder> {
+public class SearchSongRecyclerViewAdapter extends RecyclerView.Adapter<SearchSongRecyclerViewAdapter.ViewHolder> {
 
     private Context mContext;
     //    private List<String> dataList = new ArrayList<>();
@@ -28,7 +28,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         this.dataList.clear();
     }
 
-    public RecyclerViewAdapter(Context context) {
+    public SearchSongRecyclerViewAdapter(Context context) {
         mContext = context;
     }
 
@@ -45,7 +45,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.recycler_view_item, parent, false);
+        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.search_song_recycler_view_item, parent, false);
         return new ViewHolder(v);
     }
 

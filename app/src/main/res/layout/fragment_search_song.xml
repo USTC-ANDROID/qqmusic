@@ -6,7 +6,7 @@
     tools:context=".fragment.SearchSongFragment">
 
     <com.wuxiaolong.pullloadmorerecyclerview.PullLoadMoreRecyclerView
-        android:id="@+id/pullLoadMoreRecyclerView"
+        android:id="@+id/searchSongRecyclerView"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 
