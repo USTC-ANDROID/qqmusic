@@ -58,6 +58,7 @@ public class SearchActivity extends AppCompatActivity {
                 return false;
             }
         });
+
         goback = findViewById(R.id.goback);
         goback.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -66,9 +67,8 @@ public class SearchActivity extends AppCompatActivity {
             }
         });
 
-
         //使用适配器将ViewPager与Fragment绑定在一起
-        mViewPager= (ViewPager) findViewById(R.id.viewPager);
+        mViewPager= findViewById(R.id.viewPager);
         searchFragmentPagerAdapter = new SearchFragmentPagerAdapter(getSupportFragmentManager());
         mViewPager.setAdapter(searchFragmentPagerAdapter);
         mViewPager.setOffscreenPageLimit(searchFragmentPagerAdapter.getCount());
