@@ -11,6 +11,7 @@ import android.widget.SearchView;
 
 import com.ustc.music.R;
 import com.ustc.music.adapter.SearchFragmentPagerAdapter;
+import com.ustc.music.fragment.SearchAlbumFragment;
 import com.ustc.music.fragment.SearchSongFragment;
 
 public class SearchActivity extends AppCompatActivity {
@@ -49,6 +50,10 @@ public class SearchActivity extends AppCompatActivity {
                     Fragment item = searchFragmentPagerAdapter.getItem(0);
                     ((SearchSongFragment) item).setSearchKeyword(searchKeyWord);
                     ((SearchSongFragment) item).onRefresh();
+
+                    Fragment item2 = searchFragmentPagerAdapter.getItem(2);
+                    ((SearchAlbumFragment) item2).setSearchKeyword(searchKeyWord);
+                    ((SearchAlbumFragment) item2).onRefresh();
                     return true;
                 }
             }

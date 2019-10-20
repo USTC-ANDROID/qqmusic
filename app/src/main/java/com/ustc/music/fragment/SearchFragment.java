@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.ustc.music.R;
+import com.ustc.music.url.DataUrl;
 import com.wuxiaolong.pullloadmorerecyclerview.PullLoadMoreRecyclerView;
 
 public abstract class SearchFragment extends Fragment implements PullLoadMoreRecyclerView.PullLoadMoreListener {
@@ -24,6 +25,8 @@ public abstract class SearchFragment extends Fragment implements PullLoadMoreRec
     protected abstract int getSearchRecyclerViewId();
 
     protected abstract int getLayoutId();
+
+    protected abstract int getSearchType();
 
 
     @Override
@@ -68,5 +71,9 @@ public abstract class SearchFragment extends Fragment implements PullLoadMoreRec
 
     public void setSearchKeyword(String searchKeyword) {
         this.searchKeyword = searchKeyword;
+    }
+
+    protected String getSearchUrl() {
+        return DataUrl.searchUrl + "t="+getSearchType()+"&" + "key=" + searchKeyword + "&pageNo=" + pageNo;
     }
 }

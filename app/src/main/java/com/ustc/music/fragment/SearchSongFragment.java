@@ -40,8 +40,7 @@ public class SearchSongFragment extends SearchFragment {
     }
 
     protected void getData() {
-        String searchSongUrl = DataUrl.searchUrl + "t=0&" + "key=" + searchKeyword + "&pageNo=" + pageNo;
-        RequestUtil.get(searchSongUrl, new Callback() {
+        RequestUtil.get(getSearchUrl(), new Callback() {
             @Override
             public void onFailure(Call call, IOException e) {
 
@@ -96,5 +95,10 @@ public class SearchSongFragment extends SearchFragment {
     @Override
     protected int getLayoutId() {
         return R.layout.fragment_search_song;
+    }
+
+    @Override
+    protected int getSearchType() {
+        return 0;
     }
 }
