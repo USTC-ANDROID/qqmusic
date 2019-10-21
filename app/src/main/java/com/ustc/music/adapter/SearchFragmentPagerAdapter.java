@@ -1,10 +1,11 @@
 package com.ustc.music.adapter;
 
-import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
+import android.view.ViewGroup;
 
 import com.ustc.music.fragment.SearchAlbumFragment;
+import com.ustc.music.fragment.SearchFragment;
 import com.ustc.music.fragment.SearchSongFragment;
 import com.ustc.music.fragment.SearchSongListFragment;
 import com.ustc.music.fragment.SearchVideoFragment;
@@ -14,7 +15,8 @@ import java.util.List;
 
 public class SearchFragmentPagerAdapter extends FragmentPagerAdapter {
     private String[] mTitles = new String[]{"歌曲", "视频", "专辑","歌单"};
-    private List<Fragment> fragments = new ArrayList<>();
+    private List<SearchFragment> fragments = new ArrayList<>();
+    private SearchFragment mCurrentFragment;
 
     public SearchFragmentPagerAdapter(FragmentManager fm) {
         super(fm);
@@ -25,7 +27,7 @@ public class SearchFragmentPagerAdapter extends FragmentPagerAdapter {
     }
 
     @Override
-    public Fragment getItem(int position) {
+    public SearchFragment getItem(int position) {
         return fragments.get(position);
     }
 
@@ -38,5 +40,16 @@ public class SearchFragmentPagerAdapter extends FragmentPagerAdapter {
     @Override
     public CharSequence getPageTitle(int position) {
         return mTitles[position];
+    }
+
+
+    @Override
+    public void setPrimaryItem(ViewGroup container, int position, Object object) {
+        mCurrentFragment = (SearchFragment) object;
+        super.setPrimaryItem(container, position, object);
+    }
+
+    public SearchFragment getCurrentFragment() {
+        return mCurrentFragment;
     }
 }

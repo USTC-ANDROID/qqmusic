@@ -2,7 +2,6 @@ package com.ustc.music.activity;
 
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
-import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -11,8 +10,7 @@ import android.widget.SearchView;
 
 import com.ustc.music.R;
 import com.ustc.music.adapter.SearchFragmentPagerAdapter;
-import com.ustc.music.fragment.SearchAlbumFragment;
-import com.ustc.music.fragment.SearchSongFragment;
+import com.ustc.music.fragment.SearchFragment;
 
 public class SearchActivity extends AppCompatActivity {
 
@@ -47,13 +45,11 @@ public class SearchActivity extends AppCompatActivity {
                     return false;
                 } else {
                     searchKeyWord = queryStr;
-                    Fragment item = searchFragmentPagerAdapter.getItem(0);
-                    ((SearchSongFragment) item).setSearchKeyword(searchKeyWord);
-                    ((SearchSongFragment) item).onRefresh();
-
-                    Fragment item2 = searchFragmentPagerAdapter.getItem(2);
-                    ((SearchAlbumFragment) item2).setSearchKeyword(searchKeyWord);
-                    ((SearchAlbumFragment) item2).onRefresh();
+                    for (int i = 0; i != searchFragmentPagerAdapter.getCount(); ++i) {
+                        SearchFragment item = searchFragmentPagerAdapter.getItem(i);
+                        item.setSearchKeyword(searchKeyWord);
+                    }
+                    searchFragmentPagerAdapter.getCurrentFragment().onRefresh();
                     return true;
                 }
             }

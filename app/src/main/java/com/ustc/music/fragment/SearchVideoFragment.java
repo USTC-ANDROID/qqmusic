@@ -1,30 +1,32 @@
 package com.ustc.music.fragment;
 
-import android.content.Context;
-import android.net.Uri;
-import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-
 import com.ustc.music.R;
 
-/**
- * A simple {@link Fragment} subclass.
- * Activities that contain this fragment must implement the
- * {@link SearchVideoFragment.OnFragmentInteractionListener} interface
- * to handle interaction events.
- * Use the {@link SearchVideoFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
-public class SearchVideoFragment extends Fragment {
-    @Nullable
+public class SearchVideoFragment extends SearchFragment {
+
+
     @Override
-    public View onCreateView(LayoutInflater inflater,
-                             @Nullable ViewGroup container,
-                             @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_search_video, container, false);
+    protected void getData() {
+
+    }
+
+    @Override
+    protected void setRefresh() {
+
+    }
+
+    @Override
+    protected int getSearchRecyclerViewId() {
+        return R.id.searchVideoRecyclerView;
+    }
+
+    @Override
+    protected int getLayoutId() {
+        return R.layout.fragment_search_video;
+    }
+
+    @Override
+    protected int getSearchType() {
+        return 0;
     }
 }
