@@ -46,10 +46,15 @@ public class SearchActivity extends AppCompatActivity {
                 } else {
                     searchKeyWord = queryStr;
                     for (int i = 0; i != searchFragmentPagerAdapter.getCount(); ++i) {
-                        SearchFragment item = searchFragmentPagerAdapter.getItem(i);
+                        final SearchFragment item = searchFragmentPagerAdapter.getItem(i);
                         item.setSearchKeyword(searchKeyWord);
+                        new Thread(new Runnable() {
+                            @Override
+                            public void run() {
+                                item.onRefresh();
+                            }
+                        }).start();
                     }
-                    searchFragmentPagerAdapter.getCurrentFragment().onRefresh();
                     return true;
                 }
             }

@@ -17,6 +17,7 @@ public abstract class SearchFragment extends Fragment implements PullLoadMoreRec
     protected RecyclerView mRecyclerView;
     protected String searchKeyword;
     protected int pageNo = 1;
+    protected boolean needToRefresh = false;
 
     protected abstract void getData();
 
@@ -53,9 +54,12 @@ public abstract class SearchFragment extends Fragment implements PullLoadMoreRec
 
     @Override
     public void onRefresh() {
-        Log.e("wxl", "onRefresh");
-        setRefresh();
-        getData();
+        if (needToRefresh) {
+            Log.e("wxl", "onRefresh");
+            setRefresh();
+            getData();
+            needToRefresh = false;
+        }
     }
 
     @Override
@@ -70,7 +74,10 @@ public abstract class SearchFragment extends Fragment implements PullLoadMoreRec
     }
 
     public void setSearchKeyword(String searchKeyword) {
-        this.searchKeyword = searchKeyword;
+        if (!searchKeyword.equals(this.searchKeyword)) {
+            this.searchKeyword = searchKeyword;
+            this.needToRefresh = true;
+        }
     }
 
     protected String getSearchUrl() {
