@@ -54,12 +54,12 @@ public abstract class SearchFragment extends Fragment implements PullLoadMoreRec
 
     @Override
     public void onRefresh() {
-        if (needToRefresh) {
+//        if (needToRefresh) {
             Log.e("wxl", "onRefresh");
             setRefresh();
             getData();
             needToRefresh = false;
-        }
+//        }
     }
 
     @Override
