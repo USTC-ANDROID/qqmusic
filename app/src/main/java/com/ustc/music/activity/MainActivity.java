@@ -41,7 +41,7 @@ import okhttp3.Callback;
 import okhttp3.Response;
 import okhttp3.ResponseBody;
 
-public class MainActivity extends BaseActivity {
+public class MainActivity extends BaseActivity implements AdapterView.OnItemClickListener {
 
 
     private BannerView bannerView; //轮播
@@ -64,9 +64,12 @@ public class MainActivity extends BaseActivity {
 
 
     private ImageView musicImage;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
         onCreate(savedInstanceState, R.layout.activity_main);
+        initEvent();
     }
 
     protected void initView() {
@@ -150,6 +153,13 @@ public class MainActivity extends BaseActivity {
         initZuiXinGeDan();
     }
 
+
+
+    private void initEvent() {
+        zuiXinZhuanJIListView.setOnItemClickListener(this);
+        daRenGeDanListView.setOnItemClickListener(this);
+        guangFangGeDanListView.setOnItemClickListener(this);
+    }
     /**
      * 初始化官方歌单的数据
      */
@@ -175,7 +185,11 @@ public class MainActivity extends BaseActivity {
                         String coverUrl = jsonObject.getString("cover_url_big");
                         String title = jsonObject.getString("title");
                         String access_num = SmallUtil.accessNumFormat(jsonObject.getInt("access_num"));
+                        String tid = jsonObject.getString("tid");
                         Map<String, String> data = new HashMap<>();
+                        data.put("url", DataUrl.guanFangGeDanDetail.replace("{1}", tid));
+
+                        data.put("id", tid);
                         data.put("coverUrl", coverUrl);
                         data.put("access_num", access_num);
                         data.put("title", title);
@@ -214,6 +228,8 @@ public class MainActivity extends BaseActivity {
                         Map<String, String> data = new HashMap<>();
                         data.put("access_num", SmallUtil.accessNumFormat(jsonArray.getJSONObject(i).getInt("listen_num")));
                         data.put("title", jsonArray.getJSONObject(i).getString("title"));
+                        data.put("url", "https://y.qq.com/n/yqq/playsquare/{1}.html".replace("{1}", jsonArray.getJSONObject(i).getString("content_id")));
+                        data.put("id", jsonArray.getJSONObject(i).getString("content_id"));
                         data.put("coverUrl", jsonArray.getJSONObject(i).getString("cover"));
                         daRenDataSource.add(data);
                     }
@@ -240,23 +256,25 @@ public class MainActivity extends BaseActivity {
             @Override
             public void onResponse(Call call, Response response) throws IOException {
                 String string = response.body().string();
+                Log.v("mainactivity", string);
                 try {
                     JSONObject jsonObject = new JSONObject(string);
                     Log.v("coverUrl", string);
-                    JSONArray jsonArray = jsonObject.getJSONObject("new_album")
+                    JSONArray jsonArray = jsonObject.getJSONObject("playlist")
                             .getJSONObject("data")
-                            .getJSONArray("albums");
+                            .getJSONArray("v_playlist");
                     int len = jsonArray.length();
                     Log.v("coverUrl", len + "");
                     for(int i = 0; i < len; i++) {
                         Log.v("coverUrl", "测试");
                         Map<String, String> data = new HashMap<>();
-                        String name = jsonArray.getJSONObject(i).getString("name");
-                        String author = jsonArray.getJSONObject(i).getJSONArray("singers").getJSONObject(0).getString("name");
-                        String mid = jsonArray.getJSONObject(i).getString("mid");
-                        data.put("title",author + "|" + name);
-                        data.put("coverUrl", DataUrl.zuiXinZhuanJiPicUrl.replace("{mid}", mid));
-                        Log.v("coverUrl", DataUrl.zuiXinZhuanJiPicUrl.replace("{mid}", mid));
+                        String title = jsonArray.getJSONObject(i).getString("title");
+                        String coverUrl = jsonArray.getJSONObject(i).getString("cover_url_big");
+                        String tid = jsonArray.getJSONObject(i).getString("tid");
+                        data.put("access_num", SmallUtil.accessNumFormat(jsonArray.getJSONObject(i).getInt("access_num")));
+                        data.put("title", title);
+                        data.put("id", tid);
+                        data.put("coverUrl", coverUrl);
                         zuiXinZhuanJiDataSource.add(data);
                     }
                     runOnUiThread(new Runnable() {
@@ -285,5 +303,26 @@ public class MainActivity extends BaseActivity {
     public void toSingersActivity(View view) {
         Intent intent = new Intent(this, SingersActivity.class);
         startActivity(intent);
+    }
+
+    @Override
+    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+        String value = (String) view.getTag(R.id.title);
+        Intent intent = new Intent(MainActivity.this, RecommentListActivity.class);
+
+        Bundle bundle = new Bundle();
+        bundle.putString("id", String.valueOf(value));
+
+        intent.putExtra("id", value);
+//        intent.
+        intent.putExtra("bundle", bundle);
+        startActivity(intent);
+//        Toast.makeText(this, value, Toast.LENGTH_LONG).show();
+    }
+
+    public void toPage(View view) {
+        Intent intent = new Intent(this, PlayActivity.class);
+        startActivity(intent);
+
     }
 }

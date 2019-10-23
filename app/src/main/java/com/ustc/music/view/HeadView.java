@@ -54,4 +54,28 @@ public class HeadView extends LinearLayout {
 
 //        LinearLayout.inflate(context, R.layout.head_layout, this);
     }
+
+    public ImageView getLeftImgView() {
+        return leftImgView;
+    }
+
+    public void setLeftImgView(ImageView leftImgView) {
+        this.leftImgView = leftImgView;
+    }
+
+    public ImageView getRightImgView() {
+        return rightImgView;
+    }
+
+    public void setRightImgView(ImageView rightImgView) {
+        this.rightImgView = rightImgView;
+    }
+
+    public TextView getTitle() {
+        return title;
+    }
+
+    public void setTitle(TextView title) {
+        this.title = title;
+    }
 }

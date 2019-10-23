@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="80dp"
+    android:paddingHorizontal="10dp"
+    android:gravity="center_vertical"
+    android:orientation="horizontal">
+
+    <com.ustc.music.view.RoundImageView
+
+        android:id="@+id/head"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:src="@drawable/newmusic"
+        app:radius="29dp"/>
+    <TextView
+        android:id="@+id/name"
+        android:layout_marginLeft="10dp"
+        android:gravity="center_vertical"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:text="name"/>
+</LinearLayout>

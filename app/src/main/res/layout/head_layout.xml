@@ -7,8 +7,8 @@
         android:id="@+id/leftImg"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:padding="12dp"
-        android:layout_weight="3"
+        android:padding="10dp"
+        android:layout_weight="4"
         android:src="@drawable/comeback"/>
 
     <TextView
@@ -18,13 +18,13 @@
         android:layout_weight="1"
         android:gravity="center"
         android:text="歌手"
-        android:textSize="30sp"/>
+        android:textSize="20sp"/>
     <ImageView
         android:id="@+id/rightImg"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:padding="14dp"
-        android:layout_weight="3"
+        android:padding="10dp"
+        android:layout_weight="4"
         android:src="@drawable/search"/>
 
 </LinearLayout>

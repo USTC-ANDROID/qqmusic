@@ -7,4 +7,8 @@
     <color name="menu_color">#f9f9f9</color>
     <color name="white">#FFFFFF</color>
     <color name="black_opacity">#32000000</color>
+    <color name="blue" >#0341fd</color>
+    <color name="Black">#000000</color>
+    <color name="main">#FF31C27C</color>
+    <color name="main_dark">#FF535353</color>
 </resources>

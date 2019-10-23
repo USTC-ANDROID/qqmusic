@@ -13,6 +13,7 @@ import com.bumptech.glide.Glide;
 import com.ustc.music.R;
 import com.ustc.music.view.RoundImageView;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -67,6 +68,8 @@ public class HorizontalListViewAdapter extends BaseAdapter {
         String access_num = strings.get(position).get("access_num");
         if(access_num != null) holder.accessNum.setText(access_num);
         else holder.accessNum.setVisibility(View.INVISIBLE);
+        String id = strings.get(position).get("id");
+        convertView.setTag(R.id.title, id);
         Glide.with(context)
                 .load(strings.get(position).get("coverUrl")) //加载url
                 .placeholder(R.drawable.img300) //默认的图片
@@ -80,4 +83,5 @@ class ViewHolder {
     RoundImageView roundImageView;
     TextView title;
     TextView accessNum;
+    String id;
 }

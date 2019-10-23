@@ -1,17 +1,87 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical" android:layout_width="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
     android:layout_height="match_parent">
+
     <com.ustc.music.view.HeadView
+        android:id="@+id/head"
         android:layout_width="match_parent"
-        android:layout_height="60dp"
+        android:layout_height="wrap_content"
         app:title="歌手"/>
-    <com.ustc.music.view.HorizontalListView
+    <TextView
         android:layout_width="match_parent"
-        android:layout_height="60dp" />
-    <com.ustc.music.view.HorizontalListView
+        android:layout_height="40dp"
+        android:text="热"
+        android:gravity="center_vertical"
+        android:paddingHorizontal="10dp"/>
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="60dp" />
+        android:layout_height="wrap_content">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <ScrollView
+                android:id="@+id/singer_list"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+            </ScrollView>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <com.ustc.music.view.HorizontalListView
+                    android:id="@+id/addr"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp" />
+
+                <com.ustc.music.view.HorizontalListView
+                    android:id="@+id/sex"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp" />
+
+                <ListView
+                    android:id="@+id/singers"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"></ListView>
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="30dp"
+                android:layout_height="match_parent"
+                android:layout_alignRight="@+id/singer_list">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:layout_weight="9">
+
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:layout_weight="1"
+                    android:layout_marginBottom="60dp">
+                    <ListView
+                        android:id="@+id/singers_index"
+                        android:cacheColorHint="#00000000"
+                        android:divider="#00000000"
+                        android:dividerHeight="0dip"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                    </ListView>
+                </LinearLayout>
+            </LinearLayout>
+        </RelativeLayout>
+
+    </FrameLayout>
 
 </LinearLayout>
