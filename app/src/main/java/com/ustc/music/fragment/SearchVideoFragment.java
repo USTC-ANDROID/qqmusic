@@ -107,18 +107,14 @@ public class SearchVideoFragment extends SearchFragment {
     }
 
     private String removeMeanlessBracket(String mvName) {
-        int i = mvName.lastIndexOf('(');
-        if (i == -1) {
-            return mvName;
+        StringBuilder stringBuilder = new StringBuilder();
+        for (int i = 0; i < mvName.length(); ++i) {
+            if (i + 1 < mvName.length() && mvName.charAt(i) == '(' && mvName.charAt(i + 1) == ')') {
+                ++i;
+            } else {
+                stringBuilder.append(mvName.charAt(i));
+            }
         }
-        int j = mvName.lastIndexOf(')');
-        if (j == -1 || j < i) {
-            return mvName;
-        }
-        if (j == i + 1) {
-            return mvName.substring(0, i);
-        } else {
-            return mvName;
-        }
+        return stringBuilder.toString();
     }
 }

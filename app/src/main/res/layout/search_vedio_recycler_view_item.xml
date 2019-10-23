@@ -20,9 +20,9 @@
         <TextView
             android:id="@+id/vedioName"
             android:layout_width="match_parent"
-            android:layout_height="25dp"
+            android:layout_height="wrap_content"
             android:ellipsize="end"
-            android:singleLine="true"
+            android:lines="2"
             android:paddingBottom="3dp"/>
         <TextView
             android:id="@+id/searchVedioSingerName"
