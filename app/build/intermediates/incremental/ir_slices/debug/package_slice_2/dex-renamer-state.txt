@@ -1,4 +1,4 @@
-#Wed Oct 23 18:32:54 CST 2019
-base.0=F\:\\program\\music\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\2
+#Wed Oct 23 19:07:38 CST 2019
+base.0=D\:\\Projects\\AndroidStudioProjects\\music\\qqmusic\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\2
 path.0=classes.dex
 renamed.0=classes.dex
