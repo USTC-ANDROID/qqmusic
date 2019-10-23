@@ -29,7 +29,7 @@ public class NetworkImageView extends android.support.v7.widget.AppCompatImageVi
                 case GET_DATA_SUCCESS:
                     Bitmap bitmap = (Bitmap) msg.obj;
                     if (waterMark != null && !waterMark.isEmpty()) {
-                        bitmap = ImageUtil.drawTextToRightBottom(getContext(), bitmap, waterMark, 20, Color.WHITE, 0, 0);
+                        bitmap = ImageUtil.drawTextToRightBottom(getContext(), bitmap, waterMark, 20, Color.WHITE, 5, 5);
                     }
                     setImageBitmap(bitmap);
                     break;
