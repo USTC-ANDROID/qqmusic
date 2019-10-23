@@ -39,6 +39,7 @@ public class MainActivity extends AppCompatActivity {
     private List<String> bannerImgs = new ArrayList<>();
 
     LinearLayout rankBtn;
+    LinearLayout typeBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,6 +59,15 @@ public class MainActivity extends AppCompatActivity {
             @Override            public void onClick(View view) {
                 Toast.makeText(MainActivity.this, "点击", Toast.LENGTH_LONG).show();
                 Intent intent = new Intent(MainActivity.this, RankActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        typeBtn = (LinearLayout)findViewById(R.id.typeBtn);
+        typeBtn.setOnClickListener(new View.OnClickListener() {
+            @Override            public void onClick(View view) {
+                Toast.makeText(MainActivity.this, "点击", Toast.LENGTH_LONG).show();
+                Intent intent = new Intent(MainActivity.this, TypeActivity.class);
                 startActivity(intent);
             }
         });

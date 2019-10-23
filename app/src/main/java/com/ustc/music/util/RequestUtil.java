@@ -3,6 +3,10 @@ package com.ustc.music.util;
 import android.provider.MediaStore;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 import okhttp3.Call;
 import okhttp3.Callback;
@@ -21,11 +25,20 @@ public class RequestUtil {
     public static final MediaType JSON = MediaType.parse("application/json; charset=utf-8");
 
     public static void get(String url, Callback callBack) {
+        get(url, new HashMap<String, String>(), callBack);
+    }
+
+    public static void get(String url, Map<String, String> headers, Callback callBack) {
         Request.Builder builder = new Request.Builder();
+        for(Map.Entry<String, String> h: headers.entrySet()) {
+            builder.addHeader(h.getKey(), h.getValue());
+            System.out.println(h.getKey() + "  " + h.getValue());
+        }
         Request request = builder.get().url(url).build();
         Call call = client.newCall(request);
         call.enqueue(callBack);
     }
+
 
     public static void post(String url, FormBody.Builder formData, Callback callBack) {
         Request.Builder builder = new Request.Builder();

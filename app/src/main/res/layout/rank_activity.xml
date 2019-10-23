@@ -61,7 +61,7 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="45dp"
+                android:layout_height="match_parent"
                 android:orientation="horizontal">
 
                 <TextView
@@ -374,6 +374,7 @@
                     android:layout_height="match_parent"
                     android:layout_marginRight="10dp"
                     android:orientation="vertical">
+
                     <TextView
                         android:id="@+id/rank5"
                         android:layout_width="match_parent"
@@ -395,8 +396,7 @@
                         android:maxLines="1"
                         android:text="1. 我和我的祖国 - 华语群星"
                         android:textColor="@android:color/black"
-                        android:textSize="18sp"
-                        />
+                        android:textSize="18sp" />
 
                     <TextView
                         android:id="@+id/rank52"
@@ -408,8 +408,7 @@
                         android:maxLines="1"
                         android:text="2. 我和我的祖国（青春唱响曲）"
                         android:textColor="@android:color/black"
-                        android:textSize="18sp"
-                        />
+                        android:textSize="18sp" />
 
                     <TextView
                         android:id="@+id/rank53"
@@ -419,17 +418,16 @@
                         android:layout_marginTop="5dp"
                         android:text="3. 那女孩对我说（完整版）"
                         android:textColor="@android:color/black"
-                        android:textSize="18sp"
-                        />
+                        android:textSize="18sp" />
 
                 </LinearLayout>
 
                 <com.ustc.music.view.RoundImageView
-                    app:radius="20dp"
                     android:id="@+id/imageView5"
                     android:layout_width="120dp"
                     android:layout_height="120dp"
-                    android:src="@drawable/newmusic" />
+                    android:src="@drawable/newmusic"
+                    app:radius="20dp" />
 
             </LinearLayout>
 
@@ -717,6 +715,426 @@
                 <com.ustc.music.view.RoundImageView
                     app:radius="20dp"
                     android:id="@+id/imageView9"
+                    android:layout_width="120dp"
+                    android:layout_height="120dp"
+                    android:src="@drawable/newmusic" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="120dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginRight="15dp"
+                android:background="@drawable/layout_circle_border_rankcolor">
+
+                <LinearLayout
+                    android:layout_width="255dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginRight="10dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/rank010"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginTop="5dp"
+                        android:text="流行指数榜"
+                        android:textColor="@android:color/black"
+                        android:textSize="20sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/rank101"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginTop="5dp"
+                        android:ellipsize="end"
+                        android:maxLines="1"
+                        android:text="1. 我和我的祖国 - 华语群星"
+                        android:textColor="@android:color/black"
+                        android:textSize="18sp" />
+
+                    <TextView
+                        android:id="@+id/rank102"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginTop="5dp"
+                        android:ellipsize="end"
+                        android:maxLines="1"
+                        android:text="2. 我和我的祖国（青春唱响曲）"
+                        android:textColor="@android:color/black"
+                        android:textSize="18sp" />
+
+                    <TextView
+                        android:id="@+id/rank103"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginTop="5dp"
+                        android:text="3. 那女孩对我说（完整版）"
+                        android:textColor="@android:color/black"
+                        android:textSize="18sp" />
+
+                </LinearLayout>
+
+                <com.ustc.music.view.RoundImageView
+                    app:radius="20dp"
+                    android:id="@+id/imageView10"
+                    android:layout_width="120dp"
+                    android:layout_height="120dp"
+                    android:src="@drawable/newmusic" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="120dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginRight="15dp"
+                android:background="@drawable/layout_circle_border_rankcolor">
+
+                <LinearLayout
+                    android:layout_width="255dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginRight="10dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/rank011"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginTop="5dp"
+                        android:text="流行指数榜"
+                        android:textColor="@android:color/black"
+                        android:textSize="20sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/rank111"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginTop="5dp"
+                        android:ellipsize="end"
+                        android:maxLines="1"
+                        android:text="1. 我和我的祖国 - 华语群星"
+                        android:textColor="@android:color/black"
+                        android:textSize="18sp" />
+
+                    <TextView
+                        android:id="@+id/rank112"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginTop="5dp"
+                        android:ellipsize="end"
+                        android:maxLines="1"
+                        android:text="2. 我和我的祖国（青春唱响曲）"
+                        android:textColor="@android:color/black"
+                        android:textSize="18sp" />
+
+                    <TextView
+                        android:id="@+id/rank113"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginTop="5dp"
+                        android:text="3. 那女孩对我说（完整版）"
+                        android:textColor="@android:color/black"
+                        android:textSize="18sp" />
+
+                </LinearLayout>
+
+                <com.ustc.music.view.RoundImageView
+                    app:radius="20dp"
+                    android:id="@+id/imageView11"
+                    android:layout_width="120dp"
+                    android:layout_height="120dp"
+                    android:src="@drawable/newmusic" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="120dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginRight="15dp"
+                android:background="@drawable/layout_circle_border_rankcolor">
+
+                <LinearLayout
+                    android:layout_width="255dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginRight="10dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/rank012"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginTop="5dp"
+                        android:text="流行指数榜"
+                        android:textColor="@android:color/black"
+                        android:textSize="20sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/rank121"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginTop="5dp"
+                        android:ellipsize="end"
+                        android:maxLines="1"
+                        android:text="1. 我和我的祖国 - 华语群星"
+                        android:textColor="@android:color/black"
+                        android:textSize="18sp" />
+
+                    <TextView
+                        android:id="@+id/rank122"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginTop="5dp"
+                        android:ellipsize="end"
+                        android:maxLines="1"
+                        android:text="2. 我和我的祖国（青春唱响曲）"
+                        android:textColor="@android:color/black"
+                        android:textSize="18sp" />
+
+                    <TextView
+                        android:id="@+id/rank123"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginTop="5dp"
+                        android:text="3. 那女孩对我说（完整版）"
+                        android:textColor="@android:color/black"
+                        android:textSize="18sp" />
+
+                </LinearLayout>
+
+                <com.ustc.music.view.RoundImageView
+                    app:radius="20dp"
+                    android:id="@+id/imageView12"
+                    android:layout_width="120dp"
+                    android:layout_height="120dp"
+                    android:src="@drawable/newmusic" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="120dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginRight="15dp"
+                android:background="@drawable/layout_circle_border_rankcolor">
+
+                <LinearLayout
+                    android:layout_width="255dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginRight="10dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/rank013"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginTop="5dp"
+                        android:text="流行指数榜"
+                        android:textColor="@android:color/black"
+                        android:textSize="20sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/rank131"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginTop="5dp"
+                        android:ellipsize="end"
+                        android:maxLines="1"
+                        android:text="1. 我和我的祖国 - 华语群星"
+                        android:textColor="@android:color/black"
+                        android:textSize="18sp" />
+
+                    <TextView
+                        android:id="@+id/rank132"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginTop="5dp"
+                        android:ellipsize="end"
+                        android:maxLines="1"
+                        android:text="2. 我和我的祖国（青春唱响曲）"
+                        android:textColor="@android:color/black"
+                        android:textSize="18sp" />
+
+                    <TextView
+                        android:id="@+id/rank133"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginTop="5dp"
+                        android:text="3. 那女孩对我说（完整版）"
+                        android:textColor="@android:color/black"
+                        android:textSize="18sp" />
+
+                </LinearLayout>
+
+                <com.ustc.music.view.RoundImageView
+                    app:radius="20dp"
+                    android:id="@+id/imageView13"
+                    android:layout_width="120dp"
+                    android:layout_height="120dp"
+                    android:src="@drawable/newmusic" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="120dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginRight="15dp"
+                android:background="@drawable/layout_circle_border_rankcolor">
+
+                <LinearLayout
+                    android:layout_width="255dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginRight="10dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/rank014"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginTop="5dp"
+                        android:text="流行指数榜"
+                        android:textColor="@android:color/black"
+                        android:textSize="20sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/rank141"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginTop="5dp"
+                        android:ellipsize="end"
+                        android:maxLines="1"
+                        android:text="1. 我和我的祖国 - 华语群星"
+                        android:textColor="@android:color/black"
+                        android:textSize="18sp" />
+
+                    <TextView
+                        android:id="@+id/rank142"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginTop="5dp"
+                        android:ellipsize="end"
+                        android:maxLines="1"
+                        android:text="2. 我和我的祖国（青春唱响曲）"
+                        android:textColor="@android:color/black"
+                        android:textSize="18sp" />
+
+                    <TextView
+                        android:id="@+id/rank143"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginTop="5dp"
+                        android:text="3. 那女孩对我说（完整版）"
+                        android:textColor="@android:color/black"
+                        android:textSize="18sp" />
+
+                </LinearLayout>
+
+                <com.ustc.music.view.RoundImageView
+                    app:radius="20dp"
+                    android:id="@+id/imageView14"
+                    android:layout_width="120dp"
+                    android:layout_height="120dp"
+                    android:src="@drawable/newmusic" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="120dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginRight="15dp"
+                android:background="@drawable/layout_circle_border_rankcolor">
+
+                <LinearLayout
+                    android:layout_width="255dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginRight="10dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/rank015"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginTop="5dp"
+                        android:text="流行指数榜"
+                        android:textColor="@android:color/black"
+                        android:textSize="20sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/rank151"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginTop="5dp"
+                        android:ellipsize="end"
+                        android:maxLines="1"
+                        android:text="1. 我和我的祖国 - 华语群星"
+                        android:textColor="@android:color/black"
+                        android:textSize="18sp" />
+
+                    <TextView
+                        android:id="@+id/rank152"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginTop="5dp"
+                        android:ellipsize="end"
+                        android:maxLines="1"
+                        android:text="2. 我和我的祖国（青春唱响曲）"
+                        android:textColor="@android:color/black"
+                        android:textSize="18sp" />
+
+                    <TextView
+                        android:id="@+id/rank153"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginTop="5dp"
+                        android:text="3. 那女孩对我说（完整版）"
+                        android:textColor="@android:color/black"
+                        android:textSize="18sp" />
+
+                </LinearLayout>
+
+                <com.ustc.music.view.RoundImageView
+                    app:radius="20dp"
+                    android:id="@+id/imageView15"
                     android:layout_width="120dp"
                     android:layout_height="120dp"
                     android:src="@drawable/newmusic" />

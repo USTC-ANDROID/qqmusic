@@ -20,6 +20,8 @@
 
         <activity android:name=".activity.RankActivity">
         </activity>
+        <activity android:name=".activity.TypeActivity">
+        </activity>
 
 
 

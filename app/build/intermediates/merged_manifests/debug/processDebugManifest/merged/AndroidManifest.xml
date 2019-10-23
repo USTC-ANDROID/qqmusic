@@ -30,6 +30,8 @@
         </activity>
         <activity android:name="com.ustc.music.activity.RankActivity" >
         </activity>
+        <activity android:name="com.ustc.music.activity.TypeActivity" >
+        </activity>
     </application>
 
 </manifest>
