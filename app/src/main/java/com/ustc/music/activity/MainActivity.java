@@ -11,6 +11,7 @@ import android.view.animation.AnimationUtils;
 import android.view.animation.LinearInterpolator;
 import android.widget.AdapterView;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -38,6 +39,7 @@ import java.util.Map;
 
 import okhttp3.Call;
 import okhttp3.Callback;
+import okhttp3.FormBody;
 import okhttp3.Response;
 import okhttp3.ResponseBody;
 
@@ -62,14 +64,34 @@ public class MainActivity extends BaseActivity implements AdapterView.OnItemClic
     private List<Map<String, String>> daRenDataSource = new ArrayList<>(); //官方歌单列表数据源
     private List<Map<String, String>> zuiXinZhuanJiDataSource = new ArrayList<>(); //最新专辑数据源
 
-
     private ImageView musicImage;
+
+    LinearLayout rankBtn;
+    LinearLayout typeBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         onCreate(savedInstanceState, R.layout.activity_main);
         initEvent();
+        // 跳转
+        rankBtn = (LinearLayout)findViewById(R.id.rankBtn);
+        rankBtn.setOnClickListener(new View.OnClickListener() {
+            @Override            public void onClick(View view) {
+                Toast.makeText(MainActivity.this, "点击", Toast.LENGTH_LONG).show();
+                Intent intent = new Intent(MainActivity.this, RankActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        typeBtn = (LinearLayout)findViewById(R.id.typeBtn);
+        typeBtn.setOnClickListener(new View.OnClickListener() {
+            @Override            public void onClick(View view) {
+                Toast.makeText(MainActivity.this, "点击", Toast.LENGTH_LONG).show();
+                Intent intent = new Intent(MainActivity.this, TypeActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
     protected void initView() {
@@ -84,7 +106,48 @@ public class MainActivity extends BaseActivity implements AdapterView.OnItemClic
         musicImage.startAnimation(operatingAnim);
     }
 
+
+    private void testInitData(){
+        /**
+         * 尝试获取排行榜歌曲
+         * url = https://u.y.qq.com/cgi-bin/musicu.fcg?_=1569934525603
+         * method = POST
+         */
+        String url = "https://u.y.qq.com/cgi-bin/musicu.fcg?_=1569934525603";
+
+        FormBody.Builder data = new FormBody.Builder();
+//        data.add("req_0", "{\"module\":\"QQConnectLogin.LoginMethod\",\"method\":\"GetLoginMethod\",\"param\":{\"id\":1569933954420}}");
+//        data.add("comm", "")
+        data.add("req_0", "{\"module\":\"QQConnectLogin.LoginMethod\",\"method\":\"GetLoginMethod\",\"param\":{\"id\":1569933954420}}");
+        data.add("comm", "{\"g_tk\":550260307,\"uin\":782562661,\"format\":\"json\",\"ct\":23,\"cv\":0}");
+        RequestUtil.post(url, data, new Callback() {
+            @Override
+            public void onFailure(Call call, IOException e) {
+
+            }
+            @Override
+            public void onResponse(Call call, final Response response) throws IOException {
+
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        ResponseBody body = response.body();
+                        try {
+                            String s = body.string();
+                            System.out.println("输出ResponseBody：" + s);
+                            Toast.makeText(MainActivity.this, s.substring(0, 10), Toast.LENGTH_LONG).show();
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
+
+                    }
+                });
+            }
+        });
+    }
+
     protected void initData() {
+
         /**
          * 获取轮播图片
          */
@@ -129,6 +192,7 @@ public class MainActivity extends BaseActivity implements AdapterView.OnItemClic
                                         .dontAnimate()
                                         .error(R.drawable.banner_default)
                                         .into(imageView);
+
                             }
 
                             @Override
@@ -146,11 +210,6 @@ public class MainActivity extends BaseActivity implements AdapterView.OnItemClic
                 });
             }
         });
-        initGuanFangGeDan();
-
-        initDaRenGeDan();
-
-        initZuiXinGeDan();
     }
 
 
@@ -168,7 +227,7 @@ public class MainActivity extends BaseActivity implements AdapterView.OnItemClic
             @Override
             public void onFailure(Call call, IOException e) {
 
-            }
+    }
 
             @Override
             public void onResponse(Call call, Response response) throws IOException {

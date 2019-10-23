@@ -3,7 +3,6 @@
     package="com.ustc.music">
 
     <uses-permission android:name="android.permission.INTERNET" />
-
     <application
         android:name=".application.App"
         android:allowBackup="true"
@@ -16,18 +15,18 @@
         <activity android:name=".activity.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity android:name=".activity.SingersActivity" />
         <activity android:name=".activity.RecommentListActivity" />
         <activity android:name=".activity.PlayActivity" />
-
-
         <service android:name=".service.SimpleService"
             android:exported="false"/>
-
+        <activity android:name=".activity.RankActivity">
+        </activity>
+        <activity android:name=".activity.TypeActivity">
+        </activity>
     </application>
 
 </manifest>
