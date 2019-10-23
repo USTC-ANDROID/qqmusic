@@ -3,10 +3,13 @@ package com.ustc.music.view;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.Color;
 import android.os.Handler;
 import android.os.Message;
 import android.util.AttributeSet;
 import android.widget.Toast;
+
+import com.ustc.music.util.ImageUtil;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -17,6 +20,7 @@ public class NetworkImageView extends android.support.v7.widget.AppCompatImageVi
     public static final int GET_DATA_SUCCESS = 1;
     public static final int NETWORK_ERROR = 2;
     public static final int SERVER_ERROR = 3;
+    private String waterMark = null;
     //子线程不能操作UI，通过Handler设置图片
     private Handler handler = new Handler() {
         @Override
@@ -24,6 +28,9 @@ public class NetworkImageView extends android.support.v7.widget.AppCompatImageVi
             switch (msg.what){
                 case GET_DATA_SUCCESS:
                     Bitmap bitmap = (Bitmap) msg.obj;
+                    if (waterMark != null && !waterMark.isEmpty()) {
+                        bitmap = ImageUtil.drawTextToRightBottom(getContext(), bitmap, waterMark, 20, Color.WHITE, 0, 0);
+                    }
                     setImageBitmap(bitmap);
                     break;
                 case NETWORK_ERROR:
@@ -88,4 +95,8 @@ public class NetworkImageView extends android.support.v7.widget.AppCompatImageVi
         }.start();
     }
 
+    public void setImageURL(final String path,final String waterMark) {
+        this.waterMark = waterMark;
+        setImageURL(path);
+    }
 }

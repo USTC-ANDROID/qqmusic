@@ -12,6 +12,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.IOException;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -25,6 +26,8 @@ import okhttp3.ResponseBody;
 public class SearchVideoFragment extends SearchFragment {
 
     private SearchVideoRecyclerViewAdapter mSearchVideoRecyclerViewAdapter;
+    private static final DecimalFormat wanDecimalFormat = new DecimalFormat("0.0");
+
 
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
@@ -58,7 +61,14 @@ public class SearchVideoFragment extends SearchFragment {
                         stringObjectHashMap.put("vedioName", jsonObject.getString("mv_name"));
                         stringObjectHashMap.put("vedioPic", jsonObject.getString("mv_pic_url"));
                         stringObjectHashMap.put("singerName", ((JSONObject)jsonObject.getJSONArray("singer_list").get(0)).getString("name"));
-                        stringObjectHashMap.put("playCnt", jsonObject.getString("play_count"));
+                        Integer playCount = Integer.parseInt(jsonObject.getString("play_count"));
+                        String playCntStr = null;
+                        if (playCount >= 10000) {
+                            playCntStr = wanDecimalFormat.format(1.0 * playCount / 10000) + "万";
+                        } else {
+                            playCntStr = Integer.toString(playCount);
+                        }
+                        stringObjectHashMap.put("playCnt", playCntStr);
                         videoDataSource.add(stringObjectHashMap);
                     }
                     getActivity().runOnUiThread(new Runnable() {

@@ -36,14 +36,12 @@ public class SearchVideoRecyclerViewAdapter extends RecyclerView.Adapter<SearchV
         public NetworkImageView vedioPic;
         public TextView vedioName;
         public TextView singerName;
-        public TextView playCnt;
 
         public ViewHolder(View itemView) {
             super(itemView);
             vedioPic = itemView.findViewById(R.id.vedioPic);
             vedioName = itemView.findViewById(R.id.vedioName);
             singerName = itemView.findViewById(R.id.searchVedioSingerName);
-            playCnt = itemView.findViewById(R.id.vedioPlayCnt);
         }
     }
 
@@ -55,10 +53,9 @@ public class SearchVideoRecyclerViewAdapter extends RecyclerView.Adapter<SearchV
 
     @Override
     public void onBindViewHolder(ViewHolder holder, final int position) {
-        holder.vedioPic.setImageURL(dataList.get(position).get("vedioPic"));
+        holder.vedioPic.setImageURL(dataList.get(position).get("vedioPic"),dataList.get(position).get("playCnt"));
         holder.vedioName.setText(dataList.get(position).get("vedioName"));
         holder.singerName.setText(dataList.get(position).get("singerName"));
-        holder.playCnt.setText(dataList.get(position).get("playCnt"));
     }
 
     @Override
