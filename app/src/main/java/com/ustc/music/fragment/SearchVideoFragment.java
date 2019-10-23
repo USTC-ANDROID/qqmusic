@@ -58,11 +58,11 @@ public class SearchVideoFragment extends SearchFragment {
                     for (int i = 0; i < len; i++) {
                         JSONObject jsonObject = jsonArray.getJSONObject(i);
                         HashMap<String, String> stringObjectHashMap = new HashMap<>();
-                        stringObjectHashMap.put("vedioName", jsonObject.getString("mv_name"));
+                        stringObjectHashMap.put("vedioName", removeMeanlessBracket(jsonObject.getString("mv_name")));
                         stringObjectHashMap.put("vedioPic", jsonObject.getString("mv_pic_url"));
                         stringObjectHashMap.put("singerName", ((JSONObject)jsonObject.getJSONArray("singer_list").get(0)).getString("name"));
                         Integer playCount = Integer.parseInt(jsonObject.getString("play_count"));
-                        String playCntStr = null;
+                        String playCntStr;
                         if (playCount >= 10000) {
                             playCntStr = wanDecimalFormat.format(1.0 * playCount / 10000) + "万";
                         } else {
@@ -104,5 +104,21 @@ public class SearchVideoFragment extends SearchFragment {
     @Override
     protected int getSearchType() {
         return 12;
+    }
+
+    private String removeMeanlessBracket(String mvName) {
+        int i = mvName.lastIndexOf('(');
+        if (i == -1) {
+            return mvName;
+        }
+        int j = mvName.lastIndexOf(')');
+        if (j == -1 || j < i) {
+            return mvName;
+        }
+        if (j == i + 1) {
+            return mvName.substring(0, i);
+        } else {
+            return mvName;
+        }
     }
 }
