@@ -37,6 +37,7 @@ public class SearchActivity extends AppCompatActivity {
 
     void initView() {
         searchView = findViewById(R.id.qq_search_view);
+        searchView.setIconified(false);
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String s) {
