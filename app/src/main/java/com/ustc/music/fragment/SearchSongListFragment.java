@@ -12,6 +12,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.IOException;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -25,6 +26,8 @@ import okhttp3.ResponseBody;
 public class SearchSongListFragment extends SearchFragment {
 
     private SearchSongListRecyclerViewAdapter mSearchSongListRecyclerViewAdapter;
+    private static final DecimalFormat wanDecimalFormat = new DecimalFormat("0.0");
+
 
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
@@ -55,10 +58,17 @@ public class SearchSongListFragment extends SearchFragment {
                         JSONObject jsonObject = jsonArray.getJSONObject(i);
                         HashMap<String, String> stringObjectHashMap = new HashMap<>();
                         stringObjectHashMap.put("songListPic", jsonObject.getString("imgurl"));
-                        stringObjectHashMap.put("songListName", jsonObject.getString("dissname"));
-                        stringObjectHashMap.put("listenNum", jsonObject.getString("listennum"));
-                        stringObjectHashMap.put("songCnt", jsonObject.getString("song_count"));
-                        stringObjectHashMap.put("creatorName", jsonObject.getJSONObject("creator").getString("name"));
+                        stringObjectHashMap.put("songListName", replaceAscIIChar(jsonObject.getString("dissname")));
+                        Integer listennum = Integer.parseInt(jsonObject.getString("listennum"));
+                        String listennumStr;
+                        if (listennum >= 10000) {
+                            listennumStr = wanDecimalFormat.format(1.0 * listennum / 10000) + "万";
+                        } else {
+                            listennumStr = Integer.toString(listennum);
+                        }
+                        stringObjectHashMap.put("listenNum", listennumStr+"人播放");
+                        stringObjectHashMap.put("songCnt", jsonObject.getString("song_count")+"首");
+                        stringObjectHashMap.put("creatorName", replaceAscIIChar(jsonObject.getJSONObject("creator").getString("name")));
                         songListDataSource.add(stringObjectHashMap);
                     }
                     getActivity().runOnUiThread(new Runnable() {
@@ -94,5 +104,26 @@ public class SearchSongListFragment extends SearchFragment {
     @Override
     protected int getSearchType() {
         return 2;
+    }
+
+    private String replaceAscIIChar(String s) {
+        if (!s.contains("&#")) {
+            return s;
+        }
+        StringBuilder stringBuilder = new StringBuilder();
+        for (int i = 0; i != s.length(); ++i) {
+            if (s.charAt(i) == '&' && i + 1 < s.length() && s.charAt(i + 1) == '#') {
+                int j = i + 2;
+                for (; j < s.length() && s.charAt(j) != ';'; ++j);
+                if (j < s.length()) {
+                    char a = (char) Integer.parseInt(s.substring(i + 2, j));
+                    stringBuilder.append(a);
+                    i = j;
+                }
+            } else {
+                stringBuilder.append(s.charAt(i));
+            }
+        }
+        return stringBuilder.toString();
     }
 }
