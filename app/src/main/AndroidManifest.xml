@@ -12,6 +12,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar"
         android:usesCleartextTraffic="true">
+
         <activity android:name=".activity.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -26,6 +27,8 @@
         <activity android:name=".activity.RankActivity">
         </activity>
         <activity android:name=".activity.TypeActivity">
+        </activity>
+        <activity android:name=".activity.SearchActivity">
         </activity>
     </application>
 
