@@ -40,6 +40,8 @@
         </activity>
         <activity android:name="com.ustc.music.activity.TypeActivity" >
         </activity>
+        <activity android:name="com.ustc.music.activity.SearchActivity" >
+        </activity>
     </application>
 
 </manifest>

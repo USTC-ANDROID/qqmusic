@@ -11,4 +11,5 @@
     <color name="Black">#000000</color>
     <color name="main">#FF31C27C</color>
     <color name="main_dark">#FF535353</color>
+    <color name="tabBackgroundColor">#5E9E04</color>
 </resources>

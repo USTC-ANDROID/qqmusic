@@ -55,6 +55,8 @@ public interface DataUrl {
     String zuiXinZhuanJiPicUrl = "http://y.gtimg.cn/music/photo_new/T002R300x300M000{mid}.jpg?max_age=2592000";
 
 
+    String searchUrl = "http://api.qq.jsososo.com/search?";
+
     String musicList = "https://c.y.qq.com/qzone/fcg-bin/fcg_ucc_getcdinfo_byids_cp.fcg?t" +
             "ype=1&json=1&utf8=1&onlysong=0&new_format=1&disstid={1}&g_tk=5381&logi" +
             "nUin=0&hostUin=0&format=json&inCharset=utf8&outCharset=utf-8&notice=0&platform" +
