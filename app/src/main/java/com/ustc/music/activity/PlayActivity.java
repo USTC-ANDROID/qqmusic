@@ -62,6 +62,8 @@ public class PlayActivity extends BaseActivity implements View.OnClickListener {
     private LrcView mLrcViewOnFirstPage; // single line lrc
     private LrcView mLrcViewOnSecondPage; // 7 lines lrc
     private PagerIndicator mPagerIndicator; // indicator
+    private ImageButton mPrevPlayButton;
+    private ImageButton mNextPlayButton;
 
     // cd view and lrc view
     private ArrayList<View> mViewPagerContent = new ArrayList<View>(2);
@@ -74,6 +76,28 @@ public class PlayActivity extends BaseActivity implements View.OnClickListener {
 //        requestWindowFeature(Window.FEATURE_NO_TITLE);
         setupViews();
 //		allowBindService();
+        initEvent();
+    }
+
+    private void initEvent() {
+        mPrevPlayButton.setOnClickListener((v) -> {
+            playService.playPrev();
+            onChange(playService.getNowMusic());
+        });
+        mNextPlayButton.setOnClickListener((v) -> {
+            playService.playNext();
+            onChange(playService.getNowMusic());
+        });
+        mStartPlayButton.setOnClickListener(v -> {
+                Log.v("playactivity", "initEvent()");
+                if(playService.getStatus()) {
+                    mStartPlayButton.setImageResource(R.drawable.player_btn_play_normal);
+                    playService.stop();
+                } else {
+                    mStartPlayButton.setImageResource(R.drawable.player_btn_pause_normal);
+                    playService.start();
+                }
+            });
     }
 
     /**
@@ -87,6 +111,8 @@ public class PlayActivity extends BaseActivity implements View.OnClickListener {
         mPlaySeekBar = findViewById(R.id.sb_play_progress);
         mStartPlayButton = findViewById(R.id.ib_play_start);
         mPagerIndicator = findViewById(R.id.pi_play_indicator);
+        mPrevPlayButton = findViewById(R.id.ib_play_pre);
+        mNextPlayButton = findViewById(R.id.ib_play_next);
 
         // 动态设置seekbar的margin
         ViewGroup.MarginLayoutParams p = (ViewGroup.MarginLayoutParams) mPlaySeekBar.getLayoutParams();
@@ -247,6 +273,7 @@ public class PlayActivity extends BaseActivity implements View.OnClickListener {
      */
     public void pre(View view) {
 //        mPlayService.pre(); // 上一曲
+        playService.pre();
     }
 
     /**
@@ -299,6 +326,8 @@ public class PlayActivity extends BaseActivity implements View.OnClickListener {
     private void setLrc(Music music) {
 //        Music music = MusicUtils.sMusicList.get(position);
 //        String lrcPath = MusicUtils.getLrcDir() + music.getTitle() + ".lrc";
+        mLrcViewOnFirstPage.reset();
+        mLrcViewOnSecondPage.reset();
         Map<String, String> headers = new HashMap<>();
         headers.put("referer", "https://y.qq.com/portal/player.htm");
         RequestUtil.get(music.getLrc(), headers, new Callback() {
@@ -343,8 +372,11 @@ public class PlayActivity extends BaseActivity implements View.OnClickListener {
     }
 
     public void onChange(Music music) {
+        Log.v("playcallback", "playing");
+//        super.onChange(music);
         setBackground(music.getAvatar());
         onPlay(music);
+
         setLrc(music);
     }
 
@@ -382,18 +414,22 @@ public class PlayActivity extends BaseActivity implements View.OnClickListener {
 
     }
 
+
+
     @Override
     protected void serviceInited() {
 //        System.out.println("哈哈哈");
         super.serviceInited();
         Music nowMusic = playService.getNowMusic();
+        if(playService.getStatus()) {
+            mStartPlayButton.setImageResource(R.drawable.player_btn_pause_normal);
+        } else {
+            mStartPlayButton.setImageResource(R.drawable.player_btn_play_normal);
+        }
         onChange(nowMusic);
     }
 
-    @Override
-    public void onChange(int position) {
-        super.onChange(position);
-    }
+
 
 
 }

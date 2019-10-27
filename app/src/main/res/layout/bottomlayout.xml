@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="50dp"
+    android:background="@color/white">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:orientation="horizontal">
+
+            <com.ustc.music.view.RoundLinearLayout
+                app:radius="30dp"
+                android:layout_width="50dp"
+                android:layout_height="50dp">
+                <ImageView
+                    android:id="@+id/music_img"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/newmusic"/>
+            </com.ustc.music.view.RoundLinearLayout>
+        <TextView
+            android:id="@+id/music_title"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:layout_marginLeft="10dp"
+            android:text="天后天后天后天后"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="end">
+            <ImageView
+                android:id="@+id/music_player"
+                android:layout_width="35dp"
+                android:layout_height="match_parent"
+                android:src="@drawable/player_to_start"/>
+            <ImageView
+                android:id="@+id/music_list"
+                android:layout_width="35dp"
+                android:layout_height="match_parent"
+                android:src="@drawable/music_list"/>
+        </LinearLayout>
+      </LinearLayout>
+</LinearLayout>

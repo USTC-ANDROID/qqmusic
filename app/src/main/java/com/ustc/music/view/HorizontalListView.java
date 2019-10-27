@@ -266,9 +266,10 @@ public class HorizontalListView extends AdapterView<ListAdapter> {
 
     @Override
     public boolean dispatchTouchEvent(MotionEvent ev) {
-        boolean handled = super.dispatchTouchEvent(ev);
-        handled |= mGesture.onTouchEvent(ev);
-        return handled;
+//        boolean handled = super.dispatchTouchEvent(ev);
+        mGesture.onTouchEvent(ev);
+        getParent().requestDisallowInterceptTouchEvent(true);
+        return true;
     }
 
     protected boolean onFling(MotionEvent e1, MotionEvent e2, float velocityX,

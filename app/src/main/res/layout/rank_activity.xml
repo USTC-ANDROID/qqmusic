@@ -1144,5 +1144,8 @@
         </LinearLayout>
     </ScrollView>
 
-
+    <com.ustc.music.view.BottomTabsLayout
+        android:id="@+id/bottom_layout"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"></com.ustc.music.view.BottomTabsLayout>
 </LinearLayout>

@@ -10,10 +10,15 @@ import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.IBinder;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
+import android.view.animation.LinearInterpolator;
+import android.widget.ImageView;
 
 import com.ustc.music.R;
 import com.ustc.music.entity.Music;
@@ -25,10 +30,11 @@ import com.ustc.music.view.BottomTabsLayout;
 /**
  * 在调用onCreate方法的时候必须要调用父类的onCreate
  */
-public abstract class BaseActivity extends Activity {
+public abstract class BaseActivity extends AppCompatActivity {
 
     protected SimpleService playService;
     protected BottomTabsLayout bottomTabsLayout;
+    private ImageView musicImage;
 
     private ServiceConnection connection = new ServiceConnection() {
         @Override
@@ -48,6 +54,8 @@ public abstract class BaseActivity extends Activity {
 
     }
 
+
+
     protected void onCreate(Bundle savedInstanceState, int resourceID) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             Window window = getWindow();
@@ -62,6 +70,12 @@ public abstract class BaseActivity extends Activity {
 
 
         bottomTabsLayout = findViewById(R.id.bottom_layout);
+        musicImage = bottomTabsLayout.findViewById(R.id.music_img);
+        Animation operatingAnim = AnimationUtils.loadAnimation(this, R.anim.rotate_anim);
+        LinearInterpolator lin = new LinearInterpolator();
+        operatingAnim.setInterpolator(lin);
+        musicImage.startAnimation(operatingAnim);
+
         initView();
         initData();
         initAdapter();
@@ -88,6 +102,7 @@ public abstract class BaseActivity extends Activity {
         if(bottomTabsLayout != null && playService != null && playService.getNowMusic() != null) {
             Music nowMusic = playService.getNowMusic();
             bottomTabsLayout.refershMusic(nowMusic.getAvatar(), nowMusic.getTitle());
+
         }
     }
     /**
@@ -101,8 +116,11 @@ public abstract class BaseActivity extends Activity {
                 }
 
                 @Override
-                public void onChange(int position) {
-                    BaseActivity.this.onChange(position);
+                public void onChange(Music music) {
+//                    BaseActivity.this.onChange(music);
+                    Log.v("playcallback", "baseactivity  onChange");
+                    bottomTabsLayout.refershMusic(music.getAvatar(), music.getTitle());
+//                    bottomTabsLayout.changePlayerStatus();
                 }
             };
 
@@ -119,9 +137,24 @@ public abstract class BaseActivity extends Activity {
     }
     /**
      * 切换歌曲
-     * @param position 歌曲在list中的位置
+     * @param music 歌曲在list中的位置
      */
-    public void onChange(int position) {
+    public void onChange(Music music) {
+    }
 
+    public boolean playStatus() {
+        return playService.getStatus();
+    }
+
+    public boolean hasPlay() {
+        return playService.getNowMusic() == null ? false : true;
+    }
+
+    public void stop() {
+        playService.stop();
+    }
+
+    public void start() {
+        playService.start();
     }
 }

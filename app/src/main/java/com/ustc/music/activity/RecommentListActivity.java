@@ -20,11 +20,14 @@ import com.alibaba.fastjson.JSONObject;
 import com.bumptech.glide.Glide;
 import com.ustc.music.R;
 import com.ustc.music.base.BaseActivity;
+import com.ustc.music.core.MiGuMusicSource;
+import com.ustc.music.core.MusicRequestCallBack;
 import com.ustc.music.entity.Music;
 import com.ustc.music.service.SimpleService;
 import com.ustc.music.url.DataUrl;
 import com.ustc.music.util.RequestUtil;
 import com.ustc.music.view.ImageHeadScrollView;
+import com.ustc.music.view.SmileToast;
 
 
 import org.jsoup.Jsoup;
@@ -69,7 +72,7 @@ public class RecommentListActivity extends BaseActivity implements View.OnClickL
         imageView = findViewById(R.id.scroll_view_headimage);
         dissnameTextView = findViewById(R.id.dissname);
         descTextView = findViewById(R.id.desc);
-        this.bottomTabsLayout.setTabsHidden();
+//        this.bottomTabsLayout.setTabsHidden();
 
     }
 
@@ -134,6 +137,7 @@ public class RecommentListActivity extends BaseActivity implements View.OnClickL
                             authorView.setText(data.get("name"));
                             view.setTag( R.id.tag_first, data.get("mid"));
                             view.setTag(R.id.tag_second, data.get("imgMid"));
+
                             view.setOnClickListener(RecommentListActivity.this);
                             musicsListView.addView(view);
                         }
@@ -153,10 +157,19 @@ public class RecommentListActivity extends BaseActivity implements View.OnClickL
     public void onClick(View v) {
         final String mid = String.valueOf(v.getTag(R.id.tag_first));
         TextView tv = v.findViewById(R.id.music_name);
+        TextView authorView = v.findViewById(R.id.music_author);
         final String title = tv.getText().toString();
+        String author = authorView.getText().toString();
         final String imgMid = String.valueOf(v.getTag(R.id.tag_second));
         Map<String, String> map = new HashMap<>();
         map.put("Referer", "https://y.qq.com/");
+
+        play(mid, map, author, title, imgMid);
+    }
+
+
+
+    private void play(final String mid, final Map<String, String> map, final String author, final String title, final String imgMid) {
         RequestUtil.get(DataUrl.playMusicStep1.replace("{1}", mid), map, new Callback() {
             @Override
             public void onFailure(Call call, IOException e) {
@@ -166,46 +179,54 @@ public class RecommentListActivity extends BaseActivity implements View.OnClickL
             @Override
             public void onResponse(Call call, Response response) throws IOException {
                 String string = response.body().string();
+                Log.v("musicsource", string);
                 final String musicSource = JSONObject.parseObject(string)
                         .getJSONObject("req_0")
                         .getJSONObject("data")
                         .getJSONArray("midurlinfo")
                         .getJSONObject(0).getString("purl");
+                if("".equals(musicSource)) {
 
+                    MiGuMusicSource.loadMusicSourceFromMiGu(title, author, new MusicRequestCallBack() {
+                        @Override
+                        public void call(final String source) {
+                            runOnUiThread(new Runnable() {
+                                @Override
+                                public void run() {
+                                    SmileToast.makeSmileToast(RecommentListActivity.this,
+                                            "对不起，QQ音乐源不能播放，正为你切换到咪咕音乐源",
+                                            SmileToast.LENGTH_LONG).show();
+                                    playMusic(imgMid, title, mid, source);
+                                }
+                            });
+                        }
+                    });
+                } else {
+                    runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+
+                            Log.v("musicsource", musicSource);
+                            String source = musicSource;
+                            if(source.contains("qq.com")) {
+                                source = source.substring(source.indexOf("qq.com/C") + 7);
+                            }
+                            playMusic(imgMid, title, mid, DataUrl.playMusicStep2.replace("{1}", source));
+                        }
+                    });
+                }
 //                RequestUtil.get();
-                runOnUiThread(new Runnable() {
-                    @Override
-                    public void run() {
-                        playService.add(new Music(DataUrl.musicLogo.replace("{1}", imgMid)
-                                ,title, DataUrl.musicLrc.replace("{1}", mid), DataUrl.playMusicStep2.replace("{1}", musicSource)));
-                        playService.play();
-                        bottomTabsLayout.refershMusic(DataUrl.musicLogo.replace("{1}", imgMid), title);
-                    }
-                });
-
-
-//                runOnUiThread(new Runnable() {
-//                    @Override
-//                    public void run() {
-//                        final MediaPlayer player = new MediaPlayer();
-//                        try {
-//                            Log.v("music_url", DataUrl.playMusicStep2.replace("{1}", musicSource));
-//                            player.setDataSource(DataUrl.playMusicStep2.replace("{1}", musicSource));
-//                            player.prepareAsync();
-//                            player.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
-//                                @Override
-//                                public void onPrepared(MediaPlayer mp) {
-//                                    Toast.makeText(RecommentListActivity.this, "准备完毕", Toast.LENGTH_LONG).show();
-//                                    player.start();
-//                                }
-//                            });
-//                        } catch (IOException e) {
-//                            e.printStackTrace();
-//                        }
-//                    }
-//                });
 
             }
         });
     }
+
+    protected void playMusic(final String imgMid, final String title, final String mid, final String musicSource) {
+
+                playService.add(new Music(DataUrl.musicLogo.replace("{1}", imgMid)
+                        ,title, DataUrl.musicLrc.replace("{1}", mid), musicSource));
+                playService.playNext();
+                bottomTabsLayout.refershMusic(DataUrl.musicLogo.replace("{1}", imgMid), title);
+    }
+
 }

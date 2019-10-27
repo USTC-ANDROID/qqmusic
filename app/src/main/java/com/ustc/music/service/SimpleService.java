@@ -28,7 +28,6 @@ public class SimpleService extends Service implements MediaPlayer.OnCompletionLi
     private MediaPlayer mPlayer ;
 
 
-    private volatile boolean playing = false;
 
     private Music nowMusic;
 
@@ -40,9 +39,20 @@ public class SimpleService extends Service implements MediaPlayer.OnCompletionLi
 
     private ExecutorService mProgressUpdatedListener = Executors.newSingleThreadExecutor();
 
+
+
+    public void pre() {
+        Music music = musics.get(musics.size() - 1);
+
+    }
+
+    public void start() {
+        mPlayer.start();
+    }
+
     @Override
     public void onCompletion(MediaPlayer mp) {
-        play();
+        playNext();
     }
 
     public class PlayBinder extends Binder {
@@ -91,7 +101,7 @@ public class SimpleService extends Service implements MediaPlayer.OnCompletionLi
 
 
     public boolean getStatus() {
-        return playing;
+        return mPlayer.isPlaying();
     }
 
     public void add(Music music) {
@@ -99,34 +109,52 @@ public class SimpleService extends Service implements MediaPlayer.OnCompletionLi
     }
 
     public void stop() {
-        this.playing = false;
+        this.mPlayer.pause();
     }
 
-    public void playNow(String url) {
-        Music music = new Music();
-        music.setMusicSource(url);
-        musics.add(music);
+    public void playNow(Music music) {
+
     }
 
     public Music getNowMusic() {
         return nowMusic;
     }
 
-    public void play() {
-        this.playing = true;
-        Music poll = musics.remove(0);
-        nowMusic = poll;
-        musics.add(poll);
+    public void play(Music music) {
         mPlayer.reset();
         try {
-            mPlayer.setDataSource(poll.getMusicSource());
-            mPlayer.prepare();
-
+            Log.v("simpleservice", music.getMusicSource());
+            mPlayer.setDataSource(music.getMusicSource());
+            mPlayer.prepareAsync();
+            mPlayer.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
+                @Override
+                public void onPrepared(MediaPlayer mp) {
+                    Log.v("simpleservice", "测试");
+                    mp.start();
+                }
+            });
+            mListener.onChange(music);
         } catch (IOException e) {
             e.printStackTrace();
         }
-        mPlayer.start();
     }
+
+    public void playNext() {
+        Log.v("playcallback", "play");
+        Music poll = musics.remove(0);
+        nowMusic = poll;
+        musics.add(poll);
+        play(poll);
+    }
+
+    public void playPrev() {
+        Log.v("playcallback", "play");
+        Music poll = musics.remove(musics.size() - 1);
+        nowMusic = poll;
+        musics.add(0, poll);
+        play(poll);
+    }
+
     /**
      * 设置回调
      * @param l
@@ -141,7 +169,7 @@ public class SimpleService extends Service implements MediaPlayer.OnCompletionLi
      */
     public interface OnMusicEventListener {
         public void onPublish(int percent);
-        public void onChange(int position);
+        public void onChange(Music position);
     }
 
     @Override

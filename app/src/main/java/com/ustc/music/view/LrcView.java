@@ -14,6 +14,7 @@ import android.os.Message;
 import android.support.annotation.NonNull;
 import android.text.TextUtils;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.View;
 import android.view.animation.LinearInterpolator;
 import android.widget.Scroller;
@@ -317,7 +318,9 @@ public class LrcView extends View {
 
                 mNextTime += 60 * 1000;
                 mScroller.abortAnimation();
+                scrollTo(0, 0);
                 mScroller.startScroll(size, 0, 0, mMaxScroll, SCROLL_TIME);
+                Log.v("重新开始", "哈哈");
                 postInvalidate();
                 break;
             }

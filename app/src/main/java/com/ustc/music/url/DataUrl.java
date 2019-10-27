@@ -75,4 +75,6 @@ public interface DataUrl {
     String musicLrc = "https://c.y.qq.com/lyric/fcgi-bin/fcg_query_lyric_new.fcg?-=MusicJs" +
             "onCallback_lrc&pcachetime=1571717459244&songmid={1}&g_tk=5381&logi" +
             "nUin=0&hostUin=0&format=json&inCharset=utf8&outCharset=utf-8&notice=0&platform=yqq.json&needNewCode=0";
+
+    String miGuSearch = "http://m.music.migu.cn/migu/remoting/scr_search_tag?rows=20&type=2&keyword={1}";
 }
