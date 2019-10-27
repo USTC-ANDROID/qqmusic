@@ -746,6 +746,7 @@ color switch_thumb_material_dark
 color switch_thumb_material_light
 color switch_thumb_normal_material_dark
 color switch_thumb_normal_material_light
+color tabBackgroundColor
 color tooltip_background_dark
 color tooltip_background_light
 color touming
@@ -825,6 +826,8 @@ dimen abc_text_size_subhead_material
 dimen abc_text_size_subtitle_material_toolbar
 dimen abc_text_size_title_material
 dimen abc_text_size_title_material_toolbar
+dimen activity_horizontal_margin
+dimen activity_vertical_margin
 dimen cardview_compat_inset_shadow
 dimen cardview_default_elevation
 dimen cardview_default_radius
@@ -1056,6 +1059,7 @@ drawable abc_textfield_search_activated_mtrl_alpha
 drawable abc_textfield_search_default_mtrl_alpha
 drawable abc_textfield_search_material
 drawable abc_vector_test
+drawable arrow_angle_pointing_to_right
 drawable arrow_right_normal
 drawable avd_hide_password
 drawable avd_show_password
@@ -1092,6 +1096,7 @@ drawable layout_circle_border_rankcolor
 drawable layout_shadow_card
 drawable layout_top_border
 drawable layout_white_circle_border_radius_50
+drawable left_arrow
 drawable listenmusic
 drawable local_music_more
 drawable menu1
@@ -1101,6 +1106,7 @@ drawable menu4
 drawable menu5
 drawable module_musichall_new_sub_entrance_background_1
 drawable module_musichall_new_sub_entrance_background_2
+drawable more
 drawable mtrl_tabs_default_indicator
 drawable music_list
 drawable navigation_empty_icon
@@ -1141,6 +1147,7 @@ drawable search
 drawable search_btn_bg
 drawable search_button
 drawable search_drawable_left
+drawable selected
 drawable smile
 drawable splash
 drawable tab1_active
@@ -1155,6 +1162,7 @@ drawable tooltip_frame_dark
 drawable tooltip_frame_light
 drawable type
 drawable type2
+drawable video
 drawable widget_btn_normal
 id ALT
 id CTRL
@@ -1196,6 +1204,8 @@ id albumImageView6
 id albumImageView7
 id albumImageView8
 id albumImageView9
+id albumName
+id albumPic
 id albumTextView10_1
 id albumTextView10_2
 id albumTextView11_1
@@ -1287,8 +1297,10 @@ id fitEnd
 id fitStart
 id fitXY
 id fixed
+id footerView
 id forever
 id ghost_view
+id goback
 id gone
 id group_divider
 id groups
@@ -1339,6 +1351,9 @@ id listMode
 id list_item
 id ll_play_container
 id ll_play_controller
+id loadMoreLayout
+id loadMoreProgressBar
+id loadMoreText
 id masked
 id matrix
 id message
@@ -1384,6 +1399,7 @@ id play_first_lrc_2
 id play_singer
 id progress_circular
 id progress_horizontal
+id qq_search_view
 id query_item
 id query_item_bg
 id radio
@@ -1448,6 +1464,7 @@ id rank91
 id rank92
 id rank93
 id rankBtn
+id recycler_view
 id right
 id rightImg
 id right_icon
@@ -1464,6 +1481,13 @@ id scrollIndicatorUp
 id scrollView
 id scroll_view_headimage
 id scrollable
+id searchAlbumRecyclerView
+id searchAlbumSingerName
+id searchSingerName
+id searchSongListRecyclerView
+id searchSongRecyclerView
+id searchVedioSingerName
+id searchVideoRecyclerView
 id search_badge
 id search_bar
 id search_button
@@ -1488,6 +1512,12 @@ id smallLabel
 id snackbar_action
 id snackbar_text
 id snap
+id songListCnt
+id songListCreatorName
+id songListListenNum
+id songListName
+id songListPic
+id songTitle
 id spacer
 id split_action_bar
 id spread
@@ -1500,6 +1530,8 @@ id start
 id stretch
 id submenuarrow
 id submit_area
+id swipeRefreshLayout
+id tabLayout
 id tabMode
 id tag_first
 id tag_second
@@ -1538,6 +1570,9 @@ id uniform
 id unlabeled
 id up
 id useLogo
+id vedioName
+id vedioPic
+id viewPager
 id view_offset_helper
 id visible
 id vp_play_container
@@ -1593,6 +1628,7 @@ layout abc_tooltip
 layout activity_main
 layout activity_player
 layout activity_recomment
+layout activity_search
 layout activity_singers
 layout banner
 layout bottomlayout
@@ -1610,10 +1646,15 @@ layout design_navigation_item_subheader
 layout design_navigation_menu
 layout design_navigation_menu_item
 layout design_text_input_password_icon
+layout footer_layout
 layout fragement_menu_home
 layout fragment_menu_1
 layout fragment_menu_2
 layout fragment_menu_3
+layout fragment_search_album
+layout fragment_search_song
+layout fragment_search_song_list
+layout fragment_search_video
 layout head_layout
 layout item_horizontallistview
 layout layout
@@ -1627,7 +1668,12 @@ layout notification_template_part_chronometer
 layout notification_template_part_time
 layout play_page_layout1
 layout play_page_layout2
+layout pull_loadmore_layout
 layout rank_activity
+layout search_album_recycler_view_item
+layout search_song_list_recycler_view_item
+layout search_song_recycler_view_item
+layout search_vedio_recycler_view_item
 layout select_dialog_item_material
 layout select_dialog_multichoice_material
 layout select_dialog_singlechoice_material
@@ -1687,13 +1733,16 @@ string bottom_sheet_behavior
 string character_counter_pattern
 string fab_transformation_scrim_behavior
 string fab_transformation_sheet_behavior
+string hello_blank_fragment
 string hide_bottom_view_on_scroll_behavior
+string load_more_text
 string mtrl_chip_close_icon_content_description
 string password_toggle_content_description
 string path_password_eye
 string path_password_eye_mask_strike_through
 string path_password_eye_mask_visible
 string path_password_strike_through
+string searchBarHint
 string search_menu_title
 string status_bar_notification_info_overflow
 style AlertDialog_AppCompat
