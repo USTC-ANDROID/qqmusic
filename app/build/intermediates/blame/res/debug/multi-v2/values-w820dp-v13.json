@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "D:\\Projects\\qqmusic\\qqmusic\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-w820dp-v13\\values-w820dp-v13.xml",
+            "outputFile": "/home/wilbur/AndroidStudioProjects/qqmusic/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-w820dp-v13/values-w820dp-v13.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\Wang\\.gradle\\caches\\transforms-1\\files-1.1\\library-1.1.2.aar\\e5d49a48a957835cc4cc991825b6ec68\\res\\values-w820dp-v13\\values-w820dp-v13.xml",
+                    "source": "/home/wilbur/.gradle/caches/transforms-1/files-1.1/library-1.1.2.aar/f0c43e589cba24a000fb43e2a04f40f3/res/values-w820dp-v13/values-w820dp-v13.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",

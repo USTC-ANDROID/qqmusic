@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "D:\\Projects\\qqmusic\\qqmusic\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-v23\\values-v23.xml",
+            "outputFile": "/home/wilbur/AndroidStudioProjects/qqmusic/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-v23/values-v23.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\Wang\\.gradle\\caches\\transforms-1\\files-1.1\\cardview-v7-28.0.0-alpha1.aar\\d889fb391444e84eec27b46480cf14d6\\res\\values-v23\\values-v23.xml",
+                    "source": "/home/wilbur/.gradle/caches/transforms-1/files-1.1/cardview-v7-28.0.0-alpha1.aar/bbc4e4ce97b56342d598ca4523ecfc7d/res/values-v23/values-v23.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
@@ -23,7 +23,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\Wang\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-28.0.0.aar\\c9790329b3b7498bf642930486650a20\\res\\values-v23\\values-v23.xml",
+                    "source": "/home/wilbur/.gradle/caches/transforms-1/files-1.1/appcompat-v7-28.0.0.aar/a68e004edab0483cff8fa2cd4974e71f/res/values-v23/values-v23.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,19,32,33,34,35,36",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4",

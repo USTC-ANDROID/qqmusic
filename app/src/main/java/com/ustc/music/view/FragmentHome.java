@@ -16,6 +16,7 @@ import com.ustc.music.R;
 import com.ustc.music.activity.PlayActivity;
 import com.ustc.music.activity.RankActivity;
 import com.ustc.music.activity.RecommentListActivity;
+import com.ustc.music.activity.SearchActivity;
 import com.ustc.music.activity.SingersActivity;
 import com.ustc.music.activity.TypeActivity;
 import com.ustc.music.adapter.HorizontalListViewAdapter;
@@ -59,6 +60,7 @@ public class FragmentHome extends LazyBaseFragment implements AdapterView.OnItem
 
     LinearLayout rankBtn;
     LinearLayout typeBtn;
+    LinearLayout searchBtn;
 
     @Override
     protected void findViewById(View rootView) {
@@ -68,6 +70,7 @@ public class FragmentHome extends LazyBaseFragment implements AdapterView.OnItem
         zuiXinZhuanJIListView = rootView.findViewById(R.id.zuixinzhuanji).findViewById(R.id.hlv);
         rankBtn = rootView.findViewById(R.id.rankBtn);
         typeBtn = rootView.findViewById(R.id.typeBtn);
+        searchBtn = rootView.findViewById(R.id.searchBtn);
     }
 
 
@@ -75,20 +78,19 @@ public class FragmentHome extends LazyBaseFragment implements AdapterView.OnItem
         zuiXinZhuanJIListView.setOnItemClickListener(this);
         daRenGeDanListView.setOnItemClickListener(this);
         guangFangGeDanListView.setOnItemClickListener(this);
-        rankBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(getContext(), RankActivity.class);
-                startActivity(intent);
-            }
+        rankBtn.setOnClickListener(view -> {
+            Intent intent = new Intent(getContext(), RankActivity.class);
+            startActivity(intent);
         });
 
-        typeBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(getContext(), TypeActivity.class);
-                startActivity(intent);
-            }
+        typeBtn.setOnClickListener(view -> {
+            Intent intent = new Intent(getContext(), TypeActivity.class);
+            startActivity(intent);
+        });
+
+        searchBtn.setOnClickListener(view -> {
+            Intent intent = new Intent(getContext(), SearchActivity.class);
+            startActivity(intent);
         });
     }
 

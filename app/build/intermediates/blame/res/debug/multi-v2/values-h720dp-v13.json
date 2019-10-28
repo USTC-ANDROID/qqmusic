@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "D:\\Projects\\qqmusic\\qqmusic\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-h720dp-v13\\values-h720dp-v13.xml",
+            "outputFile": "/home/wilbur/AndroidStudioProjects/qqmusic/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-h720dp-v13/values-h720dp-v13.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\Wang\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-28.0.0.aar\\c9790329b3b7498bf642930486650a20\\res\\values-h720dp-v13\\values-h720dp-v13.xml",
+                    "source": "/home/wilbur/.gradle/caches/transforms-1/files-1.1/appcompat-v7-28.0.0.aar/a68e004edab0483cff8fa2cd4974e71f/res/values-h720dp-v13/values-h720dp-v13.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
