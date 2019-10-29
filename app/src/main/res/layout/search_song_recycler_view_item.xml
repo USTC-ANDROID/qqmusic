@@ -7,6 +7,7 @@
     android:paddingLeft="10dp">
 
     <LinearLayout
+        android:id="@+id/searchSongItem"
         android:orientation="vertical"
         android:layout_width="0dp"
         android:layout_weight="8"
