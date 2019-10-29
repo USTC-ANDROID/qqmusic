@@ -2,14 +2,15 @@ package com.ustc.music.fragment;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.util.Pair;
+import android.util.Log;
 import android.view.View;
-import android.widget.Toast;
 
 import com.ustc.music.R;
 import com.ustc.music.adapter.SearchSongRecyclerViewAdapter;
+import com.ustc.music.core.MiGuMusicSource;
 import com.ustc.music.url.DataUrl;
 import com.ustc.music.util.RequestUtil;
+import com.ustc.music.view.SmileToast;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -34,7 +35,6 @@ import okhttp3.ResponseBody;
 public class SearchSongFragment extends SearchFragment implements SearchSongRecyclerViewAdapter.SearchSongClickListener {
 
     private SearchSongRecyclerViewAdapter mSearchSongRecyclerViewAdapter;
-    //    final List<Pair<String, String>> songSingerDataSource = new ArrayList<>();
     final List<Map<String, String>> songSingerDataSource = new ArrayList<>();
 
     @Override
@@ -109,10 +109,57 @@ public class SearchSongFragment extends SearchFragment implements SearchSongRecy
 
     @Override
     public void clickListener(View v) {
-        Toast.makeText(
-                getActivity(),
-                "listview的内部的按钮被点击了！，位置是-->" + v.getTag() + ",内容是-->"
-                        + songSingerDataSource.get((Integer) v.getTag()),
-                Toast.LENGTH_SHORT).show();
+        Map<String, String> map = new HashMap<>();
+        map.put("Referer", "https://y.qq.com/");
+        Map<String, String> stringStringMap = songSingerDataSource.get((Integer) v.getTag());
+        play(stringStringMap.get("songmid"), map, stringStringMap.get("singerName"), stringStringMap.get("songName"), stringStringMap.get("albummid"));
+    }
+
+    private void play(final String mid, final Map<String, String> map, final String author, final String title, final String imgMid) {
+        RequestUtil.get(DataUrl.playMusicStep1.replace("{1}", mid), map, new Callback() {
+            @Override
+            public void onFailure(Call call, IOException e) {
+
+            }
+
+            @Override
+            public void onResponse(Call call, Response response) throws IOException {
+                String string = response.body().string();
+                Log.v("musicsource", string);
+                final String musicSource = com.alibaba.fastjson.JSONObject.parseObject(string)
+                        .getJSONObject("req_0")
+                        .getJSONObject("data")
+                        .getJSONArray("midurlinfo")
+                        .getJSONObject(0).getString("purl");
+                if("".equals(musicSource)) {
+
+                    MiGuMusicSource.loadMusicSourceFromMiGu(title, author, source -> getActivity().runOnUiThread(() -> {
+                        SmileToast.makeSmileToast(getActivity(),
+                                "对不起，QQ音乐源不能播放，正为你切换到咪咕音乐源",
+                                SmileToast.LENGTH_LONG).show();
+                        playMusic(imgMid, title, mid, source);
+                    }));
+                } else {
+                    getActivity().runOnUiThread(() -> {
+
+                        Log.v("musicsource", musicSource);
+                        String source = musicSource;
+                        if(source.contains("qq.com")) {
+                            source = source.substring(source.indexOf("qq.com/C") + 7);
+                        }
+                        playMusic(imgMid, title, mid, DataUrl.playMusicStep2.replace("{1}", source));
+                    });
+                }
+            }
+        });
+    }
+
+    protected void playMusic(final String imgMid, final String title, final String mid, final String musicSource) {
+        System.out.println("abc");
+
+//        playService.add(new Music(DataUrl.musicLogo.replace("{1}", imgMid)
+//                ,title, DataUrl.musicLrc.replace("{1}", mid), musicSource));
+//        playService.playNext();
+//        bottomTabsLayout.refershMusic(DataUrl.musicLogo.replace("{1}", imgMid), title);
     }
 }

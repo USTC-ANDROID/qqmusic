@@ -1,4 +1,4 @@
-#Tue Oct 29 21:49:30 CST 2019
+#Tue Oct 29 22:02:26 CST 2019
 base.0=/home/wilbur/AndroidStudioProjects/qqmusic/app/build/intermediates/transforms/dexMerger/debug/1
 path.1=classes.dex
 renamed.1=classes2.dex

@@ -1,5 +1,5 @@
 #Internal package file, do not edit.
-#Tue Oct 29 21:49:30 CST 2019
+#Tue Oct 29 22:02:26 CST 2019
 1.base=/home/wilbur/AndroidStudioProjects/qqmusic/app/build/intermediates/transforms/dexMerger/debug/1
 0.baseType=DIRECTORY
 1.baseType=DIRECTORY
