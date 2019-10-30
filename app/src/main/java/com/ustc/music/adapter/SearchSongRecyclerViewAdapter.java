@@ -12,14 +12,19 @@ import com.ustc.music.R;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
-public class SearchSongRecyclerViewAdapter extends RecyclerView.Adapter<SearchSongRecyclerViewAdapter.ViewHolder> {
+public class SearchSongRecyclerViewAdapter extends RecyclerView.Adapter<SearchSongRecyclerViewAdapter.ViewHolder> implements View.OnClickListener {
 
     private Context mContext;
-    //    private List<String> dataList = new ArrayList<>();
-    private List<Pair<String, String>> dataList = new ArrayList<>();
+    private SearchSongClickListener mListener;
+    private List<Map<String, String>> dataList;
 
-    public void addAllData(List<Pair<String, String>> dataList) {
+    public interface SearchSongClickListener{
+        public void clickListener(View v);
+    }
+
+    public void addAllData(List<Map<String, String>> dataList) {
         this.dataList.addAll(dataList);
         notifyDataSetChanged();
     }
@@ -28,8 +33,16 @@ public class SearchSongRecyclerViewAdapter extends RecyclerView.Adapter<SearchSo
         this.dataList.clear();
     }
 
-    public SearchSongRecyclerViewAdapter(Context context) {
-        mContext = context;
+    public SearchSongRecyclerViewAdapter(Context context, List<Map<String, String>> dataList,
+                                         SearchSongClickListener listener) {
+        this.mContext = context;
+        this.mListener = listener;
+        this.dataList = dataList;
+    }
+
+    @Override
+    public void onClick(View view) {
+        mListener.clickListener(view);
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
@@ -51,9 +64,12 @@ public class SearchSongRecyclerViewAdapter extends RecyclerView.Adapter<SearchSo
 
     @Override
     public void onBindViewHolder(ViewHolder holder, final int position) {
-//        holder.title.setText(dataList.get(position));
-        holder.songTitle.setText(dataList.get(position).first);
-        holder.singerName.setText(dataList.get(position).second);
+        holder.songTitle.setText(dataList.get(position).get("songName"));
+        holder.songTitle.setTag(position);
+        holder.songTitle.setOnClickListener(this);
+        holder.singerName.setText(dataList.get(position).get("singerName"));
+        holder.singerName.setOnClickListener(this);
+        holder.singerName.setTag(position);
     }
 
     @Override

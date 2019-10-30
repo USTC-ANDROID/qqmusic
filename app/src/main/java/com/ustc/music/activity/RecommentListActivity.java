@@ -1,38 +1,25 @@
 package com.ustc.music.activity;
 
-import android.app.Activity;
 import android.content.Intent;
-import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.ListView;
 import android.widget.SimpleAdapter;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
-import com.bumptech.glide.Glide;
 import com.ustc.music.R;
 import com.ustc.music.base.BaseActivity;
 import com.ustc.music.core.MiGuMusicSource;
 import com.ustc.music.core.MusicRequestCallBack;
 import com.ustc.music.entity.Music;
-import com.ustc.music.service.SimpleService;
 import com.ustc.music.url.DataUrl;
 import com.ustc.music.util.RequestUtil;
 import com.ustc.music.view.ImageHeadScrollView;
 import com.ustc.music.view.SmileToast;
-
-
-import org.jsoup.Jsoup;
-import org.jsoup.nodes.Document;
-import org.jsoup.select.Elements;
 
 import java.io.IOException;
 import java.util.ArrayList;

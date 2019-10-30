@@ -10,9 +10,10 @@ import android.widget.SearchView;
 
 import com.ustc.music.R;
 import com.ustc.music.adapter.SearchFragmentPagerAdapter;
+import com.ustc.music.base.BaseActivity;
 import com.ustc.music.fragment.SearchFragment;
 
-public class SearchActivity extends AppCompatActivity {
+public class SearchActivity extends BaseActivity {
 
     private SearchView searchView;
     private ImageView goback;
@@ -31,11 +32,11 @@ public class SearchActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_search);
+        onCreate(savedInstanceState, R.layout.activity_search);
         initView();
     }
 
-    void initView() {
+    protected void initView() {
         searchView = findViewById(R.id.qq_search_view);
         searchView.setIconified(false);
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
@@ -76,7 +77,7 @@ public class SearchActivity extends AppCompatActivity {
 
         //使用适配器将ViewPager与Fragment绑定在一起
         mViewPager= findViewById(R.id.viewPager);
-        searchFragmentPagerAdapter = new SearchFragmentPagerAdapter(getSupportFragmentManager());
+        searchFragmentPagerAdapter = new SearchFragmentPagerAdapter(getSupportFragmentManager(), this);
         mViewPager.setAdapter(searchFragmentPagerAdapter);
         mViewPager.setOffscreenPageLimit(searchFragmentPagerAdapter.getCount());
         //将TabLayout与ViewPager绑定在一起
@@ -88,6 +89,16 @@ public class SearchActivity extends AppCompatActivity {
         two = mTabLayout.getTabAt(1);
         three = mTabLayout.getTabAt(2);
         four = mTabLayout.getTabAt(3);
+    }
+
+    @Override
+    protected void initData() {
+
+    }
+
+    @Override
+    protected void initAdapter() {
+
     }
 
 }

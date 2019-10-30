@@ -1,7 +1,5 @@
 package com.ustc.music.base;
 
-import android.app.Activity;
-import android.app.Service;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
@@ -23,8 +21,6 @@ import android.widget.ImageView;
 import com.ustc.music.R;
 import com.ustc.music.entity.Music;
 import com.ustc.music.service.SimpleService;
-import com.ustc.music.url.DataUrl;
-import com.ustc.music.util.StatusBarUtils;
 import com.ustc.music.view.BottomTabsLayout;
 
 /**
@@ -156,5 +152,13 @@ public abstract class BaseActivity extends AppCompatActivity {
 
     public void start() {
         playService.start();
+    }
+
+    public SimpleService getPlayService() {
+        return playService;
+    }
+
+    public BottomTabsLayout getBottomTabsLayout() {
+        return bottomTabsLayout;
     }
 }
