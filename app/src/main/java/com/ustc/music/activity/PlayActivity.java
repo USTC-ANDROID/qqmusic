@@ -98,11 +98,11 @@ public class PlayActivity extends BaseActivity implements View.OnClickListener {
         mStartPlayButton.setOnClickListener(v -> {
                 Log.v("playactivity", "initEvent()");
                 if(playService.getStatus()) {
-                    mStartPlayButton.setImageResource(R.drawable.player_btn_play_normal);
+                    mStartPlayButton.setImageResource(R.drawable.player_btn_pause_normal);
                     playService.stop();
                     cdViewChange(false);
                 } else {
-                    mStartPlayButton.setImageResource(R.drawable.player_btn_pause_normal);
+                    mStartPlayButton.setImageResource(R.drawable.player_btn_play_normal);
                     playService.start();
                     cdViewChange(true);
                 }
