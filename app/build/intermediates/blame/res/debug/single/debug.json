@@ -28,16 +28,16 @@
         "source": "/home/wilbur/.gradle/caches/transforms-1/files-1.1/appcompat-v7-28.0.0.aar/a68e004edab0483cff8fa2cd4974e71f/res/drawable-mdpi-v4/abc_ic_menu_selectall_mtrl_alpha.png"
     },
     {
-        "merged": "/home/wilbur/AndroidStudioProjects/qqmusic/app/build/intermediates/res/merged/debug/drawable-xhdpi-v4_abc_ic_menu_copy_mtrl_am_alpha.png.flat",
-        "source": "/home/wilbur/.gradle/caches/transforms-1/files-1.1/appcompat-v7-28.0.0.aar/a68e004edab0483cff8fa2cd4974e71f/res/drawable-xhdpi-v4/abc_ic_menu_copy_mtrl_am_alpha.png"
+        "merged": "/home/wilbur/AndroidStudioProjects/qqmusic/app/build/intermediates/res/merged/debug/drawable-mdpi-v4_abc_ic_menu_paste_mtrl_am_alpha.png.flat",
+        "source": "/home/wilbur/.gradle/caches/transforms-1/files-1.1/appcompat-v7-28.0.0.aar/a68e004edab0483cff8fa2cd4974e71f/res/drawable-mdpi-v4/abc_ic_menu_paste_mtrl_am_alpha.png"
     },
     {
         "merged": "/home/wilbur/AndroidStudioProjects/qqmusic/app/build/intermediates/res/merged/debug/drawable-hdpi-v4_abc_ic_star_half_black_36dp.png.flat",
         "source": "/home/wilbur/.gradle/caches/transforms-1/files-1.1/appcompat-v7-28.0.0.aar/a68e004edab0483cff8fa2cd4974e71f/res/drawable-hdpi-v4/abc_ic_star_half_black_36dp.png"
     },
     {
-        "merged": "/home/wilbur/AndroidStudioProjects/qqmusic/app/build/intermediates/res/merged/debug/drawable-mdpi-v4_abc_ic_menu_paste_mtrl_am_alpha.png.flat",
-        "source": "/home/wilbur/.gradle/caches/transforms-1/files-1.1/appcompat-v7-28.0.0.aar/a68e004edab0483cff8fa2cd4974e71f/res/drawable-mdpi-v4/abc_ic_menu_paste_mtrl_am_alpha.png"
+        "merged": "/home/wilbur/AndroidStudioProjects/qqmusic/app/build/intermediates/res/merged/debug/drawable-xhdpi-v4_abc_ic_menu_copy_mtrl_am_alpha.png.flat",
+        "source": "/home/wilbur/.gradle/caches/transforms-1/files-1.1/appcompat-v7-28.0.0.aar/a68e004edab0483cff8fa2cd4974e71f/res/drawable-xhdpi-v4/abc_ic_menu_copy_mtrl_am_alpha.png"
     },
     {
         "merged": "/home/wilbur/AndroidStudioProjects/qqmusic/app/build/intermediates/res/merged/debug/drawable-mdpi-v4_notification_bg_low_pressed.9.png.flat",
@@ -48,12 +48,12 @@
         "source": "/home/wilbur/.gradle/caches/transforms-1/files-1.1/appcompat-v7-28.0.0.aar/a68e004edab0483cff8fa2cd4974e71f/res/color/abc_search_url_text.xml"
     },
     {
-        "merged": "/home/wilbur/AndroidStudioProjects/qqmusic/app/build/intermediates/res/merged/debug/drawable-hdpi-v4_abc_btn_switch_to_on_mtrl_00012.9.png.flat",
-        "source": "/home/wilbur/.gradle/caches/transforms-1/files-1.1/appcompat-v7-28.0.0.aar/a68e004edab0483cff8fa2cd4974e71f/res/drawable-hdpi-v4/abc_btn_switch_to_on_mtrl_00012.9.png"
-    },
-    {
         "merged": "/home/wilbur/AndroidStudioProjects/qqmusic/app/build/intermediates/res/merged/debug/drawable-hdpi-v4_abc_btn_check_to_on_mtrl_000.png.flat",
         "source": "/home/wilbur/.gradle/caches/transforms-1/files-1.1/appcompat-v7-28.0.0.aar/a68e004edab0483cff8fa2cd4974e71f/res/drawable-hdpi-v4/abc_btn_check_to_on_mtrl_000.png"
+    },
+    {
+        "merged": "/home/wilbur/AndroidStudioProjects/qqmusic/app/build/intermediates/res/merged/debug/drawable-hdpi-v4_abc_btn_switch_to_on_mtrl_00012.9.png.flat",
+        "source": "/home/wilbur/.gradle/caches/transforms-1/files-1.1/appcompat-v7-28.0.0.aar/a68e004edab0483cff8fa2cd4974e71f/res/drawable-hdpi-v4/abc_btn_switch_to_on_mtrl_00012.9.png"
     },
     {
         "merged": "/home/wilbur/AndroidStudioProjects/qqmusic/app/build/intermediates/res/merged/debug/drawable_tab4_disable.png.flat",
@@ -100,12 +100,12 @@
         "source": "/home/wilbur/.gradle/caches/transforms-1/files-1.1/appcompat-v7-28.0.0.aar/a68e004edab0483cff8fa2cd4974e71f/res/drawable-xhdpi-v4/abc_scrubber_control_to_pressed_mtrl_000.png"
     },
     {
-        "merged": "/home/wilbur/AndroidStudioProjects/qqmusic/app/build/intermediates/res/merged/debug/drawable-hdpi-v4_notification_bg_normal.9.png.flat",
-        "source": "/home/wilbur/.gradle/caches/transforms-1/files-1.1/support-compat-28.0.0.aar/3d5b014922a5750125f686998dc91b44/res/drawable-hdpi-v4/notification_bg_normal.9.png"
-    },
-    {
         "merged": "/home/wilbur/AndroidStudioProjects/qqmusic/app/build/intermediates/res/merged/debug/drawable-xxhdpi-v4_abc_textfield_search_activated_mtrl_alpha.9.png.flat",
         "source": "/home/wilbur/.gradle/caches/transforms-1/files-1.1/appcompat-v7-28.0.0.aar/a68e004edab0483cff8fa2cd4974e71f/res/drawable-xxhdpi-v4/abc_textfield_search_activated_mtrl_alpha.9.png"
+    },
+    {
+        "merged": "/home/wilbur/AndroidStudioProjects/qqmusic/app/build/intermediates/res/merged/debug/drawable-hdpi-v4_notification_bg_normal.9.png.flat",
+        "source": "/home/wilbur/.gradle/caches/transforms-1/files-1.1/support-compat-28.0.0.aar/3d5b014922a5750125f686998dc91b44/res/drawable-hdpi-v4/notification_bg_normal.9.png"
     },
     {
         "merged": "/home/wilbur/AndroidStudioProjects/qqmusic/app/build/intermediates/res/merged/debug/drawable-xhdpi-v4_abc_btn_check_to_on_mtrl_000.png.flat",
@@ -132,12 +132,12 @@
         "source": "/home/wilbur/.gradle/caches/transforms-1/files-1.1/BannerView-2.1.0.aar/a3f65bb5459ff80a78b6476b879b527d/res/drawable/black_background.xml"
     },
     {
-        "merged": "/home/wilbur/AndroidStudioProjects/qqmusic/app/build/intermediates/res/merged/debug/drawable-xhdpi-v4_notify_panel_notification_icon_bg.png.flat",
-        "source": "/home/wilbur/.gradle/caches/transforms-1/files-1.1/support-compat-28.0.0.aar/3d5b014922a5750125f686998dc91b44/res/drawable-xhdpi-v4/notify_panel_notification_icon_bg.png"
-    },
-    {
         "merged": "/home/wilbur/AndroidStudioProjects/qqmusic/app/build/intermediates/res/merged/debug/drawable-v24_player_btn_next_normal.png.flat",
         "source": "/home/wilbur/AndroidStudioProjects/qqmusic/app/src/main/res/drawable-v24/player_btn_next_normal.png"
+    },
+    {
+        "merged": "/home/wilbur/AndroidStudioProjects/qqmusic/app/build/intermediates/res/merged/debug/drawable-xhdpi-v4_notify_panel_notification_icon_bg.png.flat",
+        "source": "/home/wilbur/.gradle/caches/transforms-1/files-1.1/support-compat-28.0.0.aar/3d5b014922a5750125f686998dc91b44/res/drawable-xhdpi-v4/notify_panel_notification_icon_bg.png"
     },
     {
         "merged": "/home/wilbur/AndroidStudioProjects/qqmusic/app/build/intermediates/res/merged/debug/drawable-v21_avd_hide_password.xml.flat",
@@ -184,12 +184,12 @@
         "source": "/home/wilbur/AndroidStudioProjects/qqmusic/app/src/main/res/mipmap-xxxhdpi/ic_launcher_background.png"
     },
     {
-        "merged": "/home/wilbur/AndroidStudioProjects/qqmusic/app/build/intermediates/res/merged/debug/drawable_layout_shadow_card.xml.flat",
-        "source": "/home/wilbur/AndroidStudioProjects/qqmusic/app/src/main/res/drawable/layout_shadow_card.xml"
-    },
-    {
         "merged": "/home/wilbur/AndroidStudioProjects/qqmusic/app/build/intermediates/res/merged/debug/drawable-ldrtl-xxhdpi-v17_abc_spinner_mtrl_am_alpha.9.png.flat",
         "source": "/home/wilbur/.gradle/caches/transforms-1/files-1.1/appcompat-v7-28.0.0.aar/a68e004edab0483cff8fa2cd4974e71f/res/drawable-ldrtl-xxhdpi-v17/abc_spinner_mtrl_am_alpha.9.png"
+    },
+    {
+        "merged": "/home/wilbur/AndroidStudioProjects/qqmusic/app/build/intermediates/res/merged/debug/drawable_layout_shadow_card.xml.flat",
+        "source": "/home/wilbur/AndroidStudioProjects/qqmusic/app/src/main/res/drawable/layout_shadow_card.xml"
     },
     {
         "merged": "/home/wilbur/AndroidStudioProjects/qqmusic/app/build/intermediates/res/merged/debug/anim_abc_fade_in.xml.flat",
@@ -200,12 +200,12 @@
         "source": "/home/wilbur/AndroidStudioProjects/qqmusic/app/src/main/res/drawable/tab1_disable.png"
     },
     {
-        "merged": "/home/wilbur/AndroidStudioProjects/qqmusic/app/build/intermediates/res/merged/debug/color-v23_design_tint_password_toggle.xml.flat",
-        "source": "/home/wilbur/.gradle/caches/transforms-1/files-1.1/design-textfield-28.0.0-alpha1.aar/0ace899c9a052ff1361159af9eea45d8/res/color-v23/design_tint_password_toggle.xml"
-    },
-    {
         "merged": "/home/wilbur/AndroidStudioProjects/qqmusic/app/build/intermediates/res/merged/debug/drawable_abc_seekbar_track_material.xml.flat",
         "source": "/home/wilbur/.gradle/caches/transforms-1/files-1.1/appcompat-v7-28.0.0.aar/a68e004edab0483cff8fa2cd4974e71f/res/drawable/abc_seekbar_track_material.xml"
+    },
+    {
+        "merged": "/home/wilbur/AndroidStudioProjects/qqmusic/app/build/intermediates/res/merged/debug/color-v23_design_tint_password_toggle.xml.flat",
+        "source": "/home/wilbur/.gradle/caches/transforms-1/files-1.1/design-textfield-28.0.0-alpha1.aar/0ace899c9a052ff1361159af9eea45d8/res/color-v23/design_tint_password_toggle.xml"
     },
     {
         "merged": "/home/wilbur/AndroidStudioProjects/qqmusic/app/build/intermediates/res/merged/debug/drawable_video.png.flat",
@@ -288,12 +288,12 @@
         "source": "/home/wilbur/.gradle/caches/transforms-1/files-1.1/appcompat-v7-28.0.0.aar/a68e004edab0483cff8fa2cd4974e71f/res/drawable/abc_list_selector_holo_light.xml"
     },
     {
-        "merged": "/home/wilbur/AndroidStudioProjects/qqmusic/app/build/intermediates/res/merged/debug/layout_design_navigation_menu.xml.flat",
-        "source": "/home/wilbur/.gradle/caches/transforms-1/files-1.1/design-internal-28.0.0-alpha1.aar/ebc728ea81bac2ce15e471c8c18cb6a9/res/layout/design_navigation_menu.xml"
-    },
-    {
         "merged": "/home/wilbur/AndroidStudioProjects/qqmusic/app/build/intermediates/res/merged/debug/drawable-xhdpi-v4_abc_ic_star_black_16dp.png.flat",
         "source": "/home/wilbur/.gradle/caches/transforms-1/files-1.1/appcompat-v7-28.0.0.aar/a68e004edab0483cff8fa2cd4974e71f/res/drawable-xhdpi-v4/abc_ic_star_black_16dp.png"
+    },
+    {
+        "merged": "/home/wilbur/AndroidStudioProjects/qqmusic/app/build/intermediates/res/merged/debug/layout_design_navigation_menu.xml.flat",
+        "source": "/home/wilbur/.gradle/caches/transforms-1/files-1.1/design-internal-28.0.0-alpha1.aar/ebc728ea81bac2ce15e471c8c18cb6a9/res/layout/design_navigation_menu.xml"
     },
     {
         "merged": "/home/wilbur/AndroidStudioProjects/qqmusic/app/build/intermediates/res/merged/debug/drawable-mdpi-v4_abc_menu_hardkey_panel_mtrl_mult.9.png.flat",
@@ -324,12 +324,12 @@
         "source": "/home/wilbur/.gradle/caches/transforms-1/files-1.1/design-tabs-28.0.0-alpha1.aar/ceac885225e99568fee2cd982a8269b5/res/drawable/mtrl_tabs_default_indicator.xml"
     },
     {
-        "merged": "/home/wilbur/AndroidStudioProjects/qqmusic/app/build/intermediates/res/merged/debug/drawable-hdpi-v4_abc_ic_star_half_black_16dp.png.flat",
-        "source": "/home/wilbur/.gradle/caches/transforms-1/files-1.1/appcompat-v7-28.0.0.aar/a68e004edab0483cff8fa2cd4974e71f/res/drawable-hdpi-v4/abc_ic_star_half_black_16dp.png"
-    },
-    {
         "merged": "/home/wilbur/AndroidStudioProjects/qqmusic/app/build/intermediates/res/merged/debug/drawable-xxhdpi-v4_abc_list_pressed_holo_light.9.png.flat",
         "source": "/home/wilbur/.gradle/caches/transforms-1/files-1.1/appcompat-v7-28.0.0.aar/a68e004edab0483cff8fa2cd4974e71f/res/drawable-xxhdpi-v4/abc_list_pressed_holo_light.9.png"
+    },
+    {
+        "merged": "/home/wilbur/AndroidStudioProjects/qqmusic/app/build/intermediates/res/merged/debug/drawable-hdpi-v4_abc_ic_star_half_black_16dp.png.flat",
+        "source": "/home/wilbur/.gradle/caches/transforms-1/files-1.1/appcompat-v7-28.0.0.aar/a68e004edab0483cff8fa2cd4974e71f/res/drawable-hdpi-v4/abc_ic_star_half_black_16dp.png"
     },
     {
         "merged": "/home/wilbur/AndroidStudioProjects/qqmusic/app/build/intermediates/res/merged/debug/drawable_comeback.png.flat",

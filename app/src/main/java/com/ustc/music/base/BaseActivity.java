@@ -153,4 +153,12 @@ public abstract class BaseActivity extends AppCompatActivity {
     public void start() {
         playService.start();
     }
+
+    public SimpleService getPlayService() {
+        return playService;
+    }
+
+    public BottomTabsLayout getBottomTabsLayout() {
+        return bottomTabsLayout;
+    }
 }

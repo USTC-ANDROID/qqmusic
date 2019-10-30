@@ -7,7 +7,9 @@ import android.view.View;
 
 import com.ustc.music.R;
 import com.ustc.music.adapter.SearchSongRecyclerViewAdapter;
+import com.ustc.music.base.BaseActivity;
 import com.ustc.music.core.MiGuMusicSource;
+import com.ustc.music.entity.Music;
 import com.ustc.music.url.DataUrl;
 import com.ustc.music.util.RequestUtil;
 import com.ustc.music.view.SmileToast;
@@ -36,6 +38,11 @@ public class SearchSongFragment extends SearchFragment implements SearchSongRecy
 
     private SearchSongRecyclerViewAdapter mSearchSongRecyclerViewAdapter;
     final List<Map<String, String>> songSingerDataSource = new ArrayList<>();
+    private BaseActivity baseActivity;
+
+    public void setBaseActivity(BaseActivity baseActivity) {
+        this.baseActivity = baseActivity;
+    }
 
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
@@ -155,11 +162,9 @@ public class SearchSongFragment extends SearchFragment implements SearchSongRecy
     }
 
     protected void playMusic(final String imgMid, final String title, final String mid, final String musicSource) {
-        System.out.println("abc");
-
-//        playService.add(new Music(DataUrl.musicLogo.replace("{1}", imgMid)
-//                ,title, DataUrl.musicLrc.replace("{1}", mid), musicSource));
-//        playService.playNext();
-//        bottomTabsLayout.refershMusic(DataUrl.musicLogo.replace("{1}", imgMid), title);
+        baseActivity.getPlayService().add(new Music(DataUrl.musicLogo.replace("{1}", imgMid)
+                ,title, DataUrl.musicLrc.replace("{1}", mid), musicSource));
+        baseActivity.getPlayService().playNext();
+        baseActivity.getBottomTabsLayout().refershMusic(DataUrl.musicLogo.replace("{1}", imgMid), title);
     }
 }
