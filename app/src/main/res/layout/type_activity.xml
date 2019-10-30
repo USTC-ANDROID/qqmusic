@@ -64,19 +64,6 @@
             android:layout_height="wrap_content"
             android:orientation="vertical" >
 
-            <ImageView
-                android:id="@+id/imageView"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:src="@drawable/type" />
-
-            <ImageView
-                android:id="@+id/imageView17"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:src="@drawable/type2" />
-
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -84,11 +71,12 @@
                 android:orientation="horizontal">
 
                 <TextView
-                    android:id="@+id/textView2"
+                    android:id="@+id/typeTextView1"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_marginLeft="15dp"
+                    android:layout_marginLeft="10dp"
                     android:layout_weight="1"
+                    android:layout_marginTop="0dp"
                     android:text="歌单精选"
                     android:textColor="@android:color/black"
                     android:textSize="18sp"
@@ -104,14 +92,14 @@
                 <LinearLayout
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_weight="0.5"
+                    android:layout_weight="0.49"
                     android:orientation="vertical">
 
                     <com.ustc.music.view.RoundImageView
                         android:id="@+id/albumImageView1"
-                        android:layout_width="185dp"
-                        android:layout_height="185dp"
-                        android:layout_marginLeft="15dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="170dp"
+                        android:layout_marginLeft="10dp"
                         app:radius="20dp"
                         android:src="@drawable/newmusic" />
 
@@ -119,7 +107,7 @@
                         android:id="@+id/albumTextView1_1"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="15dp"
+                        android:layout_marginLeft="10dp"
                         android:layout_marginTop="5dp"
                         android:layout_marginRight="5dp"
                         android:text="在家歇，这些R-B歌曲极度舒适"
@@ -129,7 +117,7 @@
                         android:id="@+id/albumTextView1_2"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="15dp"
+                        android:layout_marginLeft="10dp"
                         android:layout_marginTop="0dp"
                         android:layout_marginRight="5dp"
                         android:text="MOO音乐" />
@@ -138,14 +126,21 @@
                 <LinearLayout
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_weight="0.5"
+                    android:layout_weight="0.02"
+                    android:orientation="vertical">
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.49"
                     android:orientation="vertical">
 
                     <com.ustc.music.view.RoundImageView
                         android:id="@+id/albumImageView2"
-                        android:layout_width="185dp"
-                        android:layout_height="185dp"
-                        android:layout_marginLeft="10dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="170dp"
+                        android:layout_marginRight="10dp"
                         app:radius="20dp"
                         android:src="@drawable/newmusic" />
 
@@ -153,7 +148,7 @@
                         android:id="@+id/albumTextView2_1"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="10dp"
+                        android:layout_marginLeft="0dp"
                         android:layout_marginRight="5dp"
                         android:layout_marginTop="5dp"
                         android:text="散个步，Chill-Hop和舒爽秋天"
@@ -163,7 +158,7 @@
                         android:id="@+id/albumTextView2_2"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="10dp"
+                        android:layout_marginLeft="0dp"
                         android:text="MOO音乐" />
                 </LinearLayout>
 
@@ -178,14 +173,14 @@
                 <LinearLayout
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_weight="0.5"
+                    android:layout_weight="0.49"
                     android:orientation="vertical">
 
                     <com.ustc.music.view.RoundImageView
                         android:id="@+id/albumImageView3"
-                        android:layout_width="185dp"
-                        android:layout_height="185dp"
-                        android:layout_marginLeft="15dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="170dp"
+                        android:layout_marginLeft="10dp"
                         app:radius="20dp"
                         android:src="@drawable/newmusic" />
 
@@ -193,7 +188,7 @@
                         android:id="@+id/albumTextView3_1"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="15dp"
+                        android:layout_marginLeft="10dp"
                         android:layout_marginTop="5dp"
                         android:layout_marginRight="5dp"
                         android:text="在家歇，这些R-B歌曲极度舒适"
@@ -203,7 +198,7 @@
                         android:id="@+id/albumTextView3_2"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="15dp"
+                        android:layout_marginLeft="10dp"
                         android:layout_marginTop="0dp"
                         android:layout_marginRight="5dp"
                         android:text="MOO音乐" />
@@ -212,14 +207,21 @@
                 <LinearLayout
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_weight="0.5"
+                    android:layout_weight="0.02"
+                    android:orientation="vertical">
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.49"
                     android:orientation="vertical">
 
                     <com.ustc.music.view.RoundImageView
                         android:id="@+id/albumImageView4"
-                        android:layout_width="185dp"
-                        android:layout_height="185dp"
-                        android:layout_marginLeft="10dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="170dp"
+                        android:layout_marginRight="10dp"
                         app:radius="20dp"
                         android:src="@drawable/newmusic" />
 
@@ -227,7 +229,7 @@
                         android:id="@+id/albumTextView4_1"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="10dp"
+                        android:layout_marginLeft="0dp"
                         android:layout_marginRight="5dp"
                         android:layout_marginTop="5dp"
                         android:text="散个步，Chill-Hop和舒爽秋天"
@@ -237,10 +239,29 @@
                         android:id="@+id/albumTextView4_2"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="10dp"
+                        android:layout_marginLeft="0dp"
                         android:text="MOO音乐" />
                 </LinearLayout>
 
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/typeTextView2"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="10dp"
+                    android:layout_weight="1"
+                    android:layout_marginTop="15dp"
+                    android:text="歌单精选"
+                    android:textColor="@android:color/black"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
             </LinearLayout>
 
             <LinearLayout
@@ -252,14 +273,14 @@
                 <LinearLayout
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_weight="0.5"
+                    android:layout_weight="0.49"
                     android:orientation="vertical">
 
                     <com.ustc.music.view.RoundImageView
                         android:id="@+id/albumImageView5"
-                        android:layout_width="185dp"
-                        android:layout_height="185dp"
-                        android:layout_marginLeft="15dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="170dp"
+                        android:layout_marginLeft="10dp"
                         app:radius="20dp"
                         android:src="@drawable/newmusic" />
 
@@ -267,7 +288,7 @@
                         android:id="@+id/albumTextView5_1"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="15dp"
+                        android:layout_marginLeft="10dp"
                         android:layout_marginTop="5dp"
                         android:layout_marginRight="5dp"
                         android:text="在家歇，这些R-B歌曲极度舒适"
@@ -277,7 +298,7 @@
                         android:id="@+id/albumTextView5_2"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="15dp"
+                        android:layout_marginLeft="10dp"
                         android:layout_marginTop="0dp"
                         android:layout_marginRight="5dp"
                         android:text="MOO音乐" />
@@ -286,14 +307,21 @@
                 <LinearLayout
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_weight="0.5"
+                    android:layout_weight="0.02"
+                    android:orientation="vertical">
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.49"
                     android:orientation="vertical">
 
                     <com.ustc.music.view.RoundImageView
                         android:id="@+id/albumImageView6"
-                        android:layout_width="185dp"
-                        android:layout_height="185dp"
-                        android:layout_marginLeft="10dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="170dp"
+                        android:layout_marginRight="10dp"
                         app:radius="20dp"
                         android:src="@drawable/newmusic" />
 
@@ -301,7 +329,7 @@
                         android:id="@+id/albumTextView6_1"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="10dp"
+                        android:layout_marginLeft="0dp"
                         android:layout_marginRight="5dp"
                         android:layout_marginTop="5dp"
                         android:text="散个步，Chill-Hop和舒爽秋天"
@@ -311,7 +339,7 @@
                         android:id="@+id/albumTextView6_2"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="10dp"
+                        android:layout_marginLeft="0dp"
                         android:text="MOO音乐" />
                 </LinearLayout>
 
@@ -326,14 +354,14 @@
                 <LinearLayout
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_weight="0.5"
+                    android:layout_weight="0.49"
                     android:orientation="vertical">
 
                     <com.ustc.music.view.RoundImageView
                         android:id="@+id/albumImageView7"
-                        android:layout_width="185dp"
-                        android:layout_height="185dp"
-                        android:layout_marginLeft="15dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="170dp"
+                        android:layout_marginLeft="10dp"
                         app:radius="20dp"
                         android:src="@drawable/newmusic" />
 
@@ -341,7 +369,7 @@
                         android:id="@+id/albumTextView7_1"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="15dp"
+                        android:layout_marginLeft="10dp"
                         android:layout_marginTop="5dp"
                         android:layout_marginRight="5dp"
                         android:text="在家歇，这些R-B歌曲极度舒适"
@@ -351,7 +379,7 @@
                         android:id="@+id/albumTextView7_2"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="15dp"
+                        android:layout_marginLeft="10dp"
                         android:layout_marginTop="0dp"
                         android:layout_marginRight="5dp"
                         android:text="MOO音乐" />
@@ -360,14 +388,21 @@
                 <LinearLayout
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_weight="0.5"
+                    android:layout_weight="0.02"
+                    android:orientation="vertical">
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.49"
                     android:orientation="vertical">
 
                     <com.ustc.music.view.RoundImageView
                         android:id="@+id/albumImageView8"
-                        android:layout_width="185dp"
-                        android:layout_height="185dp"
-                        android:layout_marginLeft="10dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="170dp"
+                        android:layout_marginRight="10dp"
                         app:radius="20dp"
                         android:src="@drawable/newmusic" />
 
@@ -375,7 +410,7 @@
                         android:id="@+id/albumTextView8_1"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="10dp"
+                        android:layout_marginLeft="0dp"
                         android:layout_marginRight="5dp"
                         android:layout_marginTop="5dp"
                         android:text="散个步，Chill-Hop和舒爽秋天"
@@ -385,10 +420,29 @@
                         android:id="@+id/albumTextView8_2"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="10dp"
+                        android:layout_marginLeft="0dp"
                         android:text="MOO音乐" />
                 </LinearLayout>
 
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/typeTextView3"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="10dp"
+                    android:layout_weight="1"
+                    android:layout_marginTop="15dp"
+                    android:text="歌单精选"
+                    android:textColor="@android:color/black"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
             </LinearLayout>
 
             <LinearLayout
@@ -400,14 +454,14 @@
                 <LinearLayout
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_weight="0.5"
+                    android:layout_weight="0.49"
                     android:orientation="vertical">
 
                     <com.ustc.music.view.RoundImageView
                         android:id="@+id/albumImageView9"
-                        android:layout_width="185dp"
-                        android:layout_height="185dp"
-                        android:layout_marginLeft="15dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="170dp"
+                        android:layout_marginLeft="10dp"
                         app:radius="20dp"
                         android:src="@drawable/newmusic" />
 
@@ -415,7 +469,7 @@
                         android:id="@+id/albumTextView9_1"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="15dp"
+                        android:layout_marginLeft="10dp"
                         android:layout_marginTop="5dp"
                         android:layout_marginRight="5dp"
                         android:text="在家歇，这些R-B歌曲极度舒适"
@@ -425,7 +479,7 @@
                         android:id="@+id/albumTextView9_2"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="15dp"
+                        android:layout_marginLeft="10dp"
                         android:layout_marginTop="0dp"
                         android:layout_marginRight="5dp"
                         android:text="MOO音乐" />
@@ -434,14 +488,21 @@
                 <LinearLayout
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_weight="0.5"
+                    android:layout_weight="0.02"
+                    android:orientation="vertical">
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.49"
                     android:orientation="vertical">
 
                     <com.ustc.music.view.RoundImageView
                         android:id="@+id/albumImageView10"
-                        android:layout_width="185dp"
-                        android:layout_height="185dp"
-                        android:layout_marginLeft="10dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="170dp"
+                        android:layout_marginRight="10dp"
                         app:radius="20dp"
                         android:src="@drawable/newmusic" />
 
@@ -449,7 +510,7 @@
                         android:id="@+id/albumTextView10_1"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="10dp"
+                        android:layout_marginLeft="0dp"
                         android:layout_marginRight="5dp"
                         android:layout_marginTop="5dp"
                         android:text="散个步，Chill-Hop和舒爽秋天"
@@ -459,7 +520,7 @@
                         android:id="@+id/albumTextView10_2"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="10dp"
+                        android:layout_marginLeft="0dp"
                         android:text="MOO音乐" />
                 </LinearLayout>
 
@@ -474,14 +535,14 @@
                 <LinearLayout
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_weight="0.5"
+                    android:layout_weight="0.49"
                     android:orientation="vertical">
 
                     <com.ustc.music.view.RoundImageView
                         android:id="@+id/albumImageView11"
-                        android:layout_width="185dp"
-                        android:layout_height="185dp"
-                        android:layout_marginLeft="15dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="170dp"
+                        android:layout_marginLeft="10dp"
                         app:radius="20dp"
                         android:src="@drawable/newmusic" />
 
@@ -489,7 +550,7 @@
                         android:id="@+id/albumTextView11_1"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="15dp"
+                        android:layout_marginLeft="10dp"
                         android:layout_marginTop="5dp"
                         android:layout_marginRight="5dp"
                         android:text="在家歇，这些R-B歌曲极度舒适"
@@ -497,6 +558,549 @@
 
                     <TextView
                         android:id="@+id/albumTextView11_2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="0dp"
+                        android:layout_marginRight="5dp"
+                        android:text="MOO音乐" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.02"
+                    android:orientation="vertical">
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.49"
+                    android:orientation="vertical">
+
+                    <com.ustc.music.view.RoundImageView
+                        android:id="@+id/albumImageView12"
+                        android:layout_width="match_parent"
+                        android:layout_height="170dp"
+                        android:layout_marginRight="10dp"
+                        app:radius="20dp"
+                        android:src="@drawable/newmusic" />
+
+                    <TextView
+                        android:id="@+id/albumTextView12_1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="0dp"
+                        android:layout_marginRight="5dp"
+                        android:layout_marginTop="5dp"
+                        android:text="散个步，Chill-Hop和舒爽秋天"
+                        android:textColor="@android:color/black" />
+
+                    <TextView
+                        android:id="@+id/albumTextView12_2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="0dp"
+                        android:text="MOO音乐" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/typeTextView4"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="10dp"
+                    android:layout_weight="1"
+                    android:layout_marginTop="15dp"
+                    android:text="歌单精选"
+                    android:textColor="@android:color/black"
+                    android:textSize="18sp"
+                    android:textStyle="bold"  />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.49"
+                    android:orientation="vertical">
+
+                    <com.ustc.music.view.RoundImageView
+                        android:id="@+id/albumImageView13"
+                        android:layout_width="match_parent"
+                        android:layout_height="170dp"
+                        android:layout_marginLeft="10dp"
+                        app:radius="20dp"
+                        android:src="@drawable/newmusic" />
+
+                    <TextView
+                        android:id="@+id/albumTextView13_1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginRight="5dp"
+                        android:text="在家歇，这些R-B歌曲极度舒适"
+                        android:textColor="@android:color/black" />
+
+                    <TextView
+                        android:id="@+id/albumTextView13_2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="0dp"
+                        android:layout_marginRight="5dp"
+                        android:text="MOO音乐" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.02"
+                    android:orientation="vertical">
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.49"
+                    android:orientation="vertical">
+
+                    <com.ustc.music.view.RoundImageView
+                        android:id="@+id/albumImageView14"
+                        android:layout_width="match_parent"
+                        android:layout_height="170dp"
+                        android:layout_marginRight="10dp"
+                        app:radius="20dp"
+                        android:src="@drawable/newmusic" />
+
+                    <TextView
+                        android:id="@+id/albumTextView14_1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="0dp"
+                        android:layout_marginRight="5dp"
+                        android:layout_marginTop="5dp"
+                        android:text="散个步，Chill-Hop和舒爽秋天"
+                        android:textColor="@android:color/black" />
+
+                    <TextView
+                        android:id="@+id/albumTextView14_2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="0dp"
+                        android:text="MOO音乐" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.49"
+                    android:orientation="vertical">
+
+                    <com.ustc.music.view.RoundImageView
+                        android:id="@+id/albumImageView15"
+                        android:layout_width="match_parent"
+                        android:layout_height="170dp"
+                        android:layout_marginLeft="10dp"
+                        app:radius="20dp"
+                        android:src="@drawable/newmusic" />
+
+                    <TextView
+                        android:id="@+id/albumTextView15_1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginRight="5dp"
+                        android:text="在家歇，这些R-B歌曲极度舒适"
+                        android:textColor="@android:color/black" />
+
+                    <TextView
+                        android:id="@+id/albumTextView15_2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="0dp"
+                        android:layout_marginRight="5dp"
+                        android:text="MOO音乐" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.02"
+                    android:orientation="vertical">
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.49"
+                    android:orientation="vertical">
+
+                    <com.ustc.music.view.RoundImageView
+                        android:id="@+id/albumImageView16"
+                        android:layout_width="match_parent"
+                        android:layout_height="170dp"
+                        android:layout_marginRight="10dp"
+                        app:radius="20dp"
+                        android:src="@drawable/newmusic" />
+
+                    <TextView
+                        android:id="@+id/albumTextView16_1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="0dp"
+                        android:layout_marginRight="5dp"
+                        android:layout_marginTop="5dp"
+                        android:text="散个步，Chill-Hop和舒爽秋天"
+                        android:textColor="@android:color/black" />
+
+                    <TextView
+                        android:id="@+id/albumTextView16_2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="0dp"
+                        android:text="MOO音乐" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/typeTextView5"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="10dp"
+                    android:layout_weight="1"
+                    android:layout_marginTop="15dp"
+                    android:text="歌单精选"
+                    android:textColor="@android:color/black"
+                    android:textSize="18sp"
+                    android:textStyle="bold"  />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.49"
+                    android:orientation="vertical">
+
+                    <com.ustc.music.view.RoundImageView
+                        android:id="@+id/albumImageView17"
+                        android:layout_width="match_parent"
+                        android:layout_height="170dp"
+                        android:layout_marginLeft="10dp"
+                        app:radius="20dp"
+                        android:src="@drawable/newmusic" />
+
+                    <TextView
+                        android:id="@+id/albumTextView17_1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginRight="5dp"
+                        android:text="在家歇，这些R-B歌曲极度舒适"
+                        android:textColor="@android:color/black" />
+
+                    <TextView
+                        android:id="@+id/albumTextView17_2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="0dp"
+                        android:layout_marginRight="5dp"
+                        android:text="MOO音乐" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.02"
+                    android:orientation="vertical">
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.49"
+                    android:orientation="vertical">
+
+                    <com.ustc.music.view.RoundImageView
+                        android:id="@+id/albumImageView18"
+                        android:layout_width="match_parent"
+                        android:layout_height="170dp"
+                        android:layout_marginRight="10dp"
+                        app:radius="20dp"
+                        android:src="@drawable/newmusic" />
+
+                    <TextView
+                        android:id="@+id/albumTextView18_1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="0dp"
+                        android:layout_marginRight="5dp"
+                        android:layout_marginTop="5dp"
+                        android:text="散个步，Chill-Hop和舒爽秋天"
+                        android:textColor="@android:color/black" />
+
+                    <TextView
+                        android:id="@+id/albumTextView18_2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="0dp"
+                        android:text="MOO音乐" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.49"
+                    android:orientation="vertical">
+
+                    <com.ustc.music.view.RoundImageView
+                        android:id="@+id/albumImageView19"
+                        android:layout_width="match_parent"
+                        android:layout_height="170dp"
+                        android:layout_marginLeft="10dp"
+                        app:radius="20dp"
+                        android:src="@drawable/newmusic" />
+
+                    <TextView
+                        android:id="@+id/albumTextView19_1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginRight="5dp"
+                        android:text="在家歇，这些R-B歌曲极度舒适"
+                        android:textColor="@android:color/black" />
+
+                    <TextView
+                        android:id="@+id/albumTextView19_2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="0dp"
+                        android:layout_marginRight="5dp"
+                        android:text="MOO音乐" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.02"
+                    android:orientation="vertical">
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.49"
+                    android:orientation="vertical">
+
+                    <com.ustc.music.view.RoundImageView
+                        android:id="@+id/albumImageView20"
+                        android:layout_width="match_parent"
+                        android:layout_height="170dp"
+                        android:layout_marginRight="10dp"
+                        app:radius="20dp"
+                        android:src="@drawable/newmusic" />
+
+                    <TextView
+                        android:id="@+id/albumTextView20_1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="0dp"
+                        android:layout_marginRight="5dp"
+                        android:layout_marginTop="5dp"
+                        android:text="散个步，Chill-Hop和舒爽秋天"
+                        android:textColor="@android:color/black" />
+
+                    <TextView
+                        android:id="@+id/albumTextView20_2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="0dp"
+                        android:text="MOO音乐" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/typeTextView6"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="10dp"
+                    android:layout_weight="1"
+                    android:layout_marginTop="15dp"
+                    android:text="歌单精选"
+                    android:textColor="@android:color/black"
+                    android:textSize="18sp"
+                    android:textStyle="bold"  />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.49"
+                    android:orientation="vertical">
+
+                    <com.ustc.music.view.RoundImageView
+                        android:id="@+id/albumImageView21"
+                        android:layout_width="match_parent"
+                        android:layout_height="170dp"
+                        android:layout_marginLeft="10dp"
+                        app:radius="20dp"
+                        android:src="@drawable/newmusic" />
+
+                    <TextView
+                        android:id="@+id/albumTextView21_1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginRight="5dp"
+                        android:text="在家歇，这些R-B歌曲极度舒适"
+                        android:textColor="@android:color/black" />
+
+                    <TextView
+                        android:id="@+id/albumTextView21_2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="0dp"
+                        android:layout_marginRight="5dp"
+                        android:text="MOO音乐" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.02"
+                    android:orientation="vertical">
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.49"
+                    android:orientation="vertical">
+
+                    <com.ustc.music.view.RoundImageView
+                        android:id="@+id/albumImageView22"
+                        android:layout_width="match_parent"
+                        android:layout_height="170dp"
+                        android:layout_marginRight="10dp"
+                        app:radius="20dp"
+                        android:src="@drawable/newmusic" />
+
+                    <TextView
+                        android:id="@+id/albumTextView22_1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="0dp"
+                        android:layout_marginRight="5dp"
+                        android:layout_marginTop="5dp"
+                        android:text="散个步，Chill-Hop和舒爽秋天"
+                        android:textColor="@android:color/black" />
+
+                    <TextView
+                        android:id="@+id/albumTextView22_2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="0dp"
+                        android:text="MOO音乐" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.49"
+                    android:orientation="vertical">
+
+                    <com.ustc.music.view.RoundImageView
+                        android:id="@+id/albumImageView23"
+                        android:layout_width="match_parent"
+                        android:layout_height="170dp"
+                        android:layout_marginLeft="10dp"
+                        app:radius="20dp"
+                        android:src="@drawable/newmusic" />
+
+                    <TextView
+                        android:id="@+id/albumTextView23_1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginRight="5dp"
+                        android:text="在家歇，这些R-B歌曲极度舒适"
+                        android:textColor="@android:color/black" />
+
+                    <TextView
+                        android:id="@+id/albumTextView23_2"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="15dp"
@@ -508,32 +1112,39 @@
                 <LinearLayout
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_weight="0.5"
+                    android:layout_weight="0.02"
+                    android:orientation="vertical">
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.49"
                     android:orientation="vertical">
 
                     <com.ustc.music.view.RoundImageView
-                        android:id="@+id/albumImageView12"
-                        android:layout_width="185dp"
-                        android:layout_height="185dp"
-                        android:layout_marginLeft="10dp"
+                        android:id="@+id/albumImageView24"
+                        android:layout_width="match_parent"
+                        android:layout_height="170dp"
+                        android:layout_marginRight="10dp"
                         app:radius="20dp"
                         android:src="@drawable/newmusic" />
 
                     <TextView
-                        android:id="@+id/albumTextView12_1"
+                        android:id="@+id/albumTextView24_1"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="10dp"
+                        android:layout_marginLeft="0dp"
                         android:layout_marginRight="5dp"
                         android:layout_marginTop="5dp"
                         android:text="散个步，Chill-Hop和舒爽秋天"
                         android:textColor="@android:color/black" />
 
                     <TextView
-                        android:id="@+id/albumTextView12_2"
+                        android:id="@+id/albumTextView24_2"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="10dp"
+                        android:layout_marginLeft="0dp"
                         android:text="MOO音乐" />
                 </LinearLayout>
 

@@ -10,8 +10,12 @@ import com.ustc.music.R;
 import com.ustc.music.adapter.SearchSongRecyclerViewAdapter;
 import com.ustc.music.base.BaseActivity;
 import com.ustc.music.entity.Music;
+import com.ustc.music.base.BaseActivity;
+import com.ustc.music.core.MiGuMusicSource;
+import com.ustc.music.entity.Music;
 import com.ustc.music.url.DataUrl;
 import com.ustc.music.util.RequestUtil;
+import com.ustc.music.view.SmileToast;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -19,7 +23,9 @@ import org.json.JSONObject;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import okhttp3.Call;
 import okhttp3.Callback;
@@ -31,16 +37,22 @@ import okhttp3.ResponseBody;
  * Activities that contain this fragment must implement the
  * create an instance of this fragment.
  */
-public class SearchSongFragment extends SearchFragment {
+public class SearchSongFragment extends SearchFragment  {
 
     private SearchSongRecyclerViewAdapter mSearchSongRecyclerViewAdapter;
+    final List<Music> songSingerDataSource = new ArrayList<>();
+    private BaseActivity baseActivity;
+
+    public void setBaseActivity(BaseActivity baseActivity) {
+        this.baseActivity = baseActivity;
+    }
 
     private BaseActivity activity;
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         activity = (BaseActivity) getActivity();
-        mSearchSongRecyclerViewAdapter = new SearchSongRecyclerViewAdapter(activity);
+        mSearchSongRecyclerViewAdapter = new SearchSongRecyclerViewAdapter((BaseActivity)getActivity(), songSingerDataSource);
         mPullLoadMoreRecyclerView.setAdapter(mSearchSongRecyclerViewAdapter);
     }
 
@@ -63,19 +75,15 @@ public class SearchSongFragment extends SearchFragment {
                     int len = jsonArray.length();
                     for (int i = 0; i < len; i++) {
                         JSONObject jsonObject = jsonArray.getJSONObject(i);
-                        Log.v("musicsource",jsonObject.toString());
                         String songName = jsonObject.getString("songname");
                         String singerName = ((JSONObject)jsonObject.getJSONArray("singer").get(0)).getString("name");
                         String mid = jsonObject.getString("songmid");
                         String imgId = jsonObject.getString("albummid");
                         songSingerDataSource.add(new Music(mid, singerName,DataUrl.musicLogo.replace("{1}", imgId), DataUrl.musicLrc.replace("{1}", mid), songName));
                     }
-                    getActivity().runOnUiThread(new Runnable() {
-                        @Override
-                        public void run() {
-                            mSearchSongRecyclerViewAdapter.addAllData(songSingerDataSource);
-                            mPullLoadMoreRecyclerView.setPullLoadMoreCompleted();
-                        }
+                    getActivity().runOnUiThread(() -> {
+                        mSearchSongRecyclerViewAdapter.addAllData(songSingerDataSource);
+                        mPullLoadMoreRecyclerView.setPullLoadMoreCompleted();
                     });
                 } catch (JSONException e) {
                     e.printStackTrace();
@@ -83,7 +91,6 @@ public class SearchSongFragment extends SearchFragment {
             }
         });
     }
-
 
     public void clearData() {
         mSearchSongRecyclerViewAdapter.clearData();
@@ -109,4 +116,8 @@ public class SearchSongFragment extends SearchFragment {
     protected int getSearchType() {
         return 0;
     }
+
+
+
+
 }

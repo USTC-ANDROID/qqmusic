@@ -29,6 +29,10 @@ public class SearchSongRecyclerViewAdapter extends RecyclerView.Adapter<SearchSo
     MyDatabaseHelper mDatabaseHelper;
     SQLiteDatabase mSqLiteDatabase;
 
+    public interface SearchSongClickListener{
+        public void clickListener(View v);
+    }
+
     public void addAllData(List<Music> dataList) {
         this.dataList.addAll(dataList);
         notifyDataSetChanged();
@@ -40,6 +44,11 @@ public class SearchSongRecyclerViewAdapter extends RecyclerView.Adapter<SearchSo
 
     public SearchSongRecyclerViewAdapter(BaseActivity context) {
         mContext = context;
+    }
+    public SearchSongRecyclerViewAdapter(BaseActivity context, List<Music> dataList) {
+        this.mContext = context;
+        this.dataList = dataList;
+
         mDatabaseHelper = new MyDatabaseHelper(context);
         mSqLiteDatabase = mDatabaseHelper.getWritableDatabase();
     }
@@ -97,9 +106,6 @@ public class SearchSongRecyclerViewAdapter extends RecyclerView.Adapter<SearchSo
                 holder.addLike.setImageResource(R.drawable.liking);
             }
         });
-
-
-
         holder.itemView.setOnClickListener(e -> {
             mContext.playService.playNow(dataList.get(position));
         });

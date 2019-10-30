@@ -5,7 +5,7 @@
     build-mode="FULL"
     format="10"
     plugin-version="3.2.0"
-    timestamp="1572437487716"
+    timestamp="1572439689957"
     token="842982265221755205"
     verifier="FULL_BUILD_REQUESTED" >
 
@@ -64,7 +64,7 @@
 
     <build
         build-mode="FULL"
-        timestamp="1572437487716"
+        timestamp="1572439689957"
         verifier="FULL_BUILD_REQUESTED" >
         <artifact
             location="F:\program\music\app\build\intermediates\split-apk\debug\slices\slice_5.apk"

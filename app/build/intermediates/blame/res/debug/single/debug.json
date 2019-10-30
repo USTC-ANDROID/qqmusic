@@ -4,12 +4,12 @@
         "source": "F:\\program\\music\\app\\src\\main\\res\\mipmap-hdpi\\ic_launcher_round.png"
     },
     {
-        "merged": "F:\\program\\music\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_play_progressbar_green.xml.flat",
-        "source": "F:\\program\\music\\app\\src\\main\\res\\drawable-v24\\play_progressbar_green.xml"
-    },
-    {
         "merged": "F:\\program\\music\\app\\build\\intermediates\\res\\merged\\debug\\color-v23_abc_tint_edittext.xml.flat",
         "source": "C:\\Users\\Administrator\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-28.0.0.aar\\65060275a2c208958b7d5593dac71b51\\res\\color-v23\\abc_tint_edittext.xml"
+    },
+    {
+        "merged": "F:\\program\\music\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_play_progressbar_green.xml.flat",
+        "source": "F:\\program\\music\\app\\src\\main\\res\\drawable-v24\\play_progressbar_green.xml"
     },
     {
         "merged": "F:\\program\\music\\app\\build\\intermediates\\res\\merged\\debug\\drawable_tab2_disable.png.flat",
@@ -28,12 +28,12 @@
         "source": "C:\\Users\\Administrator\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-28.0.0.aar\\65060275a2c208958b7d5593dac71b51\\res\\drawable-xxhdpi-v4\\abc_text_select_handle_left_mtrl_dark.png"
     },
     {
-        "merged": "F:\\program\\music\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4_abc_menu_hardkey_panel_mtrl_mult.9.png.flat",
-        "source": "C:\\Users\\Administrator\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-28.0.0.aar\\65060275a2c208958b7d5593dac71b51\\res\\drawable-mdpi-v4\\abc_menu_hardkey_panel_mtrl_mult.9.png"
-    },
-    {
         "merged": "F:\\program\\music\\app\\build\\intermediates\\res\\merged\\debug\\drawable_notification_tile_bg.xml.flat",
         "source": "C:\\Users\\Administrator\\.gradle\\caches\\transforms-1\\files-1.1\\support-compat-28.0.0.aar\\93f794ee254585e5e2d6f4ba4e96cfa8\\res\\drawable\\notification_tile_bg.xml"
+    },
+    {
+        "merged": "F:\\program\\music\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4_abc_menu_hardkey_panel_mtrl_mult.9.png.flat",
+        "source": "C:\\Users\\Administrator\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-28.0.0.aar\\65060275a2c208958b7d5593dac71b51\\res\\drawable-mdpi-v4\\abc_menu_hardkey_panel_mtrl_mult.9.png"
     },
     {
         "merged": "F:\\program\\music\\app\\build\\intermediates\\res\\merged\\debug\\layout_abc_search_view.xml.flat",
@@ -92,12 +92,12 @@
         "source": "C:\\Users\\Administrator\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-28.0.0.aar\\65060275a2c208958b7d5593dac71b51\\res\\drawable-xhdpi-v4\\abc_text_select_handle_middle_mtrl_dark.png"
     },
     {
-        "merged": "F:\\program\\music\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4_abc_popup_background_mtrl_mult.9.png.flat",
-        "source": "C:\\Users\\Administrator\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-28.0.0.aar\\65060275a2c208958b7d5593dac71b51\\res\\drawable-xhdpi-v4\\abc_popup_background_mtrl_mult.9.png"
-    },
-    {
         "merged": "F:\\program\\music\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4_abc_btn_check_to_on_mtrl_015.png.flat",
         "source": "C:\\Users\\Administrator\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-28.0.0.aar\\65060275a2c208958b7d5593dac71b51\\res\\drawable-xhdpi-v4\\abc_btn_check_to_on_mtrl_015.png"
+    },
+    {
+        "merged": "F:\\program\\music\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4_abc_popup_background_mtrl_mult.9.png.flat",
+        "source": "C:\\Users\\Administrator\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-28.0.0.aar\\65060275a2c208958b7d5593dac71b51\\res\\drawable-xhdpi-v4\\abc_popup_background_mtrl_mult.9.png"
     },
     {
         "merged": "F:\\program\\music\\app\\build\\intermediates\\res\\merged\\debug\\color_abc_secondary_text_material_dark.xml.flat",
@@ -176,12 +176,12 @@
         "source": "C:\\Users\\Administrator\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-28.0.0.aar\\65060275a2c208958b7d5593dac71b51\\res\\color\\abc_primary_text_disable_only_material_dark.xml"
     },
     {
-        "merged": "F:\\program\\music\\app\\build\\intermediates\\res\\merged\\debug\\drawable_video.png.flat",
-        "source": "F:\\program\\music\\app\\src\\main\\res\\drawable\\video.png"
-    },
-    {
         "merged": "F:\\program\\music\\app\\build\\intermediates\\res\\merged\\debug\\drawable_official_folder_header_like_black.png.flat",
         "source": "F:\\program\\music\\app\\src\\main\\res\\drawable\\official_folder_header_like_black.png"
+    },
+    {
+        "merged": "F:\\program\\music\\app\\build\\intermediates\\res\\merged\\debug\\drawable_video.png.flat",
+        "source": "F:\\program\\music\\app\\src\\main\\res\\drawable\\video.png"
     },
     {
         "merged": "F:\\program\\music\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4_design_ic_visibility.png.flat",
@@ -192,12 +192,12 @@
         "source": "F:\\program\\music\\app\\src\\main\\res\\layout\\play_page_layout1.xml"
     },
     {
-        "merged": "F:\\program\\music\\app\\build\\intermediates\\res\\merged\\debug\\drawable_abc_ic_go_search_api_material.xml.flat",
-        "source": "C:\\Users\\Administrator\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-28.0.0.aar\\65060275a2c208958b7d5593dac71b51\\res\\drawable\\abc_ic_go_search_api_material.xml"
-    },
-    {
         "merged": "F:\\program\\music\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4_notification_bg_normal_pressed.9.png.flat",
         "source": "C:\\Users\\Administrator\\.gradle\\caches\\transforms-1\\files-1.1\\support-compat-28.0.0.aar\\93f794ee254585e5e2d6f4ba4e96cfa8\\res\\drawable-mdpi-v4\\notification_bg_normal_pressed.9.png"
+    },
+    {
+        "merged": "F:\\program\\music\\app\\build\\intermediates\\res\\merged\\debug\\drawable_abc_ic_go_search_api_material.xml.flat",
+        "source": "C:\\Users\\Administrator\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-28.0.0.aar\\65060275a2c208958b7d5593dac71b51\\res\\drawable\\abc_ic_go_search_api_material.xml"
     },
     {
         "merged": "F:\\program\\music\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4_abc_list_focused_holo.9.png.flat",
@@ -264,28 +264,28 @@
         "source": "F:\\program\\music\\app\\src\\main\\res\\drawable\\type.png"
     },
     {
-        "merged": "F:\\program\\music\\app\\build\\intermediates\\res\\merged\\debug\\layout_design_layout_snackbar.xml.flat",
-        "source": "C:\\Users\\Administrator\\.gradle\\caches\\transforms-1\\files-1.1\\design-28.0.0.aar\\309467213fda54ff2d5c877e0059b1eb\\res\\layout\\design_layout_snackbar.xml"
+        "merged": "F:\\program\\music\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_mtrl_chip_checked_black.xml.flat",
+        "source": "C:\\Users\\Administrator\\.gradle\\caches\\transforms-1\\files-1.1\\design-28.0.0.aar\\309467213fda54ff2d5c877e0059b1eb\\res\\drawable\\ic_mtrl_chip_checked_black.xml"
     },
     {
         "merged": "F:\\program\\music\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4_abc_ic_star_black_16dp.png.flat",
         "source": "C:\\Users\\Administrator\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-28.0.0.aar\\65060275a2c208958b7d5593dac71b51\\res\\drawable-mdpi-v4\\abc_ic_star_black_16dp.png"
     },
     {
-        "merged": "F:\\program\\music\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_mtrl_chip_checked_black.xml.flat",
-        "source": "C:\\Users\\Administrator\\.gradle\\caches\\transforms-1\\files-1.1\\design-28.0.0.aar\\309467213fda54ff2d5c877e0059b1eb\\res\\drawable\\ic_mtrl_chip_checked_black.xml"
+        "merged": "F:\\program\\music\\app\\build\\intermediates\\res\\merged\\debug\\layout_design_layout_snackbar.xml.flat",
+        "source": "C:\\Users\\Administrator\\.gradle\\caches\\transforms-1\\files-1.1\\design-28.0.0.aar\\309467213fda54ff2d5c877e0059b1eb\\res\\layout\\design_layout_snackbar.xml"
     },
     {
         "merged": "F:\\program\\music\\app\\build\\intermediates\\res\\merged\\debug\\layout_abc_popup_menu_item_layout.xml.flat",
         "source": "C:\\Users\\Administrator\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-28.0.0.aar\\65060275a2c208958b7d5593dac71b51\\res\\layout\\abc_popup_menu_item_layout.xml"
     },
     {
-        "merged": "F:\\program\\music\\app\\build\\intermediates\\res\\merged\\debug\\drawable-ldrtl-xxhdpi-v17_abc_spinner_mtrl_am_alpha.9.png.flat",
-        "source": "C:\\Users\\Administrator\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-28.0.0.aar\\65060275a2c208958b7d5593dac71b51\\res\\drawable-ldrtl-xxhdpi-v17\\abc_spinner_mtrl_am_alpha.9.png"
-    },
-    {
         "merged": "F:\\program\\music\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4_abc_ic_menu_share_mtrl_alpha.png.flat",
         "source": "C:\\Users\\Administrator\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-28.0.0.aar\\65060275a2c208958b7d5593dac71b51\\res\\drawable-mdpi-v4\\abc_ic_menu_share_mtrl_alpha.png"
+    },
+    {
+        "merged": "F:\\program\\music\\app\\build\\intermediates\\res\\merged\\debug\\drawable-ldrtl-xxhdpi-v17_abc_spinner_mtrl_am_alpha.9.png.flat",
+        "source": "C:\\Users\\Administrator\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-28.0.0.aar\\65060275a2c208958b7d5593dac71b51\\res\\drawable-ldrtl-xxhdpi-v17\\abc_spinner_mtrl_am_alpha.9.png"
     },
     {
         "merged": "F:\\program\\music\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4_abc_tab_indicator_mtrl_alpha.9.png.flat",
@@ -336,12 +336,12 @@
         "source": "C:\\Users\\Administrator\\.gradle\\caches\\transforms-1\\files-1.1\\design-28.0.0.aar\\309467213fda54ff2d5c877e0059b1eb\\res\\color\\mtrl_fab_ripple_color.xml"
     },
     {
-        "merged": "F:\\program\\music\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4_notification_bg_low_pressed.9.png.flat",
-        "source": "C:\\Users\\Administrator\\.gradle\\caches\\transforms-1\\files-1.1\\support-compat-28.0.0.aar\\93f794ee254585e5e2d6f4ba4e96cfa8\\res\\drawable-xhdpi-v4\\notification_bg_low_pressed.9.png"
-    },
-    {
         "merged": "F:\\program\\music\\app\\build\\intermediates\\res\\merged\\debug\\animator_mtrl_fab_transformation_sheet_expand_spec.xml.flat",
         "source": "C:\\Users\\Administrator\\.gradle\\caches\\transforms-1\\files-1.1\\design-28.0.0.aar\\309467213fda54ff2d5c877e0059b1eb\\res\\animator\\mtrl_fab_transformation_sheet_expand_spec.xml"
+    },
+    {
+        "merged": "F:\\program\\music\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4_notification_bg_low_pressed.9.png.flat",
+        "source": "C:\\Users\\Administrator\\.gradle\\caches\\transforms-1\\files-1.1\\support-compat-28.0.0.aar\\93f794ee254585e5e2d6f4ba4e96cfa8\\res\\drawable-xhdpi-v4\\notification_bg_low_pressed.9.png"
     },
     {
         "merged": "F:\\program\\music\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4_abc_scrubber_track_mtrl_alpha.9.png.flat",
@@ -372,12 +372,12 @@
         "source": "C:\\Users\\Administrator\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-28.0.0.aar\\65060275a2c208958b7d5593dac71b51\\res\\drawable-xxhdpi-v4\\abc_btn_radio_to_on_mtrl_015.png"
     },
     {
-        "merged": "F:\\program\\music\\app\\build\\intermediates\\res\\merged\\debug\\layout_design_bottom_navigation_item.xml.flat",
-        "source": "C:\\Users\\Administrator\\.gradle\\caches\\transforms-1\\files-1.1\\design-28.0.0.aar\\309467213fda54ff2d5c877e0059b1eb\\res\\layout\\design_bottom_navigation_item.xml"
-    },
-    {
         "merged": "F:\\program\\music\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4_abc_btn_radio_to_on_mtrl_000.png.flat",
         "source": "C:\\Users\\Administrator\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-28.0.0.aar\\65060275a2c208958b7d5593dac71b51\\res\\drawable-mdpi-v4\\abc_btn_radio_to_on_mtrl_000.png"
+    },
+    {
+        "merged": "F:\\program\\music\\app\\build\\intermediates\\res\\merged\\debug\\layout_design_bottom_navigation_item.xml.flat",
+        "source": "C:\\Users\\Administrator\\.gradle\\caches\\transforms-1\\files-1.1\\design-28.0.0.aar\\309467213fda54ff2d5c877e0059b1eb\\res\\layout\\design_bottom_navigation_item.xml"
     },
     {
         "merged": "F:\\program\\music\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4_abc_ic_star_half_black_16dp.png.flat",
@@ -832,12 +832,12 @@
         "source": "C:\\Users\\Administrator\\.gradle\\caches\\transforms-1\\files-1.1\\BannerView-2.1.0.aar\\08803f624fa72ba597bc968f727431eb\\res\\drawable\\indicator_rectangle_selected.xml"
     },
     {
-        "merged": "F:\\program\\music\\app\\build\\intermediates\\res\\merged\\debug\\layout_singers_query_item.xml.flat",
-        "source": "F:\\program\\music\\app\\src\\main\\res\\layout\\singers_query_item.xml"
-    },
-    {
         "merged": "F:\\program\\music\\app\\build\\intermediates\\res\\merged\\debug\\layout_all_music_list_item.xml.flat",
         "source": "F:\\program\\music\\app\\src\\main\\res\\layout\\all_music_list_item.xml"
+    },
+    {
+        "merged": "F:\\program\\music\\app\\build\\intermediates\\res\\merged\\debug\\layout_singers_query_item.xml.flat",
+        "source": "F:\\program\\music\\app\\src\\main\\res\\layout\\singers_query_item.xml"
     },
     {
         "merged": "F:\\program\\music\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi-v4_abc_switch_track_mtrl_alpha.9.png.flat",
@@ -1468,12 +1468,12 @@
         "source": "C:\\Users\\Administrator\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-28.0.0.aar\\65060275a2c208958b7d5593dac71b51\\res\\drawable-mdpi-v4\\abc_ic_star_half_black_36dp.png"
     },
     {
-        "merged": "F:\\program\\music\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4_abc_popup_background_mtrl_mult.9.png.flat",
-        "source": "C:\\Users\\Administrator\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-28.0.0.aar\\65060275a2c208958b7d5593dac71b51\\res\\drawable-xxhdpi-v4\\abc_popup_background_mtrl_mult.9.png"
-    },
-    {
         "merged": "F:\\program\\music\\app\\build\\intermediates\\res\\merged\\debug\\layout_ll_title_bar.xml.flat",
         "source": "F:\\program\\music\\app\\src\\main\\res\\layout\\ll_title_bar.xml"
+    },
+    {
+        "merged": "F:\\program\\music\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4_abc_popup_background_mtrl_mult.9.png.flat",
+        "source": "C:\\Users\\Administrator\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-28.0.0.aar\\65060275a2c208958b7d5593dac71b51\\res\\drawable-xxhdpi-v4\\abc_popup_background_mtrl_mult.9.png"
     },
     {
         "merged": "F:\\program\\music\\app\\build\\intermediates\\res\\merged\\debug\\layout_design_layout_tab_text.xml.flat",
@@ -2252,12 +2252,12 @@
         "source": "F:\\program\\music\\app\\src\\main\\res\\mipmap-xhdpi\\ic_launcher_background.png"
     },
     {
-        "merged": "F:\\program\\music\\app\\build\\intermediates\\res\\merged\\debug\\drawable_tab1_active.png.flat",
-        "source": "F:\\program\\music\\app\\src\\main\\res\\drawable\\tab1_active.png"
-    },
-    {
         "merged": "F:\\program\\music\\app\\build\\intermediates\\res\\merged\\debug\\layout_dialog_custom_layout.xml.flat",
         "source": "F:\\program\\music\\app\\src\\main\\res\\layout\\dialog_custom_layout.xml"
+    },
+    {
+        "merged": "F:\\program\\music\\app\\build\\intermediates\\res\\merged\\debug\\drawable_tab1_active.png.flat",
+        "source": "F:\\program\\music\\app\\src\\main\\res\\drawable\\tab1_active.png"
     },
     {
         "merged": "F:\\program\\music\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4_abc_ic_star_half_black_16dp.png.flat",

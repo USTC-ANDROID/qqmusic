@@ -4,6 +4,7 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.view.ViewGroup;
 
+import com.ustc.music.base.BaseActivity;
 import com.ustc.music.fragment.SearchAlbumFragment;
 import com.ustc.music.fragment.SearchFragment;
 import com.ustc.music.fragment.SearchSongFragment;
@@ -17,10 +18,14 @@ public class SearchFragmentPagerAdapter extends FragmentPagerAdapter {
     private String[] mTitles = new String[]{"歌曲", "视频", "专辑","歌单"};
     private List<SearchFragment> fragments = new ArrayList<>();
     private SearchFragment mCurrentFragment;
+    private BaseActivity baseActivity;
 
-    public SearchFragmentPagerAdapter(FragmentManager fm) {
+    public SearchFragmentPagerAdapter(FragmentManager fm,BaseActivity baseActivity) {
         super(fm);
-        fragments.add(new SearchSongFragment());
+        this.baseActivity = baseActivity;
+        SearchSongFragment e = new SearchSongFragment();
+        e.setBaseActivity(baseActivity);
+        fragments.add(e);
         fragments.add(new SearchVideoFragment());
         fragments.add(new SearchAlbumFragment());
         fragments.add(new SearchSongListFragment());

@@ -178,4 +178,12 @@ public abstract class BaseActivity extends AppCompatActivity {
     public void remove(String mid) {
         playService.remove(mid);
     }
+
+    public SimpleService getPlayService() {
+        return playService;
+    }
+
+    public BottomTabsLayout getBottomTabsLayout() {
+        return bottomTabsLayout;
+    }
 }

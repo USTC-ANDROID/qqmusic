@@ -38,7 +38,6 @@ public class SearchActivity extends BaseActivity {
     protected void initView() {
         searchView = findViewById(R.id.qq_search_view);
         searchView.setIconified(false);
-
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String s) {
@@ -78,7 +77,7 @@ public class SearchActivity extends BaseActivity {
 
         //使用适配器将ViewPager与Fragment绑定在一起
         mViewPager= findViewById(R.id.viewPager);
-        searchFragmentPagerAdapter = new SearchFragmentPagerAdapter(getSupportFragmentManager());
+        searchFragmentPagerAdapter = new SearchFragmentPagerAdapter(getSupportFragmentManager(), this);
         mViewPager.setAdapter(searchFragmentPagerAdapter);
         mViewPager.setOffscreenPageLimit(searchFragmentPagerAdapter.getCount());
         //将TabLayout与ViewPager绑定在一起
