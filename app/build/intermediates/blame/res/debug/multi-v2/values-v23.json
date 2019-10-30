@@ -4,7 +4,7 @@
             "outputFile": "F:\\program\\music\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-v23\\values-v23.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\Administrator\\.gradle\\caches\\transforms-1\\files-1.1\\cardview-v7-28.0.0-alpha1.aar\\ebea1915722f35d20ddba3cb8271acdf\\res\\values-v23\\values-v23.xml",
+                    "source": "C:\\Users\\Administrator\\.gradle\\caches\\transforms-1\\files-1.1\\cardview-v7-28.0.0.aar\\269f65a2e46cf896faea303cedcfa1fe\\res\\values-v23\\values-v23.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",

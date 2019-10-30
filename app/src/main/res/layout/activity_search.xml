@@ -8,9 +8,17 @@
     android:background="@color/menu_color"
     tools:context=".activity.SearchActivity">
     <LinearLayout
+        android:id="@+id/ll_title_bar"
+        android:layout_width="fill_parent"
+        android:layout_height="1dp"
+        android:orientation="vertical"
+        android:visibility="gone" />
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="40dp"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:focusable="false"
+        android:focusableInTouchMode="false">
         <ImageView
             android:id="@+id/goback"
             android:layout_width="25dp"
@@ -47,4 +55,8 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"/>
+    <com.ustc.music.view.BottomTabsLayout
+        android:id="@+id/bottom_layout"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"></com.ustc.music.view.BottomTabsLayout>
 </LinearLayout>

@@ -1,56 +1,24 @@
 package com.ustc.music.activity;
 
-import android.app.usage.UsageEvents;
-import android.content.Intent;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
-import android.view.animation.LinearInterpolator;
 import android.widget.AdapterView;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.TextView;
-import android.widget.Toast;
 
-import com.bumptech.glide.Glide;
-import com.lany.banner.BannerAdapter;
-import com.lany.banner.BannerView;
 import com.ustc.music.R;
-import com.ustc.music.adapter.HorizontalListViewAdapter;
 import com.ustc.music.base.BaseActivity;
-import com.ustc.music.url.DataUrl;
-import com.ustc.music.util.RequestUtil;
-import com.ustc.music.util.SmallUtil;
-import com.ustc.music.util.StatusBarUtils;
-import com.ustc.music.view.FragmentAction;
-import com.ustc.music.view.FragmentHome;
-import com.ustc.music.view.FragmentMe;
-import com.ustc.music.view.FragmentRecomment;
-import com.ustc.music.view.HorizontalListView;
+import com.ustc.music.fragment.FragmentAction;
+import com.ustc.music.fragment.FragmentHome;
+import com.ustc.music.fragment.FragmentMe;
+import com.ustc.music.fragment.FragmentRecomment;
 
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import java.io.IOException;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
-
-import okhttp3.Call;
-import okhttp3.Callback;
-import okhttp3.FormBody;
-import okhttp3.Response;
-import okhttp3.ResponseBody;
 
 public class MainActivity extends BaseActivity implements AdapterView.OnItemClickListener {
 
@@ -163,48 +131,5 @@ public class MainActivity extends BaseActivity implements AdapterView.OnItemClic
     }
 
 
-//
-//
-//
-//    LinearLayout rankBtn;
-//    LinearLayout typeBtn;
-//
-//    @Override
-//    protected void onCreate(Bundle savedInstanceState) {
-//        super.onCreate(savedInstanceState);
-//        onCreate(savedInstanceState, R.layout.activity_main);
-//        initEvent();
-//        // 跳转
-//
-//        rankBtn.setOnClickListener(new View.OnClickListener() {
-//            @Override            public void onClick(View view) {
-//                Toast.makeText(MainActivity.this, "点击", Toast.LENGTH_LONG).show();
-//                Intent intent = new Intent(MainActivity.this, RankActivity.class);
-//                startActivity(intent);
-//            }
-//        });
-//
-//        typeBtn = (LinearLayout)findViewById(R.id.typeBtn);
-//        typeBtn.setOnClickListener(new View.OnClickListener() {
-//            @Override            public void onClick(View view) {
-//                Toast.makeText(MainActivity.this, "点击", Toast.LENGTH_LONG).show();
-//                Intent intent = new Intent(MainActivity.this, TypeActivity.class);
-//                startActivity(intent);
-//            }
-//        });
-//    }
-//
-
-//
-//
-
-
-//
-//
-//
-
-//    @Override
-
-//
 
 }

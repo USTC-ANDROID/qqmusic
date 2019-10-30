@@ -15,7 +15,6 @@ public class PlayBgShape extends Shape {
     private static float vRadius = 5;
     /** 模糊迭代度 */
     private static int iterations = 5;
-
     private Bitmap mBitmap;
 
     public PlayBgShape(Bitmap bmp) {

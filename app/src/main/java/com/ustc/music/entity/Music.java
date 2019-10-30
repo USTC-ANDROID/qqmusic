@@ -2,10 +2,20 @@ package com.ustc.music.entity;
 
 public class Music {
 
+    private String mid;
+    private String author;
     private String avatar;
     private String title;
     private String lrc;
     private String musicSource;
+
+    public Music(String mid, String author, String avatar, String lrc, String title) {
+        this.mid = mid;
+        this.author = author;
+        this.avatar = avatar;
+        this.lrc = lrc;
+        this.title = title;
+    }
 
     public Music() {
     }
@@ -48,4 +58,21 @@ public class Music {
     public void setMusicSource(String musicSource) {
         this.musicSource = musicSource;
     }
+
+    public String getMid() {
+        return mid;
+    }
+
+    public void setMid(String mid) {
+        this.mid = mid;
+    }
+
+    public String getAuthor() {
+        return author;
+    }
+
+    public void setAuthor(String author) {
+        this.author = author;
+    }
+
 }

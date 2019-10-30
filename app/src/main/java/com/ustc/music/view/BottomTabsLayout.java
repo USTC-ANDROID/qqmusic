@@ -53,6 +53,14 @@ public class BottomTabsLayout extends LinearLayout implements View.OnClickListen
         refershMusic("", "QQ音乐");
         this.setOnClickListener(this);
         this.musicPlayer.setOnClickListener(this);
+        this.musicList.setOnClickListener(e -> {
+            if(!((BaseActivity)getContext()).hasPlay()) {
+                SmileToast.makeSmileToast(getContext(),
+                        "请添加歌曲到播放列表", SmileToast.LENGTH_LONG).show();
+                return;
+            }
+            MyDialog.showBottomDialog(getContext());
+        });
 //        ((BaseActivity)getContext()).initBottomTabs();
         Log.v("test", "测试");
     }

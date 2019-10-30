@@ -10,7 +10,8 @@
         android:orientation="vertical"
         android:layout_width="0dp"
         android:layout_weight="8"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp">
         <TextView
             android:id="@+id/songTitle"
             android:layout_width="match_parent"
@@ -38,4 +39,10 @@
         android:paddingVertical="6dp"
         android:paddingRight="6dp"
         android:src="@drawable/more"/>
+    <ImageView
+        android:id="@+id/add_like"
+        android:src="@drawable/like"
+        android:layout_marginRight="15dp"
+        android:layout_width="25dp"
+        android:layout_height="match_parent" />
 </LinearLayout>

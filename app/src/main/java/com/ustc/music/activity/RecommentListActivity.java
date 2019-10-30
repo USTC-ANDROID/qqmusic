@@ -1,38 +1,27 @@
 package com.ustc.music.activity;
 
-import android.app.Activity;
+import android.content.ContentValues;
 import android.content.Intent;
-import android.media.MediaPlayer;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.ListView;
 import android.widget.SimpleAdapter;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
-import com.bumptech.glide.Glide;
 import com.ustc.music.R;
 import com.ustc.music.base.BaseActivity;
-import com.ustc.music.core.MiGuMusicSource;
-import com.ustc.music.core.MusicRequestCallBack;
+import com.ustc.music.db.MyDatabaseHelper;
 import com.ustc.music.entity.Music;
-import com.ustc.music.service.SimpleService;
 import com.ustc.music.url.DataUrl;
 import com.ustc.music.util.RequestUtil;
 import com.ustc.music.view.ImageHeadScrollView;
-import com.ustc.music.view.SmileToast;
 
-
-import org.jsoup.Jsoup;
-import org.jsoup.nodes.Document;
-import org.jsoup.select.Elements;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -55,12 +44,16 @@ public class RecommentListActivity extends BaseActivity implements View.OnClickL
     private ImageView imageView;
     private TextView dissnameTextView;
     private TextView descTextView;
+    private TextView playAll;
+    MyDatabaseHelper mDatabaseHelper;
+    SQLiteDatabase mSqLiteDatabase;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         onCreate(savedInstanceState, R.layout.activity_recomment);
-
-
+        initEvent();
+        mDatabaseHelper = new MyDatabaseHelper(this);
+        mSqLiteDatabase = mDatabaseHelper.getWritableDatabase();
     }
 
     @Override
@@ -72,6 +65,7 @@ public class RecommentListActivity extends BaseActivity implements View.OnClickL
         imageView = findViewById(R.id.scroll_view_headimage);
         dissnameTextView = findViewById(R.id.dissname);
         descTextView = findViewById(R.id.desc);
+        playAll = findViewById(R.id.play_all);
 //        this.bottomTabsLayout.setTabsHidden();
 
     }
@@ -138,6 +132,32 @@ public class RecommentListActivity extends BaseActivity implements View.OnClickL
                             view.setTag( R.id.tag_first, data.get("mid"));
                             view.setTag(R.id.tag_second, data.get("imgMid"));
 
+                            ImageView addLike = view.findViewById(R.id.add_like);
+//                            query("user", new String[] { "username","password" },"username=?", args, null,null, null, null);
+                            Cursor query = mSqLiteDatabase.query("music", new String[]{"mid"},
+                                    "mid = ?", new String[]{data.get("mid")},
+                                    null, null, null, null);
+                            if(query.getCount() != 0) {
+                                addLike.setImageResource(R.drawable.liking);
+                                addLike.setTag("liking");
+                            }
+                            addLike.setOnClickListener(e -> {
+                                if (addLike.getTag() == "liking") {
+                                    mSqLiteDatabase.delete("music", "mid = ?", new String[] {data.get("mid")});
+                                    addLike.setImageResource(R.drawable.like);
+                                    addLike.setTag("liked");
+                                } else {
+                                    ContentValues values = new ContentValues() ;
+                                    values.put("mid", data.get("mid"));
+                                    values.put("author", data.get("name"));
+                                    values.put("title", data.get("title"));
+                                    values.put("lrc", DataUrl.musicLrc.replace("{1}", data.get("mid")));
+                                    values.put("avatar",DataUrl.musicLogo.replace("{1}", data.get("imgMid")));
+                                    mSqLiteDatabase.insert("music", null, values);
+                                    addLike.setImageResource(R.drawable.liking);
+                                    addLike.setTag("liking");
+                                }
+                            });
                             view.setOnClickListener(RecommentListActivity.this);
                             musicsListView.addView(view);
                         }
@@ -152,6 +172,21 @@ public class RecommentListActivity extends BaseActivity implements View.OnClickL
     }
 
 
+    private void initEvent() {
+
+        playAll.setOnClickListener(e -> {
+            for (int i = 0; i < musicsListView.getChildCount(); i++) {
+                View v = musicsListView.getChildAt(i);
+                final String mid = String.valueOf(v.getTag(R.id.tag_first));
+                TextView tv = v.findViewById(R.id.music_name);
+                TextView authorView = v.findViewById(R.id.music_author);
+                final String title = tv.getText().toString();
+                String author = authorView.getText().toString();
+                final String imgMid = String.valueOf(v.getTag(R.id.tag_second));
+                playService.add(new Music(mid, author, imgMid, DataUrl.musicLrc.replace("{1}", mid), title));
+            }
+        });
+    }
 
     @Override
     public void onClick(View v) {
@@ -161,72 +196,18 @@ public class RecommentListActivity extends BaseActivity implements View.OnClickL
         final String title = tv.getText().toString();
         String author = authorView.getText().toString();
         final String imgMid = String.valueOf(v.getTag(R.id.tag_second));
-        Map<String, String> map = new HashMap<>();
-        map.put("Referer", "https://y.qq.com/");
-
-        play(mid, map, author, title, imgMid);
+        playMusic(DataUrl.musicLogo.replace("{1}", imgMid), title, mid, author);
     }
 
 
 
-    private void play(final String mid, final Map<String, String> map, final String author, final String title, final String imgMid) {
-        RequestUtil.get(DataUrl.playMusicStep1.replace("{1}", mid), map, new Callback() {
-            @Override
-            public void onFailure(Call call, IOException e) {
+    private void play(final String mid, final String author, final String title, final String imgMid) {
 
-            }
-
-            @Override
-            public void onResponse(Call call, Response response) throws IOException {
-                String string = response.body().string();
-                Log.v("musicsource", string);
-                final String musicSource = JSONObject.parseObject(string)
-                        .getJSONObject("req_0")
-                        .getJSONObject("data")
-                        .getJSONArray("midurlinfo")
-                        .getJSONObject(0).getString("purl");
-                if("".equals(musicSource)) {
-
-                    MiGuMusicSource.loadMusicSourceFromMiGu(title, author, new MusicRequestCallBack() {
-                        @Override
-                        public void call(final String source) {
-                            runOnUiThread(new Runnable() {
-                                @Override
-                                public void run() {
-                                    SmileToast.makeSmileToast(RecommentListActivity.this,
-                                            "对不起，QQ音乐源不能播放，正为你切换到咪咕音乐源",
-                                            SmileToast.LENGTH_LONG).show();
-                                    playMusic(imgMid, title, mid, source);
-                                }
-                            });
-                        }
-                    });
-                } else {
-                    runOnUiThread(new Runnable() {
-                        @Override
-                        public void run() {
-
-                            Log.v("musicsource", musicSource);
-                            String source = musicSource;
-                            if(source.contains("qq.com")) {
-                                source = source.substring(source.indexOf("qq.com/C") + 7);
-                            }
-                            playMusic(imgMid, title, mid, DataUrl.playMusicStep2.replace("{1}", source));
-                        }
-                    });
-                }
-//                RequestUtil.get();
-
-            }
-        });
     }
 
-    protected void playMusic(final String imgMid, final String title, final String mid, final String musicSource) {
+    protected void playMusic(String img, String title, String mid, String author) {
 
-                playService.add(new Music(DataUrl.musicLogo.replace("{1}", imgMid)
-                        ,title, DataUrl.musicLrc.replace("{1}", mid), musicSource));
-                playService.playNext();
-                bottomTabsLayout.refershMusic(DataUrl.musicLogo.replace("{1}", imgMid), title);
+            playService.playNow(new Music(mid, author, img, DataUrl.musicLrc.replace("{1}", mid), title));
     }
 
 }

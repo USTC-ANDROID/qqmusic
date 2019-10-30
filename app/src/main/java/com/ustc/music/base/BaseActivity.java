@@ -19,21 +19,26 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.view.animation.LinearInterpolator;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 
 import com.ustc.music.R;
 import com.ustc.music.entity.Music;
 import com.ustc.music.service.SimpleService;
 import com.ustc.music.url.DataUrl;
 import com.ustc.music.util.StatusBarUtils;
+import com.ustc.music.util.TranslucentStatusUtil;
 import com.ustc.music.view.BottomTabsLayout;
+
+import java.util.List;
+import java.util.Map;
 
 /**
  * 在调用onCreate方法的时候必须要调用父类的onCreate
  */
 public abstract class BaseActivity extends AppCompatActivity {
 
-    protected SimpleService playService;
-    protected BottomTabsLayout bottomTabsLayout;
+    public SimpleService playService;
+    public BottomTabsLayout bottomTabsLayout;
     private ImageView musicImage;
 
     private ServiceConnection connection = new ServiceConnection() {
@@ -42,6 +47,7 @@ public abstract class BaseActivity extends AppCompatActivity {
             playService = (SimpleService)((SimpleService.PlayBinder) service).getService();
 
             playService.setOnMusicEventListener(mMusicEventListener);
+            playService.context = BaseActivity.this;
             initBottomTabsLayout();
             serviceInited();
         }
@@ -82,6 +88,9 @@ public abstract class BaseActivity extends AppCompatActivity {
         Intent intent = new Intent(this, SimpleService.class);
         bindService(intent, connection, Context.BIND_AUTO_CREATE);
 
+        LinearLayout titleBar = findViewById(R.id.ll_title_bar);
+        if(titleBar == null) return;
+        TranslucentStatusUtil.initState(this, titleBar);
 
     }
 
@@ -156,5 +165,17 @@ public abstract class BaseActivity extends AppCompatActivity {
 
     public void start() {
         playService.start();
+    }
+
+    public List<Music> getList() {
+        return playService.getMusics();
+    }
+
+    public void playByMid(String mid) {
+        playService.playByMid(mid);
+    }
+
+    public void remove(String mid) {
+        playService.remove(mid);
     }
 }

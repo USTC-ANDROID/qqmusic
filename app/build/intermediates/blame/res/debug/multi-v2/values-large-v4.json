@@ -4,7 +4,7 @@
             "outputFile": "F:\\program\\music\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-large-v4\\values-large-v4.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\Administrator\\.gradle\\caches\\transforms-1\\files-1.1\\design-theme-28.0.0-alpha1.aar\\2a143c1cf0c735b847891d289d91b9e1\\res\\values-large-v4\\values-large-v4.xml",
+                    "source": "C:\\Users\\Administrator\\.gradle\\caches\\transforms-1\\files-1.1\\design-28.0.0.aar\\309467213fda54ff2d5c877e0059b1eb\\res\\values-large-v4\\values-large-v4.xml",
                     "from": {
                         "startLines": "2,3",
                         "startColumns": "4,4",

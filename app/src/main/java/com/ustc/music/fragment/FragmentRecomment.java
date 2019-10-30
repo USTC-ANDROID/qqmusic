@@ -1,10 +1,11 @@
-package com.ustc.music.view;
+package com.ustc.music.fragment;
 
 import android.view.View;
 
 import com.ustc.music.R;
+import com.ustc.music.view.LazyBaseFragment;
 
-public class FragmentMe extends LazyBaseFragment {
+public class FragmentRecomment extends LazyBaseFragment {
 
 
 
@@ -15,7 +16,7 @@ public class FragmentMe extends LazyBaseFragment {
 
     @Override
     protected int setContentView() {
-        return R.layout.fragment_menu_3;
+        return R.layout.fragment_menu_1;
     }
 
     @Override

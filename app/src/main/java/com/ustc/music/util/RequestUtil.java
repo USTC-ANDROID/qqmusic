@@ -38,6 +38,8 @@ public class RequestUtil {
 //        Request request = builder.get().url(url).build();
         Set<String> sets = datas.keySet();
         for(String key : sets) builder.addHeader(key, datas.get(key));
+        builder.addHeader("user-agent", "Mozilla/5.0 (Windows NT 10.0; Win64; " +
+                "x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36");
         Request request = builder.get().url(url).build();
         Call call = client.newCall(request);
         call.enqueue(callBack);

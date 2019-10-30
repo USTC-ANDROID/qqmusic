@@ -18,15 +18,28 @@
         android:textColor="@android:color/white"
         android:textSize="15sp" />
 
-    <com.ustc.music.view.CDView
-        android:layout_centerInParent="true"
-        android:id="@+id/play_cdview"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+    <!--<com.ustc.music.view.CDView-->
+        <!--android:layout_centerInParent="true"-->
+        <!--android:id="@+id/play_cdview"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"/>-->
+    <com.ustc.music.view.RoundLinearLayout
+        android:id="@+id/roundlinear"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="40dp"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true">
+        <ImageView
+            android:id="@+id/play_cdview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:src="@drawable/newmusic"/>
+    </com.ustc.music.view.RoundLinearLayout>
 
     <com.ustc.music.view.LrcView
         android:id="@+id/play_first_lrc"
-        android:layout_below="@id/play_cdview"
+        android:layout_below="@id/roundlinear"
         android:layout_marginTop="15dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

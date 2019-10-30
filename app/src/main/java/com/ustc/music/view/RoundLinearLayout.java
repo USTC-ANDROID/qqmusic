@@ -3,6 +3,8 @@ package com.ustc.music.view;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Canvas;
+import android.graphics.Color;
+import android.graphics.Paint;
 import android.graphics.Path;
 import android.os.Build;
 import android.util.AttributeSet;
@@ -14,6 +16,7 @@ import com.ustc.music.R;
 public class RoundLinearLayout extends LinearLayout {
     float width, height;
     int radiusDP;
+    Paint p;
     public RoundLinearLayout(Context context) {
         this(context, null);
     }
@@ -37,12 +40,16 @@ public class RoundLinearLayout extends LinearLayout {
             }
         }
         a.recycle();
+        init(context, attrs);
     }
 
     private void init(Context context, AttributeSet attrs) {
         if (Build.VERSION.SDK_INT < 18) {
             setLayerType(View.LAYER_TYPE_SOFTWARE, null);
         }
+        p = new Paint();
+        p.setColor(Color.rgb(71,53,38));// 设置红色
+        p.setAntiAlias(true);
     }
 
     @Override
@@ -54,20 +61,13 @@ public class RoundLinearLayout extends LinearLayout {
 
     @Override
     protected void onDraw(Canvas canvas) {
-        if (width >= radiusDP && height > radiusDP) {
+//        if (width >= radiusDP && height > radiusDP) {
             Path path = new Path();
             //四个圆角
-            path.moveTo(radiusDP, 0);
-            path.lineTo(width - radiusDP, 0);
-            path.quadTo(width, 0, width, radiusDP);
-            path.lineTo(width, height - radiusDP);
-            path.quadTo(width, height, width - radiusDP, height);
-            path.lineTo(radiusDP, height);
-            path.quadTo(0, height, 0, height - radiusDP);
-            path.lineTo(0, radiusDP);
-            path.quadTo(0, 0, radiusDP, 0);
+            canvas.drawCircle(width - width / 2, height - width / 2, width / 2, p);
+            path.addCircle(width - width / 2, height - width / 2, width / 2 - 20,  Path.Direction.CW);
             canvas.clipPath(path);
-        }
+//        }
         super.onDraw(canvas);
     }
 }

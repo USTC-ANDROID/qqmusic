@@ -122,18 +122,14 @@
                             android:orientation="horizontal"
                             android:layout_weight="1"
                             android:paddingHorizontal="20dp">
-                            <ImageView
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent"
-                                android:layout_weight="1"
-                                android:src="@drawable/official_folder_header_share_black"/>
                             <TextView
+                                android:id="@+id/play_all"
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
                                 android:layout_weight="1"
                                 android:textSize="12sp"
-                                android:text="25.0万"
-                                android:gravity="center_vertical"/>
+                                android:text="播放全部"
+                                android:gravity="center"/>
                         </LinearLayout>
                     </LinearLayout>
                 </LinearLayout>

@@ -2,11 +2,14 @@ package com.ustc.music.fragment;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.util.Pair;
 import android.view.View;
 
 import com.ustc.music.R;
 import com.ustc.music.adapter.SearchSongRecyclerViewAdapter;
+import com.ustc.music.base.BaseActivity;
+import com.ustc.music.entity.Music;
 import com.ustc.music.url.DataUrl;
 import com.ustc.music.util.RequestUtil;
 
@@ -32,10 +35,12 @@ public class SearchSongFragment extends SearchFragment {
 
     private SearchSongRecyclerViewAdapter mSearchSongRecyclerViewAdapter;
 
+    private BaseActivity activity;
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        mSearchSongRecyclerViewAdapter = new SearchSongRecyclerViewAdapter(getActivity());
+        activity = (BaseActivity) getActivity();
+        mSearchSongRecyclerViewAdapter = new SearchSongRecyclerViewAdapter(activity);
         mPullLoadMoreRecyclerView.setAdapter(mSearchSongRecyclerViewAdapter);
     }
 
@@ -50,7 +55,7 @@ public class SearchSongFragment extends SearchFragment {
             public void onResponse(Call call, Response response) throws IOException {
                 ResponseBody body = response.body();
                 String string = body.string();
-                final List<Pair<String, String>> songSingerDataSource = new ArrayList<>();
+                final List<Music> songSingerDataSource = new ArrayList<>();
                 try {
                     JSONObject json = new JSONObject(string);
                     final JSONArray jsonArray = json.getJSONObject("data").getJSONArray("list");
@@ -58,10 +63,12 @@ public class SearchSongFragment extends SearchFragment {
                     int len = jsonArray.length();
                     for (int i = 0; i < len; i++) {
                         JSONObject jsonObject = jsonArray.getJSONObject(i);
+                        Log.v("musicsource",jsonObject.toString());
                         String songName = jsonObject.getString("songname");
                         String singerName = ((JSONObject)jsonObject.getJSONArray("singer").get(0)).getString("name");
-                        Pair<String, String> songSingerPair = new Pair<>(songName, singerName);
-                        songSingerDataSource.add(songSingerPair);
+                        String mid = jsonObject.getString("songmid");
+                        String imgId = jsonObject.getString("albummid");
+                        songSingerDataSource.add(new Music(mid, singerName,DataUrl.musicLogo.replace("{1}", imgId), DataUrl.musicLrc.replace("{1}", mid), songName));
                     }
                     getActivity().runOnUiThread(new Runnable() {
                         @Override
@@ -76,6 +83,7 @@ public class SearchSongFragment extends SearchFragment {
             }
         });
     }
+
 
     public void clearData() {
         mSearchSongRecyclerViewAdapter.clearData();

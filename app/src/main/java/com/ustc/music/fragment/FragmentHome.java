@@ -1,4 +1,4 @@
-package com.ustc.music.view;
+package com.ustc.music.fragment;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -16,12 +16,15 @@ import com.ustc.music.R;
 import com.ustc.music.activity.PlayActivity;
 import com.ustc.music.activity.RankActivity;
 import com.ustc.music.activity.RecommentListActivity;
+import com.ustc.music.activity.SearchActivity;
 import com.ustc.music.activity.SingersActivity;
 import com.ustc.music.activity.TypeActivity;
 import com.ustc.music.adapter.HorizontalListViewAdapter;
 import com.ustc.music.url.DataUrl;
 import com.ustc.music.util.RequestUtil;
 import com.ustc.music.util.SmallUtil;
+import com.ustc.music.view.HorizontalListView;
+import com.ustc.music.view.LazyBaseFragment;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -46,7 +49,7 @@ public class FragmentHome extends LazyBaseFragment implements AdapterView.OnItem
     private HorizontalListView guangFangGeDanListView; //官方歌单
     private HorizontalListView daRenGeDanListView; //达人歌单
     private HorizontalListView zuiXinZhuanJIListView; //最新专辑
-
+    private LinearLayout searchBt;
 
     private HorizontalListViewAdapter guanFangGeDanAdapter; //官方歌单列表适配器
     private HorizontalListViewAdapter daRenAdapter;
@@ -68,6 +71,7 @@ public class FragmentHome extends LazyBaseFragment implements AdapterView.OnItem
         zuiXinZhuanJIListView = rootView.findViewById(R.id.zuixinzhuanji).findViewById(R.id.hlv);
         rankBtn = rootView.findViewById(R.id.rankBtn);
         typeBtn = rootView.findViewById(R.id.typeBtn);
+        searchBt = rootView.findViewById(R.id.search_bt);
     }
 
 
@@ -75,20 +79,18 @@ public class FragmentHome extends LazyBaseFragment implements AdapterView.OnItem
         zuiXinZhuanJIListView.setOnItemClickListener(this);
         daRenGeDanListView.setOnItemClickListener(this);
         guangFangGeDanListView.setOnItemClickListener(this);
-        rankBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
+        searchBt.setOnClickListener(e -> {
+            Intent intent = new Intent(getContext(), SearchActivity.class);
+            startActivity(intent);
+        });
+        rankBtn.setOnClickListener(e -> {
                 Intent intent = new Intent(getContext(), RankActivity.class);
                 startActivity(intent);
-            }
         });
 
-        typeBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
+        typeBtn.setOnClickListener(e -> {
                 Intent intent = new Intent(getContext(), TypeActivity.class);
                 startActivity(intent);
-            }
         });
     }
 

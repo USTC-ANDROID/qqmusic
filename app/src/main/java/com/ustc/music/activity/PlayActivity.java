@@ -1,6 +1,7 @@
 package com.ustc.music.activity;
 
 
+import android.animation.ObjectAnimator;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.drawable.ShapeDrawable;
@@ -14,6 +15,9 @@ import android.util.Base64;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
+import android.view.animation.LinearInterpolator;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -55,7 +59,7 @@ public class PlayActivity extends BaseActivity implements View.OnClickListener {
     private ImageView mPlayBackImageView; // back button
     private TextView mMusicTitle; // music title
     private ViewPager mViewPager; // cd or lrc
-    private CDView mCdView; // cd
+    private ImageView mCdView; // cd
     private SeekBar mPlaySeekBar; // seekbar
     private ImageButton mStartPlayButton; // start or pause
     private TextView mSingerTextView; // singer
@@ -64,6 +68,7 @@ public class PlayActivity extends BaseActivity implements View.OnClickListener {
     private PagerIndicator mPagerIndicator; // indicator
     private ImageButton mPrevPlayButton;
     private ImageButton mNextPlayButton;
+    ObjectAnimator mAnimator;
 
     // cd view and lrc view
     private ArrayList<View> mViewPagerContent = new ArrayList<View>(2);
@@ -82,10 +87,12 @@ public class PlayActivity extends BaseActivity implements View.OnClickListener {
     private void initEvent() {
         mPrevPlayButton.setOnClickListener((v) -> {
             playService.playPrev();
+            mStartPlayButton.setImageResource(R.drawable.player_btn_pause_normal);
             onChange(playService.getNowMusic());
         });
         mNextPlayButton.setOnClickListener((v) -> {
             playService.playNext();
+            mStartPlayButton.setImageResource(R.drawable.player_btn_pause_normal);
             onChange(playService.getNowMusic());
         });
         mStartPlayButton.setOnClickListener(v -> {
@@ -93,9 +100,11 @@ public class PlayActivity extends BaseActivity implements View.OnClickListener {
                 if(playService.getStatus()) {
                     mStartPlayButton.setImageResource(R.drawable.player_btn_play_normal);
                     playService.stop();
+                    cdViewChange(false);
                 } else {
                     mStartPlayButton.setImageResource(R.drawable.player_btn_pause_normal);
                     playService.start();
+                    cdViewChange(true);
                 }
             });
     }
@@ -113,6 +122,8 @@ public class PlayActivity extends BaseActivity implements View.OnClickListener {
         mPagerIndicator = findViewById(R.id.pi_play_indicator);
         mPrevPlayButton = findViewById(R.id.ib_play_pre);
         mNextPlayButton = findViewById(R.id.ib_play_next);
+
+
 
         // 动态设置seekbar的margin
         ViewGroup.MarginLayoutParams p = (ViewGroup.MarginLayoutParams) mPlaySeekBar.getLayoutParams();
@@ -147,8 +158,9 @@ public class PlayActivity extends BaseActivity implements View.OnClickListener {
         public void onPageSelected(int position) {
             if (position == 0) {
 //                if(mPlayService.isPlaying()) mCdView.start();
+                cdViewChange(true);
             } else {
-                mCdView.pause();
+                cdViewChange(false);
             }
 
             mPagerIndicator.current(position);
@@ -219,7 +231,12 @@ public class PlayActivity extends BaseActivity implements View.OnClickListener {
      */
     private void initViewPagerContent() {
         View cd = View.inflate(this, R.layout.play_page_layout1, null);
-        mCdView = (CDView) cd.findViewById(R.id.play_cdview);
+        mCdView = cd.findViewById(R.id.play_cdview);
+        mAnimator  = ObjectAnimator.ofFloat(mCdView, "rotation", 0.0f, 360.0f);
+        mAnimator.setDuration(50000);//设定转一圈的时间
+        mAnimator.setRepeatCount(Animation.INFINITE);//设定无限循环
+        mAnimator.setRepeatMode(ObjectAnimator.RESTART);// 循环模式
+        mAnimator.setInterpolator(new LinearInterpolator());// 匀速
         mSingerTextView = (TextView) cd.findViewById(R.id.play_singer);
         mLrcViewOnFirstPage = (LrcView) cd.findViewById(R.id.play_first_lrc);
 
@@ -243,13 +260,7 @@ public class PlayActivity extends BaseActivity implements View.OnClickListener {
                 mPlayContainer.setBackground(resource);
             }
         });
-        Glide.with(this).load(url).asBitmap().into(new SimpleTarget<Bitmap >() {
-
-            @Override
-            public void onResourceReady(Bitmap  resource, GlideAnimation glideAnimation) {
-                mCdView.setImage(resource);
-            }
-        });
+        Glide.with(this).load(url).placeholder(R.drawable.newmusic).into(mCdView);
 
 
 //		Palette.generateAsync(bgBitmap, new PaletteAsyncListener() {
@@ -273,7 +284,7 @@ public class PlayActivity extends BaseActivity implements View.OnClickListener {
      */
     public void pre(View view) {
 //        mPlayService.pre(); // 上一曲
-        playService.pre();
+        playService.playPrev();
     }
 
     /**
@@ -299,13 +310,26 @@ public class PlayActivity extends BaseActivity implements View.OnClickListener {
 //        mPlayService.next(); // 上一曲
     }
 
+    private void cdViewChange(boolean isStart) {
+        if(isStart) {
+            if(mAnimator.isStarted())
+                mAnimator.resume();
+            else
+                mAnimator.start();
+//            mCdView.startAnimation(operatingAnim);
+//            operatingAnim.
+        } else {
+            mAnimator.pause();
+        }
+    }
+
     /**
      * 播放时调用 主要设置显示当前播放音乐的信息
      * @param music
      */
     private void onPlay(Music music) {
-        if (playService.getStatus()) mCdView.start();
-        else mCdView.pause();
+        if (playService.getStatus()) cdViewChange(true);
+        else cdViewChange(false);
 //        Music music = MusicUtils.sMusicList.get(position);
 //
         mMusicTitle.setText(music.getTitle());

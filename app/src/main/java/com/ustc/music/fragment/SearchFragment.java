@@ -50,6 +50,7 @@ public abstract class SearchFragment extends Fragment implements PullLoadMoreRec
         mPullLoadMoreRecyclerView.setLinearLayout();
 
         mPullLoadMoreRecyclerView.setOnPullLoadMoreListener(this);
+
     }
 
     @Override

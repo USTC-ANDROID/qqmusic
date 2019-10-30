@@ -5,7 +5,12 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-
+    <LinearLayout
+        android:id="@+id/ll_title_bar"
+        android:layout_width="fill_parent"
+        android:layout_height="1dp"
+        android:orientation="vertical"
+        android:visibility="gone" />
     <com.ustc.music.view.HeadView
         android:id="@+id/head"
         android:layout_width="match_parent"
