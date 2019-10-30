@@ -1517,6 +1517,7 @@ id scroll_view_headimage
 id scrollable
 id searchAlbumRecyclerView
 id searchAlbumSingerName
+id searchBtn
 id searchSingerName
 id searchSongListRecyclerView
 id searchSongRecyclerView

@@ -1,11 +1,11 @@
 <component name="libraryTable">
   <library name="Gradle: com.lany:BannerView:2.1.0@aar">
     <ANNOTATIONS>
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/BannerView-2.1.0.aar/2d194fcc4332068346165566c8ceb4dc/annotations.zip!/" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/BannerView-2.1.0.aar/a3f65bb5459ff80a78b6476b879b527d/annotations.zip!/" />
     </ANNOTATIONS>
     <CLASSES>
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/BannerView-2.1.0.aar/2d194fcc4332068346165566c8ceb4dc/jars/classes.jar!/" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/BannerView-2.1.0.aar/2d194fcc4332068346165566c8ceb4dc/res" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/BannerView-2.1.0.aar/a3f65bb5459ff80a78b6476b879b527d/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/BannerView-2.1.0.aar/a3f65bb5459ff80a78b6476b879b527d/res" />
     </CLASSES>
     <JAVADOC />
     <SOURCES>
